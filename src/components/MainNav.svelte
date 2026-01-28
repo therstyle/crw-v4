@@ -2,7 +2,7 @@
 
 </script>
 
-<div class="crw-main-nav__wrapper">
+<div class="crw-main-nav">
   <div class="crw-main-nav__top">
 
   </div>
@@ -16,6 +16,18 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @use '../styles/vars.scss';
 
+  .crw-main-nav {
+    background: var(--black);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+
+    &__top {
+      background: red;
+    }
+  }
 </style>
