@@ -25,6 +25,9 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
+    min-height: calc(100dvh - 16px);
+    margin-block: 8px;
+    margin-inline-start: 8px;
 
     &__top {
       background: red;
