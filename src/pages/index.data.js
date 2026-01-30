@@ -1,6 +1,6 @@
 export const nav = {
   logo: {
-    image: 'https://via.placeholder.com/150x50?text=Logo',
+    image: 'https://via.placeholder.com/150x50',
     alt: 'Logo',
     url: '#'
   },
