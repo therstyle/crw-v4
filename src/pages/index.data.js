@@ -1,30 +1,32 @@
 export const nav = {
   logo: {
     image: 'https://via.placeholder.com/150x50',
-    alt: 'Logo',
-    url: '#'
+    alt: 'Chris Roberts Web',
+    url: '#intro'
   },
   links: [
-    { title: 'Home', url: '#', logo: 'https://via.placeholder.com/24x24' },
-    { title: 'Resume', url: '#' },
-    { title: 'Portfolio', url: '#' },
-    { title: 'Contact', url: '#' },
+    { title: 'Home', url: '#intro', logo: 'https://via.placeholder.com/24x24' },
+    { title: 'Resume', url: '#resume' },
+    { title: 'Portfolio', url: '#portfolio' },
+    { title: 'Contact', url: '#contact' },
   ]
 }
 
 export const intro = {
-  subTitle: 'Consectetur adipiscing elit',
-  headline: 'Lorem ipsum dolor sit amet',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  subTitle: 'Senior UI Developer | Boston, MA',
+  headline: 'Chris Roberts',
+  description: 'I\'m Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.',
 }
 
 export const resume = {
   title: 'Resume',
+  id: 'intro',
   items: [
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2024,
+      company: 'RainFocus',
+      location: 'Remote',
+      jobTitle: 'Senior UI Developer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -35,9 +37,10 @@ export const resume = {
       ]
     },
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2023,
+      company: 'Wild Alaskan Company',
+      location: 'Remote',
+      jobTitle: 'Senior Front End Engineer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -48,9 +51,10 @@ export const resume = {
       ]
     },
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2018,
+      company: '829 Studios',
+      location: 'Boston, MA',
+      jobTitle: 'Senior Front End Developer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -61,9 +65,10 @@ export const resume = {
       ]
     },
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2015,
+      company: 'Firefield',
+      location: 'Remote',
+      jobTitle: 'Front End Developer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -74,9 +79,10 @@ export const resume = {
       ]
     },
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2013,
+      company: 'Brick Marketing',
+      location: 'Boston, MA',
+      jobTitle: 'Web Designer & Developer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -87,9 +93,10 @@ export const resume = {
       ]
     },
     {
-      year: 2026,
-      company: 'Placeholder',
-      location: 'City',
+      year: 2007,
+      company: 'Onpoint Media',
+      location: 'Beverly, MA',
+      jobTitle: 'Web Designer & Developer',
       details: [
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -152,8 +159,9 @@ export const skills = {
   ]
 }
 
-export const projects = {
-  title: 'Projects',
+export const portfolio = {
+  title: 'Portfolio',
+  id: 'portfolio',
   items: [
     {
       type: 'Vue',
@@ -188,6 +196,7 @@ export const projects = {
 
 export const contact = {
   title: 'Contact',
+  id: 'contact',
   items: [
     {
       logo: 'https://via.placeholder.com/44x44',
