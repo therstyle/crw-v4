@@ -1,14 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import MainNav from '../components/MainNav.svelte';
+import { nav } from './index.data.js';
 ---
 
 <Layout>
   <div class="crw-main">
-    <div class="crw-main__side">
-      <MainNav client:load />
+    <div class="crw-main__nav">
+      <MainNav logo={nav.logo} links={nav.links} client:load />
     </div>
+
     <div class="crw-main__content">
 
     </div>
@@ -20,6 +21,15 @@ import MainNav from '../components/MainNav.svelte';
 
   .crw-main {
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: calc(var(--sidebar-width) + var(--space)) 1fr;
+    grid-template-areas: "nav content";
+
+    &__nav {
+      grid-area: nav;
+    }
+
+    &__content {
+      grid-area: content;
+    }
   }
 </style>
