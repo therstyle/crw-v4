@@ -1,5 +1,5 @@
 <script>
-  import SectionWrapper from './SectionWrapper.svelte'
+  import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
     id = null,
@@ -13,7 +13,7 @@
   const hasDescription = $derived(description !== null)
 </script>
 
-<SectionWrapper {id}>
+<SectionContainer {id}>
   <div class="crw-intro">
     <div class="crw-intro__content">
       {#if hasSubTitle}
@@ -31,7 +31,7 @@
       {/if}
     </div>
   </div>
-</SectionWrapper>
+</SectionContainer>
 
 <style lang="scss">
   @use '../styles/vars.scss';

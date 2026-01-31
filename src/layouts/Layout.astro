@@ -12,7 +12,7 @@
   </body>
 </html>
 
-<style lang="scss">
+<style is:global lang="scss">
   @use '../styles/vars';
   @use '../styles/fonts';
 
@@ -38,5 +38,18 @@
     font-family: var(--main-font);
     font-size: var(--font-size);
     line-height: var(--line-height);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  p:not(:last-child) {
+    margin: 0;
   }
 </style>

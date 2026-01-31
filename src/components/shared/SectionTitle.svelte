@@ -11,7 +11,7 @@
 </header>
 
 <style lang="scss">
-  @use '../styles/vars';
+  @use '../../styles/vars';
 
   h2 {
     font-size: 8.8rem;

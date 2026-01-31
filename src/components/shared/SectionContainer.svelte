@@ -8,30 +8,32 @@
   const hasTitle = $derived(title !== null)
 </script>
 
-<section {id} class={`crw-section-wrapper crw-section-wrapper--section-${id}`}>
+<section {id} class="crw-section-container">
   {#if hasTitle}
     <SectionTitle {title} {isVisible} />
   {/if}
 
-  <div class="crw-section-wrapper__inner">
-    <div class="section-wrapper__content">
+  <div class="crw-section-container__inner">
+    <div class="section-container__content">
       <slot />
     </div>
   </div>
 </section>
 
 <style lang="scss">
-  @use '../styles/vars';
+  @use '../../styles/vars';
 
-  .crw-section-wrapper {
-    --section-wrapper-inner-max-width: 1440px;
-    --section-wrapper-inner-padding-inline: var(--space-4);
+  .crw-section-container {
+    min-height: 100dvh;
+
+    --section-container-inner-max-width: 1440px;
+    --section-container-inner-padding-inline: var(--space-4);
 
     &__inner {
       width: 100%;
-      max-width: var(--section-wrapper-inner-max-width);
+      max-width: var(--section-container-inner-max-width);
       margin: 0 auto;
-      padding-inline: var(--section-wrapper-inner-padding-inline);
+      padding-inline: var(--section-container-inner-padding-inline);
     }
 
     &--section-intro {
@@ -39,7 +41,7 @@
       min-height: calc(100dvh - (var(--space-8) * 2));
       width: calc(100% - (var(--space-8) * 2));
 
-      --section-wrapper-inner-padding-inline: 0;
+      --section-container-inner-padding-inline: 0;
     }
   }
 </style>

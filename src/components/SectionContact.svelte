@@ -1,10 +1,10 @@
 <script>
-  import SectionWrapper from './SectionWrapper.svelte'
+  import SectionContainer from './shared/SectionContainer.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 </script>
 
-<SectionWrapper {id} {title}>
+<SectionContainer {id} {title}>
   <div class="crw-contact">
     <ul>
       {#each items as item, index (index)}
@@ -17,7 +17,7 @@
       {/each}
     </ul>
   </div>
-</SectionWrapper>
+</SectionContainer>
 
 <style lang="scss">
   @use '../styles/vars.scss';
