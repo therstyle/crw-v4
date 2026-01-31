@@ -13,14 +13,15 @@ export const nav = {
 }
 
 export const intro = {
+  id: 'intro',
   subTitle: 'Senior UI Developer | Boston, MA',
   headline: 'Chris<br>Roberts',
   description: 'I\'m Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.',
 }
 
 export const resume = {
+  id: 'resume',
   title: 'Resume',
-  id: 'intro',
   items: [
     {
       year: 2024,
@@ -147,8 +148,8 @@ export const skills = {
 }
 
 export const portfolio = {
-  title: 'Portfolio',
   id: 'portfolio',
+  title: 'Portfolio',
   items: [
     {
       type: 'Vue',
@@ -182,8 +183,8 @@ export const portfolio = {
 }
 
 export const contact = {
-  title: 'Contact',
   id: 'contact',
+  title: 'Contact',
   items: [
     {
       title: 'GitHub',
