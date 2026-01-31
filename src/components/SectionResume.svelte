@@ -1,7 +1,7 @@
 <script>
   import SectionWrapper from './SectionWrapper.svelte'
 
-  let { id = null } = $props()
+  let { id = null, title = null, resume = null, skills = null } = $props()
 </script>
 
 <SectionWrapper {id}>
