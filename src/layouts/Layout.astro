@@ -1,35 +1,42 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Chris Roberts - Senior UI Developer</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Chris Roberts - Senior UI Developer</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style lang="scss">
-    @use '../styles/vars';
+  @use '../styles/vars';
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-    body {
-      background: var(--body-bg);
-      color: var(--white);
-    }
+  body {
+    background: var(--body-bg);
+    color: var(--white);
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+  }
 </style>

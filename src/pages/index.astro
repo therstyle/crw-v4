@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import MainNav from '../components/MainNav.svelte';
-import SectionIntro from "../components/SectionIntro.svelte";
-import SectionResume from "../components/SectionResume.svelte";
-import SectionPortfolio from "../components/SectionPortfolio.svelte";
-import SectionContact from "../components/SectionContact.svelte";
-import { nav } from './index.data.js';
-import { intro } from './index.data.js';
+import Layout from '../layouts/Layout.astro'
+import MainNav from '../components/MainNav.svelte'
+import SectionIntro from '../components/SectionIntro.svelte'
+import SectionResume from '../components/SectionResume.svelte'
+import SectionPortfolio from '../components/SectionPortfolio.svelte'
+import SectionContact from '../components/SectionContact.svelte'
+import { nav } from './index.data.js'
+import { intro } from './index.data.js'
 ---
 
 <Layout>
@@ -20,11 +20,13 @@ import { intro } from './index.data.js';
         id={intro.id}
         headline={intro.headline}
         description={intro.description}
-        subTitle={intro.subTitle} client:visible />
+        subTitle={intro.subTitle}
+        client:visible
+      />
 
-      <SectionResume />
-      <SectionPortfolio />
-      <SectionContact />
+      <SectionResume client:visible />
+      <SectionPortfolio client:visible />
+      <SectionContact client:visible />
     </div>
   </div>
 </Layout>
@@ -35,7 +37,7 @@ import { intro } from './index.data.js';
   .crw-main {
     display: grid;
     grid-template-columns: calc(var(--sidebar-width) + var(--space)) 1fr;
-    grid-template-areas: "nav content";
+    grid-template-areas: 'nav content';
 
     &__nav {
       grid-area: nav;

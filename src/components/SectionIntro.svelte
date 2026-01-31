@@ -46,8 +46,10 @@
 
       h6 {
         color: var(--red);
-        font-size: 1.6rem;
+        font-family: var(--accent-font);
+        font-size: 16px;
         margin-bottom: var(--space-1);
+        text-transform: uppercase;
       }
     }
   }
