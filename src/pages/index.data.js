@@ -103,48 +103,44 @@ export const resume = {
 export const skills = {
   title: 'Skills',
   items: [
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'HTML',
+      year: 2001,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'CSS',
+      year: 2005,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'PHP',
+      year: 2006,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'JavaScript',
+      year: 2009,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'Vue.js',
+      year: 2017,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'React',
+      year: 2018,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'Svelte',
+      year: 2024,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'Photoshop',
+      year: 2002,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'Illustrator',
+      year: 2002,
       logo: 'https://via.placeholder.com/44x44'
     },
-    { title: 'placeholder',
-      year: 2026,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'placeholder',
-      year: 2026,
+    { title: 'Figma',
+      year: 2016,
       logo: 'https://via.placeholder.com/44x44'
     },
   ]
