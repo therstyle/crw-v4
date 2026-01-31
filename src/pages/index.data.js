@@ -14,7 +14,7 @@ export const nav = {
 
 export const intro = {
   subTitle: 'Senior UI Developer | Boston, MA',
-  headline: 'Chris Roberts',
+  headline: 'Chris<br>Roberts',
   description: 'I\'m Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.',
 }
 
@@ -28,12 +28,11 @@ export const resume = {
       location: 'Remote',
       jobTitle: 'Senior UI Developer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Engineered bespoke web experiences for enterprise clients, seamlessly integrating their brand identities and utilizing their APIs within the application',
+        'Translated complex design specifications from Figma into polished, functional UI components, serving as the key bridge between design and development',
+        'Accelerated the company\'s Next.js website, building high-speed, accessible web experiences that drive engagement and convert users in lockstep with the marketing team',
+        'Spearheaded the architectural design and implementation of a centralized web component library in Storybook, standardizing development and scaling the use of React and Svelte across projects',
+        'Cultivated a strong team of junior developers, leveraging one-on-one mentorship, structured code reviews, and monthly training sessions to accelerate skill growth and project ownership',
       ]
     },
     {
@@ -42,12 +41,11 @@ export const resume = {
       location: 'Remote',
       jobTitle: 'Senior Front End Engineer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Created and maintained responsive, accessible and performant web pages for the company Vue.js e-commerce web application that receives 1.2 million monthly visitors, increasing site traffic by 12% and conversion rate by 10%',
+        'Improved the performance, usability, and accessibility of web applications by applying best practices and standards for HTML, CSS, JavaScript, TypeScript, Vuex, Vue Router, and Tailwind CSS',
+        'Ensured the quality and reliability of the code by using Git, Webpack, Jest, Cypress, and other tools for version control, bundling, testing, and debugging',
+        'Collaborated with other developers and stakeholders in an agile environment, using Scrum, Kanban, and Jira methodologies and tools',
+        'Demonstrated strong communication, problem-solving, and leadership skills throughout the development process',
       ]
     },
     {
@@ -56,12 +54,12 @@ export const resume = {
       location: 'Boston, MA',
       jobTitle: 'Senior Front End Developer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Develop custom WordPress websites for large scale and enterprise clients, consistently improving site performance, accessibility (WCAG), and increasing overall site traffic',
+        'Build custom REST API endpoints with WordPress to pull data into Vue.js, and React front end UIs',
+        'Deeply customize and extend WordPress’ CMS capabilities using Advanced Custom Fields (ACF), and develop custom plugins',
+        'Spearheaded development of our internal framework incorporating modern build tools (Parcel.JS, Browsersync, linting) greatly shortening project development time and increasing department profitability',
+        'Collaborate with project managers and stakeholders to assess and document project guidelines and timelines',
+        'Mentor, assist, and review code for a team of eight developers',
       ]
     },
     {
@@ -70,12 +68,10 @@ export const resume = {
       location: 'Remote',
       jobTitle: 'Front End Developer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Worked on client side of web applications developing components with Vue.js, and React, also incorporating Bootstrap, Vuex and Redux for state management',
+        'Developed and maintained our style guide to ensure high graphic standards and design consistency across our applications',
+        'Refactored our codebase, incorporating SASS mixins, CSS custom properties, and improving build processes',
+        'Worked as part of a distributed team, collaborating across the globe with our back end developers',
       ]
     },
     {
@@ -84,12 +80,9 @@ export const resume = {
       location: 'Boston, MA',
       jobTitle: 'Web Designer & Developer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Created bespoke websites for various B2B and enterprise customers using WordPress, custom post types, and Advanced Custom Fields (ACF)',
+        'Worked with marketing and SEO colleagues to apply SEO, design custom landing pages, and forms with high conversion rates consistently',
+        'Enhanced client website performance by compressing images, minifying code, caching content, migrating to CDNs, and optimizing databases',
       ]
     },
     {
@@ -98,12 +91,10 @@ export const resume = {
       location: 'Beverly, MA',
       jobTitle: 'Web Designer & Developer',
       details: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        'Donec odio libero, tincidunt vitae volutpat vitae, scelerisque a nisi',
-        'Proin imperdiet feugiat finibus. In sed purus libero orbi vel magna nec risus egestas molestie urabitur maximus consectetur velit ivamus ac purus at mi facilisis tincidunt sed nec ligula',
+        'Created and maintained web solutions using WordPress, HTML, CSS, PHP, and JavaScript / jQuery, ensuring cross-browser compatibility and responsiveness',
+        'Delivered projects on time and within budget, exceeding customer expectations',
+        'Managed the entire web design workflow from sketches to code, following best practices and client specifications',
+        'Provided guidance and feedback to our intern developers on their code quality, style, and performance, using code reviews and pair programming',
       ]
     }
   ]
@@ -165,31 +156,31 @@ export const portfolio = {
   items: [
     {
       type: 'Vue',
-      title: 'Project Placeholder',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'Tv Guide',
+      description: 'An interactive TV guide powered by Vue.js and rest API from <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>',
       image: 'https://via.placeholder.com/370x230',
-      url: '#',
+      url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
-      title: 'Project Placeholder',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'Andrew Swaine Photography',
+      description: 'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
       image: 'https://via.placeholder.com/370x230',
-      url: '#',
+      url: 'https://andrewswaine.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
-      title: 'Project Placeholder',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'Jeopardy!',
+      description: 'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
       image: 'https://via.placeholder.com/370x230',
-      url: '#',
+      url: 'https://jeopardy.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
-      title: 'Project Placeholder',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'Latin Rogue Cleaning',
+      description: 'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
       image: 'https://via.placeholder.com/370x230',
-      url: '#',
+      url: 'http://lrc.chrisrobertsweb.dev/',
     }
   ]
 }
@@ -199,12 +190,14 @@ export const contact = {
   id: 'contact',
   items: [
     {
+      title: 'GitHub',
       logo: 'https://via.placeholder.com/44x44',
-      url: '#'
+      url: 'https://github.com/therstyle'
     },
     {
+      title: 'LinkedIn',
       logo: 'https://via.placeholder.com/44x44',
-      url: '#'
+      url: 'https://www.linkedin.com/in/xchrisroberts/'
     },
   ]
 }
