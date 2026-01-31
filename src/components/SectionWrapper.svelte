@@ -18,6 +18,6 @@
   section {
     padding: var(--space-8);
     min-height: calc(100dvh - (var(--space-8) * 2));
-    width: 100%;
+    width: calc(100% - (var(--space-8) * 2));
   }
 </style>

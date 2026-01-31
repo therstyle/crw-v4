@@ -9,29 +9,31 @@
 </script>
 
 <div class="crw-main-nav">
-  {#if hasLogo}
-    <div class="crw-main-nav__top">
-      <button data-target={logo.url}>
-        <img src={logo.image} alt={logo.alt ?? ""} />
-      </button>
+  <div class="crw-main-nav__inner">
+    {#if hasLogo}
+      <div class="crw-main-nav__top">
+        <button data-target={logo.url}>
+          <img src={logo.image} alt={logo.alt ?? ""} />
+        </button>
+      </div>
+    {/if}
+
+    {#if hasLinks}
+      <nav class="crw-main-nav__links">
+        <ul>
+          {#each links as link, index (index)}
+            <li>
+              <button data-target={link.url}>
+                <span>{link.title}</span>
+              </button>
+            </li>
+          {/each}
+        </ul>
+      </nav>
+    {/if}
+
+    <div class="crw-main-nav__bottom">
     </div>
-  {/if}
-
-  {#if hasLinks}
-    <nav class="crw-main-nav__links">
-      <ul>
-        {#each links as link, index (index)}
-          <li>
-            <button data-target={link.url}>
-              <span>{link.title}</span>
-            </button>
-          </li>
-        {/each}
-      </ul>
-    </nav>
-  {/if}
-
-  <div class="crw-main-nav__bottom">
   </div>
 </div>
 
@@ -39,14 +41,19 @@
   @use '../styles/vars.scss';
 
   .crw-main-nav {
-    background: var(--black);
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    min-height: calc(100dvh - var(--space-1));
-    margin-block: var(--space-1);
-    margin-inline-start: var(--space-1);
+    top: var(--space-1);
+    left: var(--space-1);
+    bottom: var(--space-1);
+    position: fixed;
+
+    &__inner {
+      background: var(--black);
+      border-radius: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      height: 100%;
+    }
 
     ul,
     li {

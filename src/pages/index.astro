@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import MainNav from '../components/MainNav.svelte';
 import SectionIntro from "../components/SectionIntro.svelte";
+import SectionResume from "../components/SectionResume.svelte";
+import SectionPortfolio from "../components/SectionPortfolio.svelte";
+import SectionContact from "../components/SectionContact.svelte";
 import { nav } from './index.data.js';
 import { intro } from './index.data.js';
 ---
@@ -13,7 +16,15 @@ import { intro } from './index.data.js';
     </div>
 
     <div class="crw-main__content">
-      <SectionIntro id={intro.id} headline={intro.headline} description={intro.description} subTitle={intro.subTitle} />
+      <SectionIntro
+        id={intro.id}
+        headline={intro.headline}
+        description={intro.description}
+        subTitle={intro.subTitle} client:visible />
+
+      <SectionResume />
+      <SectionPortfolio />
+      <SectionContact />
     </div>
   </div>
 </Layout>
@@ -33,6 +44,7 @@ import { intro } from './index.data.js';
     &__content {
       grid-area: content;
       display: flex;
+      flex-direction: column;
       gap: var(--space-8);
     }
   }
