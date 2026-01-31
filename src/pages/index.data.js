@@ -2,22 +2,23 @@ export const nav = {
   logo: {
     image: 'https://via.placeholder.com/150x50',
     alt: 'Chris Roberts Web',
-    url: '#intro'
+    url: '#intro',
   },
   links: [
     { title: 'Home', url: '#intro', logo: 'https://via.placeholder.com/24x24' },
     { title: 'Resume', url: '#resume' },
     { title: 'Portfolio', url: '#portfolio' },
     { title: 'Contact', url: '#contact' },
-  ]
-}
+  ],
+};
 
 export const intro = {
   id: 'intro',
   subTitle: 'Senior UI Developer | Boston, MA',
   headline: 'Chris<br>Roberts',
-  description: 'I\'m Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.',
-}
+  description:
+    "I'm Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.",
+};
 
 export const resume = {
   id: 'resume',
@@ -31,10 +32,10 @@ export const resume = {
       details: [
         'Engineered bespoke web experiences for enterprise clients, seamlessly integrating their brand identities and utilizing their APIs within the application',
         'Translated complex design specifications from Figma into polished, functional UI components, serving as the key bridge between design and development',
-        'Accelerated the company\'s Next.js website, building high-speed, accessible web experiences that drive engagement and convert users in lockstep with the marketing team',
+        "Accelerated the company's Next.js website, building high-speed, accessible web experiences that drive engagement and convert users in lockstep with the marketing team",
         'Spearheaded the architectural design and implementation of a centralized web component library in Storybook, standardizing development and scaling the use of React and Svelte across projects',
         'Cultivated a strong team of junior developers, leveraging one-on-one mentorship, structured code reviews, and monthly training sessions to accelerate skill growth and project ownership',
-      ]
+      ],
     },
     {
       year: 2023,
@@ -47,7 +48,7 @@ export const resume = {
         'Ensured the quality and reliability of the code by using Git, Webpack, Jest, Cypress, and other tools for version control, bundling, testing, and debugging',
         'Collaborated with other developers and stakeholders in an agile environment, using Scrum, Kanban, and Jira methodologies and tools',
         'Demonstrated strong communication, problem-solving, and leadership skills throughout the development process',
-      ]
+      ],
     },
     {
       year: 2018,
@@ -61,7 +62,7 @@ export const resume = {
         'Spearheaded development of our internal framework incorporating modern build tools (Parcel.JS, Browsersync, linting) greatly shortening project development time and increasing department profitability',
         'Collaborate with project managers and stakeholders to assess and document project guidelines and timelines',
         'Mentor, assist, and review code for a team of eight developers',
-      ]
+      ],
     },
     {
       year: 2015,
@@ -73,7 +74,7 @@ export const resume = {
         'Developed and maintained our style guide to ensure high graphic standards and design consistency across our applications',
         'Refactored our codebase, incorporating SASS mixins, CSS custom properties, and improving build processes',
         'Worked as part of a distributed team, collaborating across the globe with our back end developers',
-      ]
+      ],
     },
     {
       year: 2013,
@@ -84,7 +85,7 @@ export const resume = {
         'Created bespoke websites for various B2B and enterprise customers using WordPress, custom post types, and Advanced Custom Fields (ACF)',
         'Worked with marketing and SEO colleagues to apply SEO, design custom landing pages, and forms with high conversion rates consistently',
         'Enhanced client website performance by compressing images, minifying code, caching content, migrating to CDNs, and optimizing databases',
-      ]
+      ],
     },
     {
       year: 2007,
@@ -96,56 +97,38 @@ export const resume = {
         'Delivered projects on time and within budget, exceeding customer expectations',
         'Managed the entire web design workflow from sketches to code, following best practices and client specifications',
         'Provided guidance and feedback to our intern developers on their code quality, style, and performance, using code reviews and pair programming',
-      ]
-    }
-  ]
-}
+      ],
+    },
+  ],
+};
 
 export const skills = {
   title: 'Skills',
   items: [
-    { title: 'HTML',
-      year: 2001,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'CSS',
-      year: 2005,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'PHP',
-      year: 2006,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'JavaScript',
+    { title: 'HTML', year: 2001, logo: 'https://via.placeholder.com/44x44' },
+    { title: 'CSS', year: 2005, logo: 'https://via.placeholder.com/44x44' },
+    { title: 'PHP', year: 2006, logo: 'https://via.placeholder.com/44x44' },
+    {
+      title: 'JavaScript',
       year: 2009,
-      logo: 'https://via.placeholder.com/44x44'
+      logo: 'https://via.placeholder.com/44x44',
     },
-    { title: 'Vue.js',
-      year: 2017,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'React',
-      year: 2018,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'Svelte',
-      year: 2024,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-    { title: 'Photoshop',
+    { title: 'Vue.js', year: 2017, logo: 'https://via.placeholder.com/44x44' },
+    { title: 'React', year: 2018, logo: 'https://via.placeholder.com/44x44' },
+    { title: 'Svelte', year: 2024, logo: 'https://via.placeholder.com/44x44' },
+    {
+      title: 'Photoshop',
       year: 2002,
-      logo: 'https://via.placeholder.com/44x44'
+      logo: 'https://via.placeholder.com/44x44',
     },
-    { title: 'Illustrator',
+    {
+      title: 'Illustrator',
       year: 2002,
-      logo: 'https://via.placeholder.com/44x44'
+      logo: 'https://via.placeholder.com/44x44',
     },
-    { title: 'Figma',
-      year: 2016,
-      logo: 'https://via.placeholder.com/44x44'
-    },
-  ]
-}
+    { title: 'Figma', year: 2016, logo: 'https://via.placeholder.com/44x44' },
+  ],
+};
 
 export const portfolio = {
   id: 'portfolio',
@@ -154,33 +137,37 @@ export const portfolio = {
     {
       type: 'Vue',
       title: 'Tv Guide',
-      description: 'An interactive TV guide powered by Vue.js and rest API from <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>',
+      description:
+        'An interactive TV guide powered by Vue.js and rest API from <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>',
       image: 'https://via.placeholder.com/370x230',
       url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
       title: 'Andrew Swaine Photography',
-      description: 'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
+      description:
+        'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
       image: 'https://via.placeholder.com/370x230',
       url: 'https://andrewswaine.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
       title: 'Jeopardy!',
-      description: 'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
+      description:
+        'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
       image: 'https://via.placeholder.com/370x230',
       url: 'https://jeopardy.chrisrobertsweb.dev/',
     },
     {
       type: 'Vue',
       title: 'Latin Rogue Cleaning',
-      description: 'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
+      description:
+        'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
       image: 'https://via.placeholder.com/370x230',
       url: 'http://lrc.chrisrobertsweb.dev/',
-    }
-  ]
-}
+    },
+  ],
+};
 
 export const contact = {
   id: 'contact',
@@ -189,12 +176,12 @@ export const contact = {
     {
       title: 'GitHub',
       logo: 'https://via.placeholder.com/44x44',
-      url: 'https://github.com/therstyle'
+      url: 'https://github.com/therstyle',
     },
     {
       title: 'LinkedIn',
       logo: 'https://via.placeholder.com/44x44',
-      url: 'https://www.linkedin.com/in/xchrisroberts/'
+      url: 'https://www.linkedin.com/in/xchrisroberts/',
     },
-  ]
-}
+  ],
+};
