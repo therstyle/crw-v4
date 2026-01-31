@@ -1,7 +1,12 @@
 <script>
   import SectionTitle from './SectionTitle.svelte'
 
-  let { id = null, title = null, horzCenter = false } = $props()
+  let {
+    id = null,
+    title = null,
+    horzCenter = false,
+    vertCenter = false,
+  } = $props()
 
   let isVisible = $state(false)
 
@@ -12,6 +17,7 @@
   {id}
   class="crw-section-container"
   class:crw-section-container--horz-center={horzCenter}
+  class:crw-section-container--vert-center={vertCenter}
 >
   {#if hasTitle}
     <SectionTitle {title} {isVisible} />
@@ -30,7 +36,6 @@
   .crw-section-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-height: 100dvh;
 
     --section-container-inner-max-width: 1440px;
@@ -41,6 +46,10 @@
       max-width: var(--section-container-inner-max-width);
       margin: 0 auto;
       padding-inline: var(--section-container-inner-padding-inline);
+    }
+
+    &--vert-center {
+      justify-content: center;
     }
 
     &--horz-center {

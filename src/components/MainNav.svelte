@@ -9,9 +9,9 @@
   <div class="crw-main-nav__inner">
     {#if hasLogo}
       <div class="crw-main-nav__top">
-        <button data-target={logo.url}>
+        <a href={logo.url}>
           <img src={logo.image} alt={logo.alt ?? ''} />
-        </button>
+        </a>
       </div>
     {/if}
 
@@ -20,9 +20,9 @@
         <ul>
           {#each links as link, index (index)}
             <li>
-              <button data-target={link.url}>
+              <a href={link.url}>
                 <span>{link.title}</span>
-              </button>
+              </a>
             </li>
           {/each}
         </ul>

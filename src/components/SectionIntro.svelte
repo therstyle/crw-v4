@@ -13,7 +13,7 @@
   const hasDescription = $derived(description !== null)
 </script>
 
-<SectionContainer {id} horzCenter={true}>
+<SectionContainer {id} horzCenter={true} vertCenter={true}>
   <div class="crw-intro">
     <div class="crw-intro__content">
       <header>

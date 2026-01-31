@@ -4,7 +4,7 @@
   let { id = null, title = null, items = [] } = $props()
 </script>
 
-<SectionContainer {id} {title}>
+<SectionContainer {id} {title} vertCenter={true}>
   <div class="crw-contact">
     <ul>
       {#each items as item, index (index)}
