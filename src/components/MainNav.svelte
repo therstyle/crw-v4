@@ -49,6 +49,7 @@
       flex-direction: column;
       gap: var(--space-1);
       height: 100%;
+      overflow: hidden;
     }
 
     ul,
@@ -59,7 +60,6 @@
     }
 
     &__top {
-      background: red;
     }
   }
 </style>

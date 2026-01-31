@@ -1,14 +1,11 @@
 <script>
   import SectionWrapper from './SectionWrapper.svelte'
-  import SectionTitle from './SectionTitle.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 </script>
 
-<SectionWrapper {id}>
-  <div class="crw-contact">
-    <SectionTitle {title}></SectionTitle>
-  </div>
+<SectionWrapper {id} {title}>
+  <div class="crw-contact"></div>
 </SectionWrapper>
 
 <style lang="scss">
