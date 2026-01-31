@@ -1,19 +1,19 @@
 <script>
-  import SectionWrapper from "./SectionWrapper.svelte";
+  import SectionWrapper from './SectionWrapper.svelte'
 
   let {
     id = null,
     subTitle = null,
     headline = null,
-    description = null
-  } = $props();
+    description = null,
+  } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasHeadline = $derived(headline !== null)
   const hasDescription = $derived(description !== null)
 </script>
 
-<SectionWrapper id={id}>
+<SectionWrapper {id}>
   <div class="crw-intro">
     <div class="crw-intro__content">
       {#if hasSubTitle}

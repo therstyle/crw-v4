@@ -1,10 +1,7 @@
 <script>
-  let {
-    logo = null,
-    links = []
-  } = $props()
+  let { logo = null, links = [] } = $props()
 
-  const hasLogo = $derived(logo !== null  && logo?.image)
+  const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived(links.length > 0)
 </script>
 
@@ -13,7 +10,7 @@
     {#if hasLogo}
       <div class="crw-main-nav__top">
         <button data-target={logo.url}>
-          <img src={logo.image} alt={logo.alt ?? ""} />
+          <img src={logo.image} alt={logo.alt ?? ''} />
         </button>
       </div>
     {/if}
@@ -32,8 +29,7 @@
       </nav>
     {/if}
 
-    <div class="crw-main-nav__bottom">
-    </div>
+    <div class="crw-main-nav__bottom"></div>
   </div>
 </div>
 

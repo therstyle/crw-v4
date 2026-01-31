@@ -1,14 +1,12 @@
 <script>
-  import {onMount} from "svelte";
+  import { onMount } from 'svelte'
 
-  let {
-    id = null
-  } = $props()
+  let { id = null } = $props()
 
   let isVisible = $state(false)
 </script>
 
-<section id={id}>
+<section {id}>
   <slot />
 </section>
 
