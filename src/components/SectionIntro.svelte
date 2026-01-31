@@ -4,25 +4,27 @@
   let {
     id = null,
     subTitle = null,
-    headline = null,
+    title = null,
     description = null,
   } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
-  const hasHeadline = $derived(headline !== null)
+  const hasTitle = $derived(title !== null)
   const hasDescription = $derived(description !== null)
 </script>
 
-<SectionContainer {id}>
+<SectionContainer {id} horzCenter={true}>
   <div class="crw-intro">
     <div class="crw-intro__content">
-      {#if hasSubTitle}
-        <h6>{subTitle}</h6>
-      {/if}
+      <header>
+        {#if hasSubTitle}
+          <span class="crw-intro__sub-title">{subTitle}</span>
+        {/if}
 
-      {#if hasHeadline}
-        <h1>{@html headline}</h1>
-      {/if}
+        {#if hasTitle}
+          <h1 class="crw-intro__title">{@html title}</h1>
+        {/if}
+      </header>
 
       {#if hasDescription}
         <div class="crw-intro__description">
@@ -42,15 +44,31 @@
     justify-content: center;
 
     &__content {
-      max-width: 40vw;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      max-width: 60vw;
+      text-align: center;
 
-      h6 {
-        color: var(--red);
-        font-family: var(--accent-font);
-        font-size: 16px;
-        margin-bottom: var(--space-1);
-        text-transform: uppercase;
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
       }
+    }
+
+    &__sub-title {
+      color: var(--red);
+      font-family: var(--accent-font);
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      font-size: clamp(90px, 16px + 9vw, 150px);
+      font-weight: 800;
+      line-height: 0.85;
+      text-transform: uppercase;
     }
   }
 </style>

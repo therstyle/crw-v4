@@ -41,6 +41,7 @@
     left: var(--space-1);
     bottom: var(--space-1);
     position: fixed;
+    width: var(--sidebar-width);
 
     &__inner {
       background: var(--black);

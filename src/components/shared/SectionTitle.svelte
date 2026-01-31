@@ -14,8 +14,9 @@
   @use '../../styles/vars';
 
   h2 {
-    font-size: 8.8rem;
+    font-size: 88px;
     font-weight: 800;
     line-height: 1;
+    text-transform: uppercase;
   }
 </style>
