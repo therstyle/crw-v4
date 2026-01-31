@@ -48,6 +48,13 @@
     margin-block: var(--space-1);
     margin-inline-start: var(--space-1);
 
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     &__top {
       background: red;
     }

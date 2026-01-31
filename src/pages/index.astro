@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MainNav from '../components/MainNav.svelte';
+import SectionIntro from "../components/SectionIntro.svelte";
 import { nav } from './index.data.js';
+import { intro } from './index.data.js';
 ---
 
 <Layout>
@@ -11,7 +13,7 @@ import { nav } from './index.data.js';
     </div>
 
     <div class="crw-main__content">
-
+      <SectionIntro id={intro.id} headline={intro.headline} description={intro.description} subTitle={intro.subTitle} />
     </div>
   </div>
 </Layout>
@@ -30,6 +32,8 @@ import { nav } from './index.data.js';
 
     &__content {
       grid-area: content;
+      display: flex;
+      gap: var(--space-8);
     }
   }
 </style>
