@@ -7,17 +7,28 @@
     headline = null,
     description = null
   } = $props();
+
+  const hasSubTitle = $derived(subTitle !== null)
+  const hasHeadline = $derived(headline !== null)
+  const hasDescription = $derived(description !== null)
 </script>
 
 <SectionWrapper id={id}>
   <div class="crw-intro">
     <div class="crw-intro__content">
-      <h6>{subTitle}</h6>
-      <h1>{@html headline}</h1>
+      {#if hasSubTitle}
+        <h6>{subTitle}</h6>
+      {/if}
 
-      <div class="crw-intro__description">
-        {description}
-      </div>
+      {#if hasHeadline}
+        <h1>{@html headline}</h1>
+      {/if}
+
+      {#if hasDescription}
+        <div class="crw-intro__description">
+          {description}
+        </div>
+      {/if}
     </div>
   </div>
 </SectionWrapper>
