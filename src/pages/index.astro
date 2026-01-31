@@ -7,26 +7,22 @@ import SectionPortfolio from '../components/SectionPortfolio.svelte'
 import SectionContact from '../components/SectionContact.svelte'
 import { nav } from './index.data.js'
 import { intro } from './index.data.js'
+import { portfolio } from './index.data.js'
+import { resume } from './index.data.js'
+import { contact } from './index.data.js'
 ---
 
 <Layout>
   <div class="crw-main">
     <div class="crw-main__nav">
-      <MainNav logo={nav.logo} links={nav.links} client:load />
+      <MainNav {...nav} client:load />
     </div>
 
     <div class="crw-main__content">
-      <SectionIntro
-        id={intro.id}
-        headline={intro.headline}
-        description={intro.description}
-        subTitle={intro.subTitle}
-        client:visible
-      />
-
-      <SectionResume client:visible />
-      <SectionPortfolio client:visible />
-      <SectionContact client:visible />
+      <SectionIntro {...intro} client:visible />
+      <SectionResume {...resume} client:visible />
+      <SectionPortfolio {...portfolio} client:visible />
+      <SectionContact {...contact} client:visible />
     </div>
   </div>
 </Layout>
