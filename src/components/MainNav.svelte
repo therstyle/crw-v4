@@ -59,6 +59,7 @@
     --main-nav-link-icon-size: 36px;
     --main-nav-link-opacity: 66%;
     --main-nav-link-tltle-opacity: 0;
+    --main-nav-link-color: rgb(255 255 255 / 66%);
 
     ul,
     li {
@@ -105,12 +106,18 @@
       align-items: center;
       gap: 4px;
       font-size: 12px;
-      color: rgb(255 255 255 / var(--main-nav-link-opacity));
+      color: var(--main-nav-link-color);
       text-decoration: none;
       transition: var(--global-transition);
+      position: relative;
+
+      &--active {
+        --main-nav-link-color: var(--red);
+        --main-nav-link-tltle-opacity: 1;
+      }
 
       &:hover {
-        --main-nav-link-opacity: 100%;
+        --main-nav-link-color: var(--white);
         --main-nav-link-tltle-opacity: 1;
       }
 
@@ -123,6 +130,17 @@
         mask-repeat: no-repeat;
         mask-size: cover;
         mask-image: var(--main-nav-link-icon);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 100%;
+        background: var(--red);
+        opacity: 0;
+        position: absolute;
+        right: 0;
       }
     }
 
