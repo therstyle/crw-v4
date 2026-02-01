@@ -85,7 +85,7 @@
     }
 
     &__title {
-      font-size: clamp(90px, 16px + 9vw, 150px);
+      font-size: clamp(40px, 16px + 9vw, 150px);
       font-weight: 800;
       line-height: 0.85;
       text-transform: uppercase;
