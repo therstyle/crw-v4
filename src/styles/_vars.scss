@@ -24,6 +24,8 @@ $xs-breakpoint: $sm-phone-breakpoint - 1px;
   --body-bg: var(--dark-gray);
   --sidebar-bg: var(--black);
 
+  // TODO: add role based colors
+
   // Fonts
   --main-font: 'Metropolis', sans-serif;
   --accent-font: 'Share Tech Mono', monospace;
