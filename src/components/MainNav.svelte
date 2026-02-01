@@ -131,5 +131,10 @@
       opacity: var(--main-nav-link-tltle-opacity);
       transition: var(--global-transition);
     }
+
+    &__bottom {
+      display: flex;
+      justify-content: center;
+    }
   }
 </style>
