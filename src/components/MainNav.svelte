@@ -9,8 +9,8 @@
   <div class="crw-main-nav__inner">
     {#if hasLogo}
       <div class="crw-main-nav__top">
-        <a href={logo.url}>
-          <img src={logo.image} alt={logo.alt ?? ''} />
+        <a href={logo?.url}>
+          <img src={logo?.image} alt={logo?.alt ?? ''} />
         </a>
       </div>
     {/if}
@@ -22,10 +22,11 @@
             <li>
               <a
                 class="crw-main-nav__link"
-                href={link.url}
-                style:--main-nav-link-image={`url(${link.image})`}
+                class:crw-main-nav__link--active={link?.active}
+                href={link?.url}
+                style:--main-nav-link-icon={`url(${link?.image})`}
               >
-                <span>{link.title}</span>
+                <span class="crw-main-nav__link-title">{link?.title}</span>
               </a>
             </li>
           {/each}
@@ -45,7 +46,11 @@
     left: var(--space-1);
     bottom: var(--space-1);
     position: fixed;
-    width: var(--sidebar-width);
+    width: var(--main-nav-width);
+
+    --main-nav-link-icon-size: 36px;
+    --main-nav-link-opacity: 66%;
+    --main-nav-link-tltle-opacity: 0;
 
     &__inner {
       background: var(--black);
@@ -76,7 +81,7 @@
       ul {
         display: flex;
         flex-direction: column;
-        gap: var(--space-1);
+        gap: var(--space-2);
       }
     }
 
@@ -86,19 +91,31 @@
       align-items: center;
       gap: 4px;
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.66);
+      color: rgb(255 255 255 / var(--main-nav-link-opacity));
       text-decoration: none;
+      transition: var(--global-transition);
+
+      &:hover {
+        --main-nav-link-opacity: 100%;
+        --main-nav-link-tltle-opacity: 1;
+      }
 
       &::before {
         content: '';
         display: block;
-        width: 40px;
-        height: 40px;
+        width: var(--main-nav-link-icon-size);
+        height: var(--main-nav-link-icon-size);
         background: currentColor;
         mask-repeat: no-repeat;
         mask-size: cover;
-        mask-image: var(--main-nav-link-image);
+        mask-image: var(--main-nav-link-icon);
       }
+    }
+
+    &__link-title {
+      display: block;
+      opacity: var(--main-nav-link-tltle-opacity);
+      transition: var(--global-transition);
     }
   }
 </style>
