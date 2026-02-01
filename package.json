@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/svelte": "^7.2.5",
     "astro": "^5.16.15",
+    "nanostores": "^1.1.0",
     "svelte": "^5.48.4",
     "typescript": "^5.9.3"
   },

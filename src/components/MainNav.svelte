@@ -1,8 +1,14 @@
 <script>
+  import { isDark } from '../stores/theme.js'
+
   let { logo = null, links = [] } = $props()
 
   const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived(links.length > 0)
+
+  function toggleIsDark() {
+    isDark.set(!isDark.get())
+  }
 </script>
 
 <div class="crw-main-nav">
@@ -34,7 +40,9 @@
       </nav>
     {/if}
 
-    <div class="crw-main-nav__bottom"></div>
+    <div class="crw-main-nav__bottom">
+      <input type="checkbox" checked={isDark.get()} on:change={toggleIsDark} />
+    </div>
   </div>
 </div>
 
