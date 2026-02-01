@@ -25,7 +25,10 @@
       <nav class="crw-main-nav__links">
         <ul>
           {#each links as link, index (index)}
-            <li>
+            <li
+              class="crw-main-nav__link-wrapper"
+              class:crw-main-nav__link-wrapper--active={link?.active}
+            >
               <a
                 class="crw-main-nav__link"
                 class:crw-main-nav__link--active={link?.active}
@@ -48,6 +51,20 @@
 
 <style lang="scss">
   @use '../styles/vars.scss';
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
 
   .crw-main-nav {
     top: var(--space-1);
@@ -84,7 +101,6 @@
       flex-direction: column;
       gap: var(--space-1);
       height: 100%;
-      overflow: hidden;
       padding-block: var(--space-4);
       box-shadow: 0 15px 30px rgb(0 0 0 / 25%);
     }
@@ -102,6 +118,24 @@
       }
     }
 
+    &__link-wrapper {
+      position: relative;
+
+      &--active {
+        &::before {
+          content: '';
+          box-shadow: 0 0 75px var(--red);
+          opacity: 0.5;
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          animation: fade-in-out ease-in-out infinite 3s;
+        }
+      }
+    }
+
     &__link {
       display: flex;
       flex-direction: column;
@@ -113,11 +147,6 @@
       transition: var(--global-transition);
       position: relative;
       padding-inline: var(--main-nav-padding-inline);
-
-      &--active {
-        --main-nav-link-color: var(--red);
-        --main-nav-link-tltle-opacity: 1;
-      }
 
       &:hover {
         --main-nav-link-color: var(--white);
@@ -144,6 +173,21 @@
         opacity: 0;
         position: absolute;
         right: 0;
+      }
+
+      &--active {
+        --main-nav-link-color: var(--red);
+        --main-nav-link-tltle-opacity: 1;
+
+        &:hover {
+          --main-nav-link-color: var(--red);
+        }
+
+        &::after {
+          opacity: 1;
+          box-shadow: 32px 0 50px var(--red);
+          animation: fade-in-out ease-in-out infinite 3s;
+        }
       }
     }
 
