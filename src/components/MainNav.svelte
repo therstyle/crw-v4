@@ -73,7 +73,7 @@
     position: fixed;
     width: var(--main-nav-width);
 
-    --main-nav-link-icon-size: 36px;
+    --main-nav-link-icon-size: 36px; // TODO: 30px on mobile
     --main-nav-link-opacity: 66%;
     --main-nav-link-tltle-opacity: 0;
     --main-nav-link-color: rgb(255 255 255 / 66%);
