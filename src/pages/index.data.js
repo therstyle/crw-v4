@@ -1,6 +1,6 @@
 export const nav = {
   logo: {
-    image: 'https://via.placeholder.com/150x50',
+    image: '/images/cr-logo-horo.svg',
     alt: 'CRW',
     url: '#intro',
   },

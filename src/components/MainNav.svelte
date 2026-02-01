@@ -52,6 +52,20 @@
     --main-nav-link-opacity: 66%;
     --main-nav-link-tltle-opacity: 0;
 
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__top {
+      a {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
     &__inner {
       background: var(--black);
       border-radius: 50px;
@@ -60,16 +74,8 @@
       gap: var(--space-1);
       height: 100%;
       overflow: hidden;
-    }
-
-    &__top {
-    }
-
-    ul,
-    li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+      padding-block: var(--space-4);
+      box-shadow: 0 15px 30px rgb(0 0 0 / 25%);
     }
 
     &__links {
