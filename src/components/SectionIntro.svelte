@@ -26,17 +26,37 @@
         {/if}
       </header>
 
-      {#if hasDescription}
-        <div class="crw-intro__description">
-          {description}
-        </div>
-      {/if}
+      <div class="crw-intro__bottom-content">
+        {#if hasDescription}
+          <div class="crw-intro__description">
+            {description}
+          </div>
+        {/if}
+
+        <a href="#portfolio" class="crw-intro__scroll-down"
+          ><span>Scroll</span></a
+        >
+      </div>
     </div>
   </div>
 </SectionContainer>
 
 <style lang="scss">
   @use '../styles/vars.scss';
+
+  @keyframes scroll-down {
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   .crw-intro {
     display: flex;
@@ -47,7 +67,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
-      max-width: 60vw;
+      max-width: 1000px;
       text-align: center;
 
       header {
@@ -69,6 +89,43 @@
       font-weight: 800;
       line-height: 0.85;
       text-transform: uppercase;
+    }
+
+    &__bottom-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    &__description {
+      text-wrap: balance;
+    }
+
+    &__scroll-down {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: var(--accent-font);
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+
+      --scroll-down-icon-size: 32px;
+
+      &::before {
+        content: '';
+        display: block;
+        width: var(--scroll-down-icon-size);
+        height: var(--scroll-down-icon-size);
+        mask-image: url('/images/icon-mouse.svg');
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        background: currentColor;
+        animation: scroll-down linear 1.5s infinite;
+      }
     }
   }
 </style>
