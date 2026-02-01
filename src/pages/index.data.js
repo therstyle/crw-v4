@@ -5,10 +5,18 @@ export const nav = {
     url: '#intro',
   },
   links: [
-    { title: 'Home', url: '#intro', logo: 'https://via.placeholder.com/24x24' },
-    { title: 'Resume', url: '#resume' },
-    { title: 'Portfolio', url: '#portfolio' },
-    { title: 'Contact', url: '#contact' },
+    {
+      title: 'Home',
+      url: '#intro',
+      image: '/images/icon-home.svg',
+    },
+    { title: 'Resume', url: '#resume', image: '/images/icon-resume.svg' },
+    {
+      title: 'Portfolio',
+      url: '#portfolio',
+      image: '/images/icon-portfolio.svg',
+    },
+    { title: 'Contact', url: '#contact', image: '/images/icon-contact.svg' },
   ],
 }
 

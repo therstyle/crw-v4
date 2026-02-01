@@ -20,7 +20,11 @@
         <ul>
           {#each links as link, index (index)}
             <li>
-              <a href={link.url}>
+              <a
+                class="crw-main-nav__link"
+                href={link.url}
+                style:--main-nav-link-image={`url(${link.image})`}
+              >
                 <span>{link.title}</span>
               </a>
             </li>
@@ -53,6 +57,9 @@
       overflow: hidden;
     }
 
+    &__top {
+    }
+
     ul,
     li {
       list-style: none;
@@ -60,7 +67,38 @@
       padding: 0;
     }
 
-    &__top {
+    &__links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+    }
+
+    &__link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.66);
+      text-decoration: none;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: currentColor;
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        mask-image: var(--main-nav-link-image);
+      }
     }
   }
 </style>
