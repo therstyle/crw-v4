@@ -60,6 +60,7 @@
     --main-nav-link-opacity: 66%;
     --main-nav-link-tltle-opacity: 0;
     --main-nav-link-color: rgb(255 255 255 / 66%);
+    --main-nav-padding-inline: var(--space-1);
 
     ul,
     li {
@@ -72,6 +73,7 @@
       a {
         display: flex;
         justify-content: center;
+        padding-inline: var(--main-nav-padding-inline);
       }
     }
 
@@ -110,6 +112,7 @@
       text-decoration: none;
       transition: var(--global-transition);
       position: relative;
+      padding-inline: var(--main-nav-padding-inline);
 
       &--active {
         --main-nav-link-color: var(--red);
@@ -153,6 +156,7 @@
     &__bottom {
       display: flex;
       justify-content: center;
+      padding-inline: var(--main-nav-padding-inline);
     }
   }
 </style>
