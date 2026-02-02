@@ -52,6 +52,7 @@
 
 <style lang="scss">
   @use '../styles/vars.scss';
+  @use '../styles/mixins.scss';
 
   .crw-resume {
     &__content {
@@ -77,6 +78,48 @@
       padding: var(--space-3);
       border-bottom: 1px solid var(--light-gray);
       position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        border-radius: 100%;
+        top: 6.1vw;
+        left: calc(var(--space-3) - var(--space-6) - 24px);
+        margin-left: calc(var(--space-3) + 12px);
+        width: 24px;
+        height: 24px;
+        border: 5px solid var(--red);
+        background: var(--body-bg);
+
+        @include mixins.min(xl) {
+          top: 9rem;
+        }
+      }
+
+      &::after {
+        content: attr(data-year);
+        font-weight: 600;
+        color: var(--red);
+        font-size: 4.1vw;
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+        transform: rotate(180deg);
+        position: absolute;
+        left: -7vw;
+        top: 2.1vw;
+        display: inline-block;
+
+        @include mixins.min(xl) {
+          font-size: 59px;
+          left: -6.375rem;
+          top: 1.938rem;
+        }
+      }
+
+      &:last-child {
+        border-color: transparent;
+      }
 
       header {
         display: flex;
