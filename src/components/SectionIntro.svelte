@@ -35,9 +35,7 @@
           </div>
         {/if}
 
-        <a href="#portfolio" class="crw-intro__scroll-down"
-          ><span>Scroll</span></a
-        >
+        <a href="#resume" class="crw-intro__scroll-down"><span>Scroll</span></a>
       </div>
     </div>
   </div>

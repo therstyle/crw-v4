@@ -37,6 +37,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
+    scroll-margin: var(--space-2);
 
     --section-container-inner-max-width: 1440px;
     --section-container-inner-padding-inline: var(--space-4);
