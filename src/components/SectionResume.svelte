@@ -56,6 +56,27 @@
   .crw-resume {
     &__content {
       display: flex;
+      gap: 7vw;
+    }
+
+    &__timeline {
+      max-width: 60vw;
+    }
+
+    &__skills {
+      width: minmax(244px, 33vw);
+
+      ul,
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 </style>
