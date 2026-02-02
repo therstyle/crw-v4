@@ -1,0 +1,86 @@
+//	------------------------------------------------------------------------
+//	# Mixins
+//	------------------------------------------------------------------------
+
+//@use 'vars';
+@use 'sass:string';
+@use 'sass:map';
+
+// Sizes
+$xxl: 1921px;
+$xxl: 1601px;
+$xl: 1401px;
+$desktop: 1201px;
+$lg: 1025px;
+$md: 993px;
+$sm: 769px;
+$xs: 501px;
+$xxs: 376px;
+
+// Add more breakpoints as needed
+$breakpoints: (
+  // iPhone SE
+        xxs: $xxs,
+  // Mobile
+        sm: $sm,
+  // iPad Mini
+        md: $lg,
+  // iPad
+        lg: $desktop,
+  // Small Desktop
+        xl: $xl,
+  // Desktop
+        xxl: $xxl,
+  // Large Desktop
+        xxxl: $xxl,
+);
+
+@function get-max-width($input) {
+  @return calc(map.get($breakpoints, $input) - 1px);
+}
+
+// Media Query Mixins
+// Usage: @include base.min($breakpoint) { ... }
+@mixin min($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin container-min($breakpoint) {
+  @container (min-width: #{map.get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+
+  @supports not (container-type: inline-size) {
+    @include min($breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin max($breakpoint) {
+  @media (max-width: get-max-width($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin container-max($breakpoint) {
+  @container (max-width: #{get-max-width($breakpoint)}) {
+    @content;
+  }
+
+  @supports not (container-type: inline-size) {
+    @include max($breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Accessibility
+@mixin hocus {
+  &:hover,
+  &:focus-visible {
+    @content;
+  }
+}
