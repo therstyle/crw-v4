@@ -32,6 +32,7 @@
 
 <style lang="scss">
   @use '../../styles/vars';
+  @use '../../styles/mixins';
 
   .crw-section-container {
     display: flex;
@@ -42,8 +43,12 @@
     --section-container-inner-max-width: 1440px;
     --section-container-inner-padding-inline: var(--space-4);
 
+    @include mixins.max(sm) {
+      --section-container-inner-padding-inline: var(--space-1);
+    }
+
     &__inner {
-      width: calc(100% - (var(--section-container-inner-padding-inline) * 2));
+      width: 100%;
       max-width: var(--section-container-inner-max-width);
       margin: 0 auto;
       padding-inline: var(--section-container-inner-padding-inline);
