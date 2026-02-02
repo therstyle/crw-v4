@@ -102,6 +102,17 @@
       }
     }
 
+    &__timeline-details {
+      > li {
+        font-size: 16px;
+        line-height: 1.5;
+        list-style: none;
+        position: relative;
+        margin-left: 30px;
+        margin-bottom: var(--space-2);
+      }
+    }
+
     &__skills {
       width: minmax(244px, 33vw);
 
