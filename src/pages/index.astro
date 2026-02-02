@@ -13,7 +13,7 @@ import { contact } from './index.data.js'
 ---
 
 <Layout>
-  <div class="crw-main">
+  <main class="crw-main">
     <div class="crw-main__nav">
       <MainNav {...nav} client:load />
     </div>
@@ -24,7 +24,7 @@ import { contact } from './index.data.js'
       <SectionPortfolio {...portfolio} client:visible />
       <SectionContact {...contact} client:visible />
     </div>
-  </div>
+  </main>
 </Layout>
 
 <style lang="scss">
