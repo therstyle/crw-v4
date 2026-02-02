@@ -6,11 +6,13 @@
     subTitle = null,
     title = null,
     description = null,
+    video = null,
   } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
   const hasDescription = $derived(description !== null)
+  const hasVideo = $derived(video !== null)
 </script>
 
 <SectionContainer {id} horzCenter={true} vertCenter={true}>
@@ -39,6 +41,14 @@
       </div>
     </div>
   </div>
+
+  {#if hasVideo}
+    <div class="crw-intro__bg-video">
+      <video autoplay muted loop>
+        <source src={video} type="video/mp4" />
+      </video>
+    </div>
+  {/if}
 </SectionContainer>
 
 <style lang="scss">
@@ -125,6 +135,48 @@
         mask-size: cover;
         background: currentColor;
         animation: scroll-down linear 1.5s infinite;
+      }
+    }
+
+    &__bg-video,
+    &__bg-video::after,
+    &__bg-video::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      min-height: 100vh;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &__bg-video {
+      z-index: -1;
+
+      &::before {
+        background: linear-gradient(
+          to right,
+          rgba(51, 51, 51, 1) 1%,
+          rgba(51, 51, 51, 1) 45%,
+          rgba(51, 51, 51, 0) 100%
+        );
+      }
+
+      &::after {
+        background: linear-gradient(
+          to bottom,
+          rgba(51, 51, 51, 0) 75%,
+          rgba(51, 51, 51, 0.99) 99%,
+          rgba(51, 51, 51, 1) 100%
+        );
+      }
+
+      video {
+        width: 100%;
+        min-height: 100vh;
+        object-fit: cover;
+        margin-left: 15vw;
       }
     }
   }
