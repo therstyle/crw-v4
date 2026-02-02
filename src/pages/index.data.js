@@ -39,7 +39,7 @@ export const resume = {
         year: 2024,
         company: 'RainFocus',
         location: 'Remote',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/rainfocus.jpg',
         jobTitle: 'Senior UI Developer',
         details: [
           'Engineered bespoke web experiences for enterprise clients, seamlessly integrating their brand identities and utilizing their APIs within the application',
@@ -53,7 +53,7 @@ export const resume = {
         year: 2023,
         company: 'Wild Alaskan Company',
         location: 'Remote',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/wild-alaskan.svg',
         jobTitle: 'Senior Front End Engineer',
         details: [
           'Created and maintained responsive, accessible and performant web pages for the company Vue.js e-commerce web application that receives 1.2 million monthly visitors, increasing site traffic by 12% and conversion rate by 10%',
@@ -67,7 +67,7 @@ export const resume = {
         year: 2018,
         company: '829 Studios',
         location: 'Boston, MA',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/829.svg',
         jobTitle: 'Senior Front End Developer',
         details: [
           'Develop custom WordPress websites for large scale and enterprise clients, consistently improving site performance, accessibility (WCAG), and increasing overall site traffic',
@@ -82,7 +82,7 @@ export const resume = {
         year: 2015,
         company: 'Firefield',
         location: 'Remote',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/firefield.svg',
         jobTitle: 'Front End Developer',
         details: [
           'Worked on client side of web applications developing components with Vue.js, and React, also incorporating Bootstrap, Vuex and Redux for state management',
@@ -95,7 +95,7 @@ export const resume = {
         year: 2013,
         company: 'Brick Marketing',
         location: 'Boston, MA',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/brick-marketing.svg',
         jobTitle: 'Web Designer & Developer',
         details: [
           'Created bespoke websites for various B2B and enterprise customers using WordPress, custom post types, and Advanced Custom Fields (ACF)',
@@ -107,7 +107,7 @@ export const resume = {
         year: 2007,
         company: 'Onpoint Media',
         location: 'Beverly, MA',
-        logo: 'https://via.placeholder.com/28x28',
+        logo: '/images/jobs/brick-marketing.svg',
         jobTitle: 'Web Designer & Developer',
         details: [
           'Created and maintained web solutions using WordPress, HTML, CSS, PHP, and JavaScript / jQuery, ensuring cross-browser compatibility and responsiveness',

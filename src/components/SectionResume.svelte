@@ -15,7 +15,7 @@
           {#each resume?.items as item, index (index)}
             <article class="crw-resume__timeline-entry" data-year={item?.year}>
               <header>
-                <img src={item?.logo} alt={item?.company} />
+                <img src={item?.logo} alt={item?.company ?? ''} />
                 <div class="crw-resume__company-info">
                   <h3>{item?.company} | {item?.location}</h3>
                   <small>{item?.jobTitle}</small>
@@ -61,6 +61,45 @@
 
     &__timeline {
       max-width: 60vw;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: var(--light-gray);
+      }
+    }
+
+    &__timeline-entry {
+      padding: var(--space-3);
+      border-bottom: 1px solid var(--light-gray);
+      position: relative;
+
+      header {
+        display: flex;
+        gap: calc(var(--space-1) + var(--space-half));
+        align-items: center;
+
+        h3 {
+          line-height: 1;
+        }
+
+        small {
+          display: block;
+        }
+      }
+
+      img {
+        min-width: 42px;
+        max-width: 42px;
+        max-height: 42px;
+        padding: 7px;
+        background: var(--white);
+        border-radius: 50%;
+      }
     }
 
     &__skills {
@@ -76,6 +115,7 @@
       ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-1);
       }
     }
   }
