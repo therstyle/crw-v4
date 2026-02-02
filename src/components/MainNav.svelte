@@ -51,6 +51,7 @@
 
 <style lang="scss">
   @use '../styles/vars.scss';
+  @use '../styles/mixins.scss';
 
   @keyframes fade-in-out {
     0% {
@@ -73,11 +74,15 @@
     position: fixed;
     width: var(--main-nav-width);
 
-    --main-nav-link-icon-size: 36px; // TODO: 30px on mobile
+    --main-nav-link-icon-size: 36px;
     --main-nav-link-opacity: 66%;
     --main-nav-link-tltle-opacity: 0;
     --main-nav-link-color: rgb(255 255 255 / 66%);
     --main-nav-padding-inline: var(--space-1);
+
+    @include mixins.max(sm) {
+      --main-nav-link-icon-size: 28px;
+    }
 
     ul,
     li {
