@@ -110,6 +110,19 @@
         position: relative;
         margin-left: 30px;
         margin-bottom: var(--space-2);
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 5px;
+          left: -30px;
+          width: 12px;
+          height: 12px;
+          border-radius: 100%;
+          background: var(--red);
+          margin-right: 10px;
+        }
       }
     }
 
