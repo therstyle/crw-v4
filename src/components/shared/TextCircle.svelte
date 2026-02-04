@@ -4,6 +4,7 @@
     subTitle = null,
     url = null,
     target = '_blank',
+    icon = null,
   } = $props()
 
   const elementType = $derived(url ? 'a' : 'div')
@@ -38,10 +39,25 @@
     font-size: 14px;
     line-height: 1.2;
     text-align: center;
+    min-height: 122px;
+    max-height: 122px;
+    min-width: 122px;
+    max-width: 122px;
+    background: var(--dark-gray-alpha);
 
     &__inner {
       display: flex;
       flex-direction: column;
+    }
+
+    &__title {
+      font-weight: 600;
+      display: block;
+    }
+
+    &__sub-title {
+      font-size: 11px;
+      display: block;
     }
   }
 </style>

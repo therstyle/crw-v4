@@ -1,6 +1,6 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
-  import TextCircle from './shared/TextCircle.svelte'
+  import SectionResumeSkill from './SectionResumeSkill.svelte'
 
   let { id = null, resume = null, skills = null } = $props()
 
@@ -42,7 +42,7 @@
           <ul>
             {#each skills?.items as skill, index (index)}
               <li id={`skill-${index}`}>
-                <TextCircle title={skill?.title} subTitle={skill?.year} />
+                <SectionResumeSkill title={skill?.title} year={skill?.year} />
               </li>
             {/each}
           </ul>
@@ -182,7 +182,7 @@
       flex-direction: column;
       gap: var(--space-2);
       width: 100%;
-      max-width: 244px;
+      max-width: 264px;
 
       h3 {
         text-align: center;
