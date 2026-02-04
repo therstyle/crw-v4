@@ -1,5 +1,6 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
+  import TextCircle from './shared/TextCircle.svelte'
 
   let { id = null, resume = null, skills = null } = $props()
 
@@ -41,10 +42,7 @@
           <ul>
             {#each skills?.items as skill, index (index)}
               <li id={`skill-${index}`}>
-                <div>
-                  <span>{skill?.title}</span>
-                  <span>{skill?.year}</span>
-                </div>
+                <TextCircle title={skill?.title} subTitle={skill?.year} />
               </li>
             {/each}
           </ul>
