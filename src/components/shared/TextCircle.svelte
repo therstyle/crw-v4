@@ -55,6 +55,16 @@
     min-width: 122px;
     max-width: 122px;
     background: var(--dark-gray-alpha);
+    position: relative;
+    padding: 1px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--light-gray);
+    }
 
     &__inner {
       display: flex;
@@ -65,8 +75,8 @@
 
     &__icon {
       display: block;
-      max-width: 44px;
-      max-height: 44px;
+      max-width: 40px;
+      max-height: 40px;
 
       img {
         width: 100%;
