@@ -15,7 +15,11 @@
           {#each resume?.items as item, index (index)}
             <article class="crw-resume__timeline-entry" data-year={item?.year}>
               <header>
-                <img src={item?.logo} alt={item?.company ?? ''} />
+                <img
+                  src={item?.logo}
+                  alt={item?.company ?? ''}
+                  loading="lazy"
+                />
                 <div class="crw-resume__company-info">
                   <h3>{item?.company} | {item?.location}</h3>
                   <small>{item?.jobTitle}</small>

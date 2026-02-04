@@ -9,7 +9,7 @@
     {#each items as item, index (index)}
       <article id={`portfolio-item-${index}}`} class="crw-portfolio__item">
         <a href={item?.url} target="_blank">
-          <img src={item?.image} alt={item?.title} />
+          <img src={item?.image} alt={item?.title} loading="lazy" />
         </a>
 
         <div class="crw-portfolio__item-info">
