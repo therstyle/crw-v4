@@ -121,36 +121,36 @@ export const resume = {
   skills: {
     title: 'Skills',
     items: [
-      { title: 'HTML', year: 2001, logo: 'https://via.placeholder.com/44x44' },
-      { title: 'CSS', year: 2005, logo: 'https://via.placeholder.com/44x44' },
-      { title: 'PHP', year: 2006, logo: 'https://via.placeholder.com/44x44' },
+      { title: 'HTML', year: 2001, logo: '/images/icon-html.svg' },
+      { title: 'CSS', year: 2005, logo: '/images/icon-css.svg' },
+      { title: 'PHP', year: 2006, logo: '/images/icon-php.svg' },
       {
         title: 'JavaScript',
         year: 2009,
-        logo: 'https://via.placeholder.com/44x44',
+        logo: '/images/icon-javascript.svg',
       },
       {
         title: 'Vue.js',
         year: 2017,
-        logo: 'https://via.placeholder.com/44x44',
+        logo: '/images/icon-vuejs.svg',
       },
-      { title: 'React', year: 2018, logo: 'https://via.placeholder.com/44x44' },
+      { title: 'React', year: 2018, logo: '/images/icon-react.svg' },
       {
         title: 'Svelte',
         year: 2024,
-        logo: 'https://via.placeholder.com/44x44',
+        logo: '/images/icon-svelte.svg',
       },
       {
         title: 'Photoshop',
         year: 2002,
-        logo: 'https://via.placeholder.com/44x44',
+        logo: '/images/icon-photoshop.svg',
       },
       {
         title: 'Illustrator',
         year: 2002,
-        logo: 'https://via.placeholder.com/44x44',
+        logo: '/images/icon-illustrator.svg',
       },
-      { title: 'Figma', year: 2016, logo: 'https://via.placeholder.com/44x44' },
+      { title: 'Figma', year: 2016, logo: '/images/icon-figma.svg' },
     ],
   },
 }

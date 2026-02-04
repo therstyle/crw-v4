@@ -11,6 +11,7 @@
   const isLink = $derived(elementType === 'a')
   const hasTitle = $derived(title !== null)
   const hasSubTitle = $derived(subTitle !== null)
+  const hasIcon = $derived(icon !== null)
 </script>
 
 <svelte:element
@@ -20,9 +21,19 @@
   target={isLink ? target : null}
 >
   <span class="crw-text-circle__inner">
-    {#if hasTitle}<span class="crw-text-circle__title">{title}</span>{/if}
-    {#if hasSubTitle}<span class="crw-text-circle__sub-title">{subTitle}</span
-      >{/if}
+    {#if hasIcon}
+      <span class="crw-text-circle__icon"
+        ><img src={icon} alt={title} loading="lazy" /></span
+      >
+    {/if}
+    {#if hasTitle || hasSubTitle}
+      <span>
+        {#if hasTitle}<span class="crw-text-circle__title">{title}</span>{/if}
+        {#if hasSubTitle}<span class="crw-text-circle__sub-title"
+            >{subTitle}</span
+          >{/if}
+      </span>
+    {/if}
   </span>
 </svelte:element>
 
@@ -48,6 +59,19 @@
     &__inner {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__icon {
+      display: block;
+      max-width: 44px;
+      max-height: 44px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__title {

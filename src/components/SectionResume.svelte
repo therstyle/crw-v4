@@ -42,7 +42,7 @@
           <ul>
             {#each skills?.items as skill, index (index)}
               <li id={`skill-${index}`}>
-                <SectionResumeSkill title={skill?.title} year={skill?.year} />
+                <SectionResumeSkill {...skill} />
               </li>
             {/each}
           </ul>
