@@ -57,11 +57,16 @@
   .crw-resume {
     &__content {
       display: flex;
-      gap: 7vw;
+
+      @include mixins.max(md) {
+        flex-direction: column;
+        gap: 7vw;
+      }
     }
 
     &__timeline {
       max-width: 60vw;
+      margin: 0 7vw;
       position: relative;
 
       &::before {
@@ -76,6 +81,7 @@
 
     &__timeline-entry {
       padding: var(--space-3);
+      padding-inline-end: 0;
       border-bottom: 1px solid var(--light-gray);
       position: relative;
 
@@ -93,7 +99,7 @@
         background: var(--body-bg);
 
         @include mixins.min(xl) {
-          top: 9rem;
+          top: 90px;
         }
       }
 
