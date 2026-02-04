@@ -176,7 +176,16 @@
     }
 
     &__skills {
-      width: minmax(244px, 33vw);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      width: 100%;
+      max-width: 244px;
+
+      h3 {
+        text-align: center;
+        text-transform: uppercase;
+      }
 
       ul,
       li {
