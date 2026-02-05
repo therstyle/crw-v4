@@ -61,9 +61,16 @@
     &::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -1px;
       border-radius: 50%;
+      z-index: -1;
       border: 1px solid var(--light-gray);
+
+      // TODO: border-gradient
+      //background:
+      //  linear-gradient(#fff, #fff) padding-box,
+      //  /* The inner content color */
+      //  linear-gradient(to right, #ff7e5f, #feb47b) border-box; /* The gradient */
     }
 
     &__inner {
