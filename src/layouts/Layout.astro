@@ -66,6 +66,25 @@ import { isDark } from '../stores/theme'
     margin: 0;
   }
 
+  a:not([class]) {
+    color: var(--white);
+    background-image: linear-gradient(120deg, var(--red) 0%, var(--red) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    background-position: 0 100%;
+    padding-bottom: 3px;
+    transition: var(--global-transition);
+    text-decoration: none;
+
+    &:hover {
+      background-image: linear-gradient(
+        120deg,
+        var(--dark-red) 0%,
+        var(--dark-red) 100%
+      );
+    }
+  }
+
   img {
     max-width: 100%;
   }
