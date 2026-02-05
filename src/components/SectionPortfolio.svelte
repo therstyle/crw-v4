@@ -50,12 +50,20 @@
       display: flex;
       gap: var(--space-2);
       overflow: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &__item-wrapper {
       flex: 1;
       min-width: calc(50% - var(--space-1));
       display: flex;
+      scroll-snap-align: start;
     }
 
     &__button {
