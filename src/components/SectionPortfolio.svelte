@@ -1,5 +1,6 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
+  import SectionPortfolioItem from './SectionPortfolioItem.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 </script>
@@ -16,19 +17,9 @@
 
       <div class="crw-portfolio__container-main">
         {#each items as item, index (index)}
-          <article id={`portfolio-item-${index}`} class="crw-portfolio__item">
-            <a href={item?.url} target="_blank">
-              <img src={item?.image} alt={item?.title} loading="lazy" />
-            </a>
-
-            <div class="crw-portfolio__item-info">
-              <h3>{item?.title}</h3>
-              <p>{@html item?.description}</p>
-              <div class="crw-portfolio__item-details">
-                <a href={item?.url} target="_blank">View Project</a>
-              </div>
-            </div>
-          </article>
+          <div class="crw-portfolio__item-wrapper">
+            <SectionPortfolioItem {...item} />
+          </div>
         {/each}
       </div>
 
@@ -44,19 +35,27 @@
 
 <style lang="scss">
   @use '../styles/vars.scss';
+  @use '../styles/mixins.scss';
 
   .crw-portfolio {
     &__container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--space-1);
+      gap: var(--space-2);
     }
 
     &__container-main {
       flex: 1;
       display: flex;
-      gap: var(--space-1);
+      gap: var(--space-2);
+      overflow: auto;
+    }
+
+    &__item-wrapper {
+      flex: 1;
+      min-width: calc(50% - var(--space-1));
+      display: flex;
     }
 
     &__button {
