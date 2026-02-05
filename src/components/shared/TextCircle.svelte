@@ -72,6 +72,7 @@
       border: 1px solid var(--light-gray);
 
       // TODO: border-gradient
+
       //background:
       //  linear-gradient(#fff, #fff) padding-box,
       //  /* The inner content color */
@@ -112,6 +113,7 @@
       transform: scale(1.1);
       background: var(--dark-gray);
       box-shadow: 0 0 40px rgb(0 0 0 / 33%);
+      text-decoration: underline;
     }
   }
 </style>
