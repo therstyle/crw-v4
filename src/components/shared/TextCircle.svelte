@@ -59,6 +59,7 @@
     text-decoration: none;
     position: relative;
     padding: 1px;
+    transition: var(--global-transition);
 
     --text-circle-size: 122px;
 
@@ -103,6 +104,14 @@
     &__sub-title {
       font-size: 11px;
       display: block;
+    }
+  }
+
+  a.crw-text-circle {
+    @include mixins.hocus {
+      transform: scale(1.1);
+      background: var(--dark-gray);
+      box-shadow: 0 0 40px rgb(0 0 0 / 33%);
     }
   }
 </style>
