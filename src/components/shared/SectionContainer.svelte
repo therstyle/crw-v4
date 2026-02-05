@@ -6,6 +6,7 @@
     title = null,
     horzCenter = false,
     vertCenter = false,
+    innerFillHeight = false,
   } = $props()
 
   let isVisible = $state(false)
@@ -18,13 +19,14 @@
   class="crw-section-container"
   class:crw-section-container--horz-center={horzCenter}
   class:crw-section-container--vert-center={vertCenter}
+  class:crw-section-container--inner-fill-height={innerFillHeight}
 >
   {#if hasTitle}
     <SectionTitle {title} {isVisible} />
   {/if}
 
   <div class="crw-section-container__inner">
-    <div class="section-container__content">
+    <div class="crw-section-container__content">
       <slot />
     </div>
   </div>
@@ -60,6 +62,17 @@
 
     &--horz-center {
       align-items: center;
+    }
+
+    &--inner-fill-height {
+      .crw-section-container__inner {
+        flex: 1;
+      }
+
+      .crw-section-container__content {
+        display: flex;
+        min-height: 100%;
+      }
     }
   }
 </style>

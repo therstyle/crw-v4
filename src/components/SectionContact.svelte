@@ -5,7 +5,7 @@
   let { id = null, title = null, items = [] } = $props()
 </script>
 
-<SectionContainer {id} {title}>
+<SectionContainer {id} {title} innerFillHeight={true}>
   <div class="crw-contact">
     <ul>
       {#each items as item, index (index)}
@@ -21,6 +21,12 @@
   @use '../styles/vars.scss';
 
   .crw-contact {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     ul,
     li {
       list-style: none;
