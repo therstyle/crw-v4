@@ -5,7 +5,7 @@
   let { id = null, title = null, items = [] } = $props()
 </script>
 
-<SectionContainer {id} {title}>
+<SectionContainer {id} {title} innerFillHeight={true}>
   <div class="crw-portfolio">
     <div class="crw-portfolio__container">
       <div class="crw-portfolio__container-left">
@@ -43,6 +43,7 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-2);
+      min-height: 100%;
     }
 
     &__container-main {
