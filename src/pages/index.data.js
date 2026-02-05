@@ -200,12 +200,12 @@ export const contact = {
   items: [
     {
       title: 'GitHub',
-      logo: 'https://via.placeholder.com/44x44',
+      logo: '/images/icon-github.svg',
       url: 'https://github.com/therstyle',
     },
     {
       title: 'LinkedIn',
-      logo: 'https://via.placeholder.com/44x44',
+      logo: '/images/icon-linkedin.svg',
       url: 'https://www.linkedin.com/in/xchrisroberts/',
     },
   ],

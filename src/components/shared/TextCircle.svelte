@@ -55,6 +55,8 @@
     min-width: var(--text-circle-size);
     max-width: var(--text-circle-size);
     background: var(--dark-gray-alpha);
+    color: var(--white);
+    text-decoration: none;
     position: relative;
     padding: 1px;
 

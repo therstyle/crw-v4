@@ -1,5 +1,6 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
+  import TextCircle from './shared/TextCircle.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 </script>
@@ -9,10 +10,7 @@
     <ul>
       {#each items as item, index (index)}
         <li id={`portfolio-item-${index}`}>
-          <a href={item?.url} target="_blank">
-            <img src={item?.logo} alt={item?.title} />
-            <span>{item?.title}</span>
-          </a>
+          <TextCircle url={item?.url} title={item?.title} icon={item?.logo} />
         </li>
       {/each}
     </ul>
@@ -23,5 +21,17 @@
   @use '../styles/vars.scss';
 
   .crw-contact {
+    ul,
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      gap: var(--space-1);
+      justify-content: center;
+    }
   }
 </style>
