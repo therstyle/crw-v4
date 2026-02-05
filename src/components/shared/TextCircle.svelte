@@ -50,13 +50,15 @@
     font-size: 14px;
     line-height: 1.2;
     text-align: center;
-    min-height: 122px;
-    max-height: 122px;
-    min-width: 122px;
-    max-width: 122px;
+    min-height: var(--text-circle-size);
+    max-height: var(--text-circle-size);
+    min-width: var(--text-circle-size);
+    max-width: var(--text-circle-size);
     background: var(--dark-gray-alpha);
     position: relative;
     padding: 1px;
+
+    --text-circle-size: 122px;
 
     &::before {
       content: '';
