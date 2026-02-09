@@ -20,6 +20,7 @@
   class:crw-section-container--horz-center={horzCenter}
   class:crw-section-container--vert-center={vertCenter}
   class:crw-section-container--inner-fill-height={innerFillHeight}
+  class:crw-section-container--has-title={hasTitle}
 >
   {#if hasTitle}
     <SectionTitle {title} {isVisible} />
@@ -40,7 +41,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    scroll-margin: var(--space-2);
+    //scroll-margin: var(--space-2);
 
     --section-container-inner-max-width: 1440px;
     --section-container-inner-padding-inline: var(--space-4);
@@ -73,6 +74,10 @@
         display: flex;
         min-height: 100%;
       }
+    }
+
+    &--has-title {
+      padding-top: var(--space-5);
     }
   }
 </style>
