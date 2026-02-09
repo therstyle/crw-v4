@@ -118,10 +118,33 @@
       border: none;
       border-radius: 50%;
       background: var(--white);
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: auto;
+        background: currentColor;
+        mask-image: url('/images/icon-caret.svg');
+        mask-repeat: no-repeat;
+        mask-size: cover;
+      }
 
       &[aria-disabled='true'] {
         opacity: 0.5;
+        pointer-events: none;
       }
+    }
+
+    &--button-next {
+      rotate: 180deg;
     }
   }
 </style>
