@@ -136,6 +136,12 @@
           left: -6.375rem;
           top: 1.938rem;
         }
+
+        @include mixins.max(sm) {
+          font-size: 5vw;
+          left: -9vw;
+          top: 2.1vw;
+        }
       }
 
       &:last-child {
