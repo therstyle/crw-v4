@@ -17,6 +17,7 @@
   .crw-section-title {
     padding: 15px 20px 20px var(--space-4);
     padding-block-start: 0;
+    margin-block-end: var(--space-8);
 
     h2 {
       font-size: 88px;
