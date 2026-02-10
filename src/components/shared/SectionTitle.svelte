@@ -1,5 +1,5 @@
 <script>
-  import animate from '../../utils/animate'
+  import elementVisible from '../../utils/elementVisible'
 
   let { title = null, titleMarginBottom = false } = $props()
 
@@ -9,7 +9,7 @@
 <header
   class="crw-section-title"
   class:crw-section-title--margin-bottom={titleMarginBottom}
-  use:animate
+  use:elementVisible
   oncrwElementVisible={() => (isVisible = true)}
   data-is-visible={isVisible}
 >

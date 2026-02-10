@@ -1,4 +1,4 @@
-function animate(el, settings) {
+function elementVisible(el, settings) {
   if (!el) return
 
   const observer = new IntersectionObserver((entries) => {
@@ -14,4 +14,4 @@ function animate(el, settings) {
   return { destroy: () => observer.disconnect() }
 }
 
-export default animate
+export default elementVisible
