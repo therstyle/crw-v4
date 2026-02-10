@@ -8,7 +8,7 @@
   const hasSkills = $derived(skills !== null)
 </script>
 
-<SectionContainer {id} title={resume?.title}>
+<SectionContainer {id} title={resume?.title} titleMarginBottom={true}>
   <div class="crw-resume">
     <div class="crw-resume__content">
       {#if hasResume}

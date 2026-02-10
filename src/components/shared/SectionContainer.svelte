@@ -7,6 +7,7 @@
     horzCenter = false,
     vertCenter = false,
     innerFillHeight = false,
+    titleMarginBottom = false,
   } = $props()
 
   let isVisible = $state(false)
@@ -23,7 +24,7 @@
   class:crw-section-container--has-title={hasTitle}
 >
   {#if hasTitle}
-    <SectionTitle {title} {isVisible} />
+    <SectionTitle {title} {isVisible} {titleMarginBottom} />
   {/if}
 
   <div class="crw-section-container__inner">
