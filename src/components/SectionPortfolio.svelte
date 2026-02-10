@@ -8,8 +8,10 @@
   let scrollItemRef = $state([])
   let isMobile = $state(null)
 
-  const totalItems = $derived(items.length)
   let scrollItems = $derived(isMobile ? 1 : 2)
+  const totalItems = $derived(items.length)
+  const disablePrev = $derived(currentItem === 0 ? true : null)
+  const disableNext = $derived(currentItem >= totalItems - scrollItems)
 
   function prev() {
     if (currentItem <= scrollItems) {
@@ -62,7 +64,7 @@
           href={`#portfolio-item-${currentItem}`}
           aria-label="Prev"
           class="crw-portfolio__button crw-portfolio--button-prev"
-          aria-disabled={currentItem === 0 ? true : null}
+          aria-disabled={disablePrev}
           onclick={prev}
         ></button>
       </div>
@@ -83,7 +85,7 @@
           href={`#portfolio-item-${currentItem + scrollItems}`}
           aria-label="Next"
           class="crw-portfolio__button crw-portfolio--button-next"
-          aria-disabled={currentItem >= totalItems - scrollItems}
+          aria-disabled={disableNext}
           onclick={next}
         ></button>
       </div>
@@ -101,8 +103,10 @@
     --portfolio-items-total-gap: calc(
       var(--portfolio-items-gap) / var(--portfolio-scroll-items)
     );
+
     &__container {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-2);
