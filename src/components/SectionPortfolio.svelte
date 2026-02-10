@@ -57,6 +57,7 @@
     data-current-item={currentItem}
     style:--portfolio-scroll-items={scrollItems}
     data-is-mobile={isMobile}
+    data-scroll-items={scrollItems}
   >
     <div class="crw-portfolio__container">
       <div class="crw-portfolio__container-prev">
@@ -104,6 +105,14 @@
       var(--portfolio-items-gap) / var(--portfolio-scroll-items)
     );
 
+    &[data-scroll-items='1'] {
+      .crw-portfolio__container-main {
+        @include mixins.max(sm) {
+          gap: 0;
+        }
+      }
+    }
+
     &__container {
       display: flex;
       flex-wrap: wrap;
@@ -111,16 +120,40 @@
       justify-content: space-between;
       gap: var(--space-2);
       min-height: 100%;
+
+      @include mixins.max(md) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          'main main'
+          'prev next';
+      }
+    }
+
+    &__container-prev {
+      @include mixins.max(md) {
+        grid-area: prev;
+        align-self: start;
+        justify-self: end;
+      }
+    }
+
+    &__container-next {
+      @include mixins.max(md) {
+        grid-area: next;
+        align-self: start;
+      }
     }
 
     &__container-main {
       flex: 1;
       display: flex;
-      gap: var(--space-2);
+      gap: var(--portfolio-items-gap);
       overflow: auto;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
       -ms-overflow-style: none;
+      grid-area: main;
 
       &::-webkit-scrollbar {
         display: none;
