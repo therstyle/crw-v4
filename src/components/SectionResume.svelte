@@ -22,7 +22,10 @@
                   loading="lazy"
                 />
                 <div class="crw-resume__company-info">
-                  <h3>{item?.company} | {item?.location}</h3>
+                  <h3>
+                    <span class="crw-resume__company">{item?.company}</span>
+                    <span class="crw-resume__location">{item?.location}</span>
+                  </h3>
                   <small>{item?.jobTitle}</small>
                 </div>
               </header>
@@ -86,6 +89,9 @@
     }
 
     &__timeline-entry {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
       padding: var(--space-3);
       padding-inline-end: 0;
       border-bottom: 1px solid var(--light-gray);
@@ -158,14 +164,6 @@
           align-items: flex-start;
         }
 
-        h3 {
-          line-height: 1;
-
-          @include mixins.max(sm) {
-            font-size: 15px;
-          }
-        }
-
         small {
           display: block;
         }
@@ -187,9 +185,26 @@
       }
     }
 
+    &__company-info {
+      h3 {
+        display: inline-flex;
+        gap: 0.5ch;
+        line-height: 1;
+
+        @include mixins.max(sm) {
+          font-size: 15px;
+        }
+      }
+    }
+
+    &__location {
+      border-inline-start: 2px solid var(--white);
+      padding-inline-start: 0.5ch;
+    }
+
     &__timeline-details {
       padding-inline-start: 0;
-      margin-block-end: 0;
+      margin: 0;
 
       > li {
         font-size: 16px;
