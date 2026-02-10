@@ -41,12 +41,12 @@
   --main-nav-width: 100px;
 
   // Misc
-  --transition-duration: 0.3s;
+  --transition-duration: 0s;
   --transition-type: ease-in-out;
   --global-transition: all var(--transition-duration) var(--transition-type);
 
-  @media (prefers-reduced-motion: reduce) {
-    --transition-duration: 0s;
+  @include mixins.prefers-motion {
+    --transition-duration: 0.3s;
   }
 
   @include mixins.max(sm) {

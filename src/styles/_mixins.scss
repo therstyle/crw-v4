@@ -77,10 +77,31 @@ $breakpoints: (
   }
 }
 
+// Animation / Transitions
+@mixin slide-up-on-visible {
+  transition: var(--global-transition);
+
+  @include prefers-motion {
+    opacity: 0;
+    translate: 0 var(--space-4);
+
+    &[data-is-visible='true'] {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
 // Accessibility
 @mixin hocus {
   &:hover,
   &:focus-visible {
+    @content;
+  }
+}
+
+@mixin prefers-motion {
+  @media (prefers-reduced-motion: no-preference) {
     @content;
   }
 }

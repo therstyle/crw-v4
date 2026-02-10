@@ -23,6 +23,7 @@
   .crw-section-title {
     padding: 15px 20px 20px var(--space-4);
     padding-block-start: 0;
+    @include mixins.slide-up-on-visible;
 
     &--margin-bottom {
       margin-block-end: var(--space-8);
