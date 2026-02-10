@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte'
+  import animate from '../../utils/animate'
 
   let { title = null, titleMarginBottom = false } = $props()
 
@@ -9,6 +9,9 @@
 <header
   class="crw-section-title"
   class:crw-section-title--margin-bottom={titleMarginBottom}
+  use:animate
+  oncrwElementVisible={() => (isVisible = true)}
+  data-is-visible={isVisible}
 >
   <h2>{title}</h2>
 </header>
