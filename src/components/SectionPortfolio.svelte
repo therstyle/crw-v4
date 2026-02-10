@@ -6,7 +6,8 @@
 
   let scrollItems = $state(2)
   let currentItem = $state(0)
-  let scrollItemRef = []
+  let scrollItemRef = $state([])
+  let isMobile = $state(null)
 
   const totalItems = $derived(items.length)
 
@@ -34,6 +35,21 @@
       block: 'center',
     })
   }
+
+  $effect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)')
+
+    isMobile = mediaQuery.matches
+
+    const handler = (e) => {
+      isMobile = e.matches
+      scrollItems = isMobile ? 1 : 2
+    }
+
+    mediaQuery.addEventListener('change', handler)
+
+    return () => mediaQuery.removeEventListener('change', handler)
+  })
 </script>
 
 <SectionContainer {id} {title} innerFillHeight={true}>
@@ -41,6 +57,7 @@
     class="crw-portfolio"
     data-current-item={currentItem}
     style:--portfolio-scroll-items={scrollItems}
+    data-is-mobile={isMobile}
   >
     <div class="crw-portfolio__container">
       <div class="crw-portfolio__container-left">
@@ -82,6 +99,11 @@
   @use '../styles/mixins.scss';
 
   .crw-portfolio {
+    --portfolio-items-max-width: calc(100% / var(--portfolio-scroll-items));
+    --portfolio-items-gap: var(--space-2);
+    --portfolio-items-total-gap: calc(
+      var(--portfolio-items-gap) / var(--portfolio-scroll-items)
+    );
     &__container {
       display: flex;
       align-items: center;
@@ -106,7 +128,9 @@
 
     &__item-wrapper {
       flex: 1;
-      min-width: calc(50% - (var(--space-2) / var(--portfolio-scroll-items)));
+      min-width: calc(
+        var(--portfolio-items-max-width) - var(--portfolio-items-total-gap)
+      );
       display: flex;
       scroll-snap-align: start;
     }
