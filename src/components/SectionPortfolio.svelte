@@ -59,7 +59,7 @@
     data-is-mobile={isMobile}
   >
     <div class="crw-portfolio__container">
-      <div class="crw-portfolio__container-left">
+      <div class="crw-portfolio__container-prev">
         <button
           href={`#portfolio-item-${currentItem}`}
           aria-label="Prev"
@@ -80,7 +80,7 @@
         {/each}
       </div>
 
-      <div class="crw-portfolio__container-right">
+      <div class="crw-portfolio__container-next">
         <button
           href={`#portfolio-item-${currentItem + scrollItems}`}
           aria-label="Next"
