@@ -231,6 +231,7 @@
       gap: var(--space-2);
       width: 100%;
       max-width: 264px;
+      margin-inline: auto;
 
       h3 {
         text-align: center;
