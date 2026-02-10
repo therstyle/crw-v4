@@ -12,6 +12,7 @@
 
 <style lang="scss">
   @use '../../styles/vars';
+  @use '../../styles/mixins';
 
   .crw-section-title {
     padding: 15px 20px 20px var(--space-4);
@@ -22,6 +23,10 @@
       font-weight: 800;
       line-height: 1;
       text-transform: uppercase;
+
+      @include mixins.max(sm) {
+        font-size: 36px;
+      }
     }
   }
 </style>
