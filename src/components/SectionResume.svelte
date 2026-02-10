@@ -74,6 +74,11 @@
       margin: 0 7vw;
       position: relative;
 
+      @include mixins.max(md) {
+        margin-inline-end: 0;
+        max-width: 100%;
+      }
+
       &::before {
         content: '';
         position: absolute;
