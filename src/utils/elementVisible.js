@@ -1,4 +1,4 @@
-function elementVisible(el, settings) {
+function elementVisible(el, settings = { threshold: 1 }) {
   if (!el) return
 
   const observer = new IntersectionObserver((entries) => {
