@@ -23,8 +23,8 @@
   }
 
   function next() {
-    if (currentItem >= scrollItems) {
-      currentItem = scrollItems
+    if (currentItem > totalItems) {
+      currentItem = 0
     } else {
       currentItem = currentItem + scrollItems
     }
@@ -104,13 +104,14 @@
     --portfolio-items-total-gap: calc(
       var(--portfolio-items-gap) / var(--portfolio-scroll-items)
     );
+    --portfolio-items-min-width: calc(
+      var(--portfolio-items-max-width) - var(--portfolio-items-total-gap)
+    );
 
     &[data-scroll-items='1'] {
-      .crw-portfolio__container-main {
-        @include mixins.max(sm) {
-          gap: 0;
-        }
-      }
+      --portfolio-items-max-width: 100%;
+      --portfolio-items-gap: 0;
+      --portfolio-items-min-width: 100%;
     }
 
     &__container {
@@ -162,9 +163,7 @@
 
     &__item-wrapper {
       flex: 1;
-      min-width: calc(
-        var(--portfolio-items-max-width) - var(--portfolio-items-total-gap)
-      );
+      min-width: var(--portfolio-items-min-width);
       display: flex;
       scroll-snap-align: start;
     }
