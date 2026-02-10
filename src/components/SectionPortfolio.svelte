@@ -156,6 +156,10 @@
       -ms-overflow-style: none;
       grid-area: main;
 
+      @include mixins.max(md) {
+        align-self: end;
+      }
+
       &::-webkit-scrollbar {
         display: none;
       }
