@@ -4,12 +4,12 @@
 
   let { id = null, title = null, items = [] } = $props()
 
-  let scrollItems = $state(2)
   let currentItem = $state(0)
   let scrollItemRef = $state([])
   let isMobile = $state(null)
 
   const totalItems = $derived(items.length)
+  let scrollItems = $derived(isMobile ? 1 : 2)
 
   function prev() {
     if (currentItem <= scrollItems) {
@@ -38,16 +38,13 @@
 
   $effect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)')
-
     isMobile = mediaQuery.matches
 
     const handler = (e) => {
       isMobile = e.matches
-      scrollItems = isMobile ? 1 : 2
     }
 
     mediaQuery.addEventListener('change', handler)
-
     return () => mediaQuery.removeEventListener('change', handler)
   })
 </script>
