@@ -1,6 +1,7 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionPortfolioItem from './SectionPortfolioItem.svelte'
+  import SlideIntoView from './SlideIntoView.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 
@@ -59,38 +60,40 @@
     data-is-mobile={isMobile}
     data-scroll-items={scrollItems}
   >
-    <div class="crw-portfolio__container">
-      <div class="crw-portfolio__container-prev">
-        <button
-          href={`#portfolio-item-${currentItem}`}
-          aria-label="Prev"
-          class="crw-portfolio__button crw-portfolio--button-prev"
-          aria-disabled={disablePrev}
-          onclick={prev}
-        ></button>
-      </div>
+    <SlideIntoView>
+      <div class="crw-portfolio__container">
+        <div class="crw-portfolio__container-prev">
+          <button
+            href={`#portfolio-item-${currentItem}`}
+            aria-label="Prev"
+            class="crw-portfolio__button crw-portfolio--button-prev"
+            aria-disabled={disablePrev}
+            onclick={prev}
+          ></button>
+        </div>
 
-      <div class="crw-portfolio__container-main">
-        {#each items as item, index (index)}
-          <div
-            bind:this={scrollItemRef[index]}
-            class="crw-portfolio__item-wrapper"
-          >
-            <SectionPortfolioItem {...item} />
-          </div>
-        {/each}
-      </div>
+        <div class="crw-portfolio__container-main">
+          {#each items as item, index (index)}
+            <div
+              bind:this={scrollItemRef[index]}
+              class="crw-portfolio__item-wrapper"
+            >
+              <SectionPortfolioItem {...item} />
+            </div>
+          {/each}
+        </div>
 
-      <div class="crw-portfolio__container-next">
-        <button
-          href={`#portfolio-item-${currentItem + scrollItems}`}
-          aria-label="Next"
-          class="crw-portfolio__button crw-portfolio--button-next"
-          aria-disabled={disableNext}
-          onclick={next}
-        ></button>
+        <div class="crw-portfolio__container-next">
+          <button
+            href={`#portfolio-item-${currentItem + scrollItems}`}
+            aria-label="Next"
+            class="crw-portfolio__button crw-portfolio--button-next"
+            aria-disabled={disableNext}
+            onclick={next}
+          ></button>
+        </div>
       </div>
-    </div>
+    </SlideIntoView>
   </div>
 </SectionContainer>
 
@@ -99,6 +102,9 @@
   @use '../styles/mixins.scss';
 
   .crw-portfolio {
+    display: flex;
+    align-items: center;
+
     --portfolio-items-max-width: calc(100% / var(--portfolio-scroll-items));
     --portfolio-items-gap: var(--space-2);
     --portfolio-items-total-gap: calc(
