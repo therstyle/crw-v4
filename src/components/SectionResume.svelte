@@ -191,6 +191,13 @@
     }
 
     &__company-info {
+      display: flex;
+      flex-direction: column;
+
+      @include mixins.max(xxs) {
+        gap: var(--space-1);
+      }
+
       h3 {
         display: inline-flex;
         gap: 0.5ch;
@@ -199,12 +206,22 @@
         @include mixins.max(sm) {
           font-size: 15px;
         }
+
+        @include mixins.max(xxs) {
+          flex-direction: column;
+        }
       }
     }
 
     &__location {
       border-inline-start: 2px solid var(--white);
       padding-inline-start: 0.5ch;
+
+      @include mixins.max(xxs) {
+        border-inline-start: none;
+        padding-inline-start: 0;
+        font-size: 13px;
+      }
     }
 
     &__timeline-details {
