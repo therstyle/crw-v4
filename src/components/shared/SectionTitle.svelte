@@ -25,6 +25,10 @@
     padding-block-start: 0;
     @include mixins.slide-up-on-visible;
 
+    @include mixins.max(sm) {
+      padding-inline-start: var(--space-2);
+    }
+
     &--margin-bottom {
       margin-block-end: var(--space-8);
     }

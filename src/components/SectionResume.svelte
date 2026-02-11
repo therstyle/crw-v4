@@ -97,10 +97,13 @@
       display: flex;
       flex-direction: column;
       gap: var(--space-2);
-      padding: var(--space-3);
-      padding-inline-end: 0;
+      padding: var(--space-3) var(--space-3) 0 var(--space-3);
       border-bottom: 1px solid var(--light-gray);
       position: relative;
+
+      @include mixins.max(xxs) {
+        padding: var(--space-2) var(--space-2) 0 var(--space-2);
+      }
 
       &::before {
         content: '';

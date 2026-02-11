@@ -48,7 +48,7 @@
     --section-container-inner-padding-inline: var(--space-4);
 
     @include mixins.max(sm) {
-      --section-container-inner-padding-inline: var(--space-1);
+      --section-container-inner-padding-inline: var(--space-2);
     }
 
     &__inner {
