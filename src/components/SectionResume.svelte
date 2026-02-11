@@ -1,6 +1,6 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
-  import SectionResumeSkill from './SectionResumeSkill.svelte'
+  import SectionResumeSkills from './SectionResumeSkills.svelte'
 
   let { id = null, resume = null, skills = null } = $props()
 
@@ -40,16 +40,7 @@
       {/if}
 
       {#if hasSkills}
-        <aside class="crw-resume__skills">
-          <h3>{skills?.title}</h3>
-          <ul>
-            {#each skills?.items as skill, index (index)}
-              <li id={`skill-${index}`}>
-                <SectionResumeSkill {...skill} />
-              </li>
-            {/each}
-          </ul>
-        </aside>
+        <SectionResumeSkills {...skills} />
       {/if}
     </div>
   </div>
@@ -262,34 +253,6 @@
             left: -20px;
           }
         }
-      }
-    }
-
-    &__skills {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-      width: 100%;
-      max-width: 264px;
-      margin-inline: auto;
-
-      h3 {
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 24px;
-      }
-
-      ul,
-      li {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-1);
       }
     }
   }
