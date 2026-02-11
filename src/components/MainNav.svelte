@@ -1,6 +1,7 @@
 <script>
   import { isDark } from '../stores/theme.js'
   import { menuItems } from '../stores/menuItems'
+  import { onMount } from 'svelte'
 
   let { logo = null } = $props()
 
@@ -9,12 +10,29 @@
     localLinks = value
   })
 
+  let localIsDark = $state(isDark.get())
+  isDark.subscribe((value) => {
+    localIsDark = value
+  })
+
   const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived(localLinks.length > 0)
 
   function toggleIsDark() {
-    isDark.set(!isDark.get())
+    isDark.set(!localIsDark)
+    localStorage.setItem('isDark', localIsDark)
   }
+
+  function loadLocalStorage() {
+    const isDarkFromStorage = localStorage.getItem('isDark')
+    if (isDarkFromStorage) {
+      isDark.set(isDarkFromStorage === 'true')
+    }
+  }
+
+  onMount(() => {
+    loadLocalStorage()
+  })
 </script>
 
 <div class="crw-main-nav">
@@ -50,7 +68,7 @@
     {/if}
 
     <div class="crw-main-nav__bottom">
-      <input type="checkbox" checked={isDark.get()} on:change={toggleIsDark} />
+      <input type="checkbox" checked={localIsDark} on:change={toggleIsDark} />
     </div>
   </div>
 </div>

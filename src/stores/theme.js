@@ -1,3 +1,3 @@
 import { atom } from 'nanostores'
 
-export const isDark = atom(true)
+export const isDark = atom(false)
