@@ -1,19 +1,28 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
   import TextCircle from './shared/TextCircle.svelte'
+  import SlideIntoView from './SlideIntoView.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 </script>
 
 <SectionContainer {id} {title} innerFillHeight={true}>
   <div class="crw-contact">
-    <ul>
-      {#each items as item, index (index)}
-        <li id={`portfolio-item-${index}`}>
-          <TextCircle url={item?.url} title={item?.title} icon={item?.logo} />
-        </li>
-      {/each}
-    </ul>
+    <SlideIntoView>
+      <div class="crw-contact__content">
+        <ul>
+          {#each items as item, index (index)}
+            <li id={`portfolio-item-${index}`}>
+              <TextCircle
+                url={item?.url}
+                title={item?.title}
+                icon={item?.logo}
+              />
+            </li>
+          {/each}
+        </ul>
+      </div>
+    </SlideIntoView>
   </div>
 </SectionContainer>
 
