@@ -60,7 +60,7 @@
     data-is-mobile={isMobile}
     data-scroll-items={scrollItems}
   >
-    <SlideIntoView>
+    <SlideIntoView settings={{ threshold: 0.2 }}>
       <div class="crw-portfolio__container">
         <div class="crw-portfolio__container-prev">
           <button
