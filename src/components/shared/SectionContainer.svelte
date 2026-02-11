@@ -20,17 +20,34 @@
 
   function observeContainer() {
     if (containerRef === null) return
-    const settings = { rootMargin: '-50% 0% -50% 0%' }
+
+    const settings = { threshold: 0.1 }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const thisItem = localMenuItems.find(
           (item) => item.url.replace('#', '') === id,
         )
-
         thisItem.entry = entry
-        thisItem.active = entry.isIntersecting
+
+        // Reset all items
+        localMenuItems.forEach((item) => {
+          item.active = false
+        })
+
+        // Find current intersecting items
+        const intersectingItems = localMenuItems.filter(
+          (item) => item.entry?.isIntersecting,
+        )
+
+        // Find the item with the highest intersection ratio
+        const mostIntersectingItem = intersectingItems.reduce((prev, curr) =>
+          prev?.entry?.intersectionRatio > curr?.entry?.intersectionRatio
+            ? prev
+            : curr,
+        )
+
+        mostIntersectingItem.active = true
         menuItems.set(localMenuItems)
-        console.log(menuItems.get())
       })
     }, settings)
     observer.observe(containerRef)
