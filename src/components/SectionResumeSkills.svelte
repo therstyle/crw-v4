@@ -1,26 +1,22 @@
 <script>
   import SectionResumeSkill from './SectionResumeSkill.svelte'
-  import elementVisible from '../utils/elementVisible.js'
+  import SlideIntoView from './SlideIntoView.svelte'
 
   let { title, items = [] } = $props()
-  let isVisible = $state(false)
 </script>
 
-<aside
-  class="crw-skills"
-  use:elementVisible={{ threshold: 0.1 }}
-  oncrwElementVisible={() => (isVisible = true)}
-  data-is-visible={isVisible}
->
-  <h3>{title}</h3>
-  <ul>
-    {#each items as skill, index (index)}
-      <li id={`skill-${index}`}>
-        <SectionResumeSkill {...skill} />
-      </li>
-    {/each}
-  </ul>
-</aside>
+<SlideIntoView settings={{ threshold: 0.1 }}>
+  <aside class="crw-skills">
+    <h3>{title}</h3>
+    <ul>
+      {#each items as skill, index (index)}
+        <li id={`skill-${index}`}>
+          <SectionResumeSkill {...skill} />
+        </li>
+      {/each}
+    </ul>
+  </aside>
+</SlideIntoView>
 
 <style lang="scss">
   @use '../styles/vars';
@@ -33,7 +29,6 @@
     width: 100%;
     max-width: 264px;
     margin-inline: auto;
-    @include mixins.slide-up-on-visible;
 
     h3 {
       text-align: center;
