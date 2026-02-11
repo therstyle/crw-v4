@@ -1,5 +1,7 @@
 <script>
   import SectionTitle from './SectionTitle.svelte'
+  import { menuItems } from '../../stores/menuItems.js'
+  import { onMount } from 'svelte'
 
   let {
     id = null,
@@ -11,17 +13,45 @@
   } = $props()
 
   let isVisible = $state(false)
+  let containerRef = $state(null)
+  let localMenuItems = $state([...menuItems.get()])
 
   const hasTitle = $derived(title !== null)
+
+  function observeContainer() {
+    if (containerRef === null) return
+    const settings = { rootMargin: '-50% 0% -50% 0%' }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const thisItem = localMenuItems.find(
+          (item) => item.url.replace('#', '') === id,
+        )
+
+        thisItem.entry = entry
+        thisItem.active = entry.isIntersecting
+        menuItems.set(localMenuItems)
+        console.log(menuItems.get())
+      })
+    }, settings)
+    observer.observe(containerRef)
+
+    return { destroy: () => observer.disconnect() }
+  }
+
+  onMount(() => {
+    observeContainer()
+  })
 </script>
 
 <section
   {id}
+  bind:this={containerRef}
   class="crw-section-container"
   class:crw-section-container--horz-center={horzCenter}
   class:crw-section-container--vert-center={vertCenter}
   class:crw-section-container--inner-fill-height={innerFillHeight}
   class:crw-section-container--has-title={hasTitle}
+  data-is-visible={isVisible}
 >
   {#if hasTitle}
     <SectionTitle {title} {isVisible} {titleMarginBottom} />

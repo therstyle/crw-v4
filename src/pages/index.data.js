@@ -9,7 +9,6 @@ export const nav = {
       title: 'Home',
       url: '#intro',
       image: '/images/icon-home.svg',
-      active: true,
     },
     { title: 'Resume', url: '#resume', image: '/images/icon-resume.svg' },
     {

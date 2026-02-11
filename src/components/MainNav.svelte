@@ -1,10 +1,16 @@
 <script>
   import { isDark } from '../stores/theme.js'
+  import { menuItems } from '../stores/menuItems'
 
-  let { logo = null, links = [] } = $props()
+  let { logo = null } = $props()
+
+  let localLinks = $state([])
+  menuItems.subscribe((value) => {
+    localLinks = value
+  })
 
   const hasLogo = $derived(logo !== null && logo?.image)
-  const hasLinks = $derived(links.length > 0)
+  const hasLinks = $derived(localLinks.length > 0)
 
   function toggleIsDark() {
     isDark.set(!isDark.get())
@@ -24,7 +30,7 @@
     {#if hasLinks}
       <nav class="crw-main-nav__links">
         <ul>
-          {#each links as link, index (index)}
+          {#each localLinks as link, index (index)}
             <li
               class="crw-main-nav__link-wrapper"
               class:crw-main-nav__link-wrapper--active={link?.active}
