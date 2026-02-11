@@ -1,21 +1,26 @@
 <script>
+  import SlideIntoView from './SlideIntoView.svelte'
+
   let { logo, company, year, location, jobTitle, details = [] } = $props()
 </script>
 
 <article class="crw-timeline-entry" data-year={year}>
-  <header>
-    <img src={logo} alt={company ?? ''} loading="lazy" />
-    <div class="crw-timeline-entry__company-info">
-      <h3>
-        <span class="crw-timeline-entry__company">{company}</span>
-        <span class="crw-timeline-entry__location">{location}</span>
-      </h3>
-      <small>{jobTitle}</small>
-    </div>
-  </header>
+  <SlideIntoView>
+    <header>
+      <img src={logo} alt={company ?? ''} loading="lazy" />
+      <div class="crw-timeline-entry__company-info">
+        <h3>
+          <span class="crw-timeline-entry__company">{company}</span>
+          <span class="crw-timeline-entry__location">{location}</span>
+        </h3>
+        <small>{jobTitle}</small>
+      </div>
+    </header>
+  </SlideIntoView>
+
   <ul class="crw-timeline-entry__timeline-details">
     {#each details as detail, detailIndex (detailIndex)}
-      <li>{detail}</li>
+      <SlideIntoView><li>{detail}</li></SlideIntoView>
     {/each}
   </ul>
 </article>
@@ -161,7 +166,7 @@
       padding-inline-start: 0;
       margin: 0;
 
-      > li {
+      li {
         font-size: 16px;
         line-height: 1.5;
         list-style: none;
