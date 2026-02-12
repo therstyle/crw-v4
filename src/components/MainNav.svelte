@@ -5,22 +5,13 @@
 
   let { logo = null } = $props()
 
-  let localLinks = $state([])
-  menuItems.subscribe((value) => {
-    localLinks = value
-  })
-
-  let localIsDark = $state(isDark.get())
-  isDark.subscribe((value) => {
-    localIsDark = value
-  })
-
   const hasLogo = $derived(logo !== null && logo?.image)
-  const hasLinks = $derived(localLinks.length > 0)
+  const hasLinks = $derived($menuItems.length > 0)
 
   function toggleIsDark() {
-    isDark.set(!localIsDark)
-    localStorage.setItem('isDark', localIsDark)
+    const newValue = !$isDark
+    isDark.set(newValue)
+    localStorage.setItem('isDark', newValue)
   }
 
   function loadLocalStorage() {
@@ -48,7 +39,7 @@
     {#if hasLinks}
       <nav class="crw-main-nav__links">
         <ul>
-          {#each localLinks as link, index (index)}
+          {#each $menuItems as link, index (index)}
             <li
               class="crw-main-nav__link-wrapper"
               class:crw-main-nav__link-wrapper--active={link?.active}
@@ -68,7 +59,7 @@
     {/if}
 
     <div class="crw-main-nav__bottom">
-      <input type="checkbox" checked={localIsDark} on:change={toggleIsDark} />
+      <input type="checkbox" checked={$isDark} onchange={toggleIsDark} />
     </div>
   </div>
 </div>
