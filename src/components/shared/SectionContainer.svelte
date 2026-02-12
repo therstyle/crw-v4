@@ -22,7 +22,7 @@
 
     const settings = { threshold: 0.1 }
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         const items = $menuItems.map((item) => ({
           ...item,
           active: false,
@@ -52,7 +52,7 @@
         }
 
         menuItems.set(items)
-      })
+      }
     }, settings)
     observer.observe(containerRef)
 
