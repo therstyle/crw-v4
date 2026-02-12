@@ -5,12 +5,12 @@ function elementVisible(el, options = {}) {
   if (!el) return
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    for (const entry of entries) {
       if (entry.isIntersecting) {
         el.dispatchEvent(new CustomEvent('crwElementVisible'))
         observer.unobserve(entry.target)
       }
-    })
+    }
   }, settings)
 
   observer.observe(el)
