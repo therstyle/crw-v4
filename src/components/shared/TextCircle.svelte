@@ -56,6 +56,7 @@
     max-width: var(--text-circle-size);
     background: var(--transparent-button-color);
     color: var(--main-font-color);
+    border: 1px solid var(--border-color);
     text-decoration: none;
     position: relative;
     padding: 1px;
@@ -63,22 +64,6 @@
 
     --text-circle-size: 122px;
     --text-circle-icon-size: 40px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 50%;
-      z-index: -1;
-      border: 1px solid var(--light-gray);
-
-      // TODO: border-gradient
-
-      //background:
-      //  linear-gradient(#fff, #fff) padding-box,
-      //  /* The inner content color */
-      //  linear-gradient(to right, #ff7e5f, #feb47b) border-box; /* The gradient */
-    }
 
     &__inner {
       display: flex;
