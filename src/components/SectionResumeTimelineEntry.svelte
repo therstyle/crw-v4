@@ -78,8 +78,7 @@
         margin-left: calc(4.1vw + 7px);
         width: 14px;
         height: 14px;
-        border: 3px solid var(--red);
-        background: var(--body-bg);
+        border-width: 3px;
       }
     }
 
