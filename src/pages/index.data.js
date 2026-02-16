@@ -106,7 +106,7 @@ export const resume = {
         year: 2007,
         company: 'Onpoint Media',
         location: 'Beverly, MA',
-        logo: '/images/jobs/brick-marketing.svg',
+        logo: '/images/jobs/onpoint.png',
         jobTitle: 'Web Designer & Developer',
         details: [
           'Created and maintained web solutions using WordPress, HTML, CSS, PHP, and JavaScript / jQuery, ensuring cross-browser compatibility and responsiveness',
