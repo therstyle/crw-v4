@@ -5,13 +5,14 @@
     url = null,
     target = '_blank',
     icon = null,
+    svgIcon = null,
   } = $props()
 
   const elementType = $derived(url ? 'a' : 'div')
   const isLink = $derived(elementType === 'a')
   const hasTitle = $derived(title !== null)
   const hasSubTitle = $derived(subTitle !== null)
-  const hasIcon = $derived(icon !== null)
+  const hasIcon = $derived(icon !== null || svgIcon !== null)
 </script>
 
 <svelte:element
@@ -22,9 +23,13 @@
 >
   <span class="crw-text-circle__inner">
     {#if hasIcon}
-      <span class="crw-text-circle__icon"
-        ><img src={icon} alt={title} loading="lazy" /></span
-      >
+      <span class="crw-text-circle__icon">
+        {#if icon}
+          <img src={icon} alt={title} loading="lazy" />
+        {:else}
+          {@html svgIcon}
+        {/if}
+      </span>
     {/if}
     {#if hasTitle || hasSubTitle}
       <span>
@@ -77,7 +82,8 @@
       max-width: var(--text-circle-icon-size);
       max-height: var(--text-circle-icon-size);
 
-      img {
+      img,
+      svg {
         width: 100%;
         height: 100%;
         min-width: var(--text-circle-icon-size);

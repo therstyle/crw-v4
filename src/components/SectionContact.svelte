@@ -16,7 +16,7 @@
               <TextCircle
                 url={item?.url}
                 title={item?.title}
-                icon={item?.logo}
+                svgIcon={item?.svgIcon}
               />
             </li>
           {/each}
