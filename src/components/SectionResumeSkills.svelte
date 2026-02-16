@@ -3,13 +3,15 @@
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let { title, items = [] } = $props()
+
+  const sortedItems = items.sort((a, b) => a.title.localeCompare(b.title))
 </script>
 
 <SlideIntoView settings={{ threshold: 0.1 }}>
   <aside class="crw-skills">
     <h3>{title}</h3>
     <ul>
-      {#each items as skill, index (index)}
+      {#each sortedItems as skill, index (index)}
         <li id={`skill-${index}`}>
           <SectionResumeSkill {...skill} />
         </li>
