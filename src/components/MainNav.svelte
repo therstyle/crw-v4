@@ -16,13 +16,15 @@
     localStorage.setItem('isDark', newValue)
   }
 
-  function loadLocalStorage() {
-    const isDarkFromStorage = localStorage.getItem('isDark')
+  function setTheme() {
+    const themeFromStorage = localStorage.getItem('isDark')
     const userPrefersDark = window.matchMedia(
       '(prefers-color-scheme: dark)',
     ).matches
 
-    if (isDarkFromStorage || userPrefersDark) {
+    if (themeFromStorage) {
+      isDark.set(themeFromStorage)
+    } else if (userPrefersDark) {
       isDark.set(true)
     }
   }
@@ -32,7 +34,7 @@
   }
 
   onMount(() => {
-    loadLocalStorage()
+    setTheme()
     toggleLoaded()
   })
 </script>
