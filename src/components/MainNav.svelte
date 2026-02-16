@@ -163,13 +163,16 @@
         &::before {
           content: '';
           box-shadow: 0 0 75px var(--red);
-          opacity: 0.5;
           display: block;
           position: absolute;
           width: 100%;
           height: 100%;
           z-index: -1;
-          animation: fade-in-out ease-in-out infinite 3s;
+
+          @include mixins.prefers-motion {
+            opacity: 0.5;
+            animation: fade-in-out ease-in-out infinite 3s;
+          }
         }
       }
     }
