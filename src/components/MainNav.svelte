@@ -18,8 +18,12 @@
 
   function loadLocalStorage() {
     const isDarkFromStorage = localStorage.getItem('isDark')
-    if (isDarkFromStorage) {
-      isDark.set(isDarkFromStorage === 'true')
+    const userPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches
+
+    if (isDarkFromStorage || userPrefersDark) {
+      isDark.set(true)
     }
   }
 

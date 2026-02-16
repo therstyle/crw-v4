@@ -11,14 +11,14 @@ import { isDark } from '../stores/theme'
     <meta name="generator" content={Astro.generator} />
     <title>Chris Roberts | Senior UI Developer</title>
   </head>
-  <body data-theme>
+  <body>
     <slot />
 
     <script>
       import { isDark } from '../stores/theme'
 
       isDark.subscribe((value) => {
-        document.body.setAttribute('data-theme', value ? 'dark' : 'light')
+        document.body.setAttribute('data-is-dark', value.toString())
       })
     </script>
   </body>

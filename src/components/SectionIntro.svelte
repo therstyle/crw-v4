@@ -1,4 +1,5 @@
 <script>
+  import { isDark } from '../stores/theme.js'
   import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
@@ -41,7 +42,7 @@
   </div>
 
   {#if hasVideo}
-    <div class="crw-intro__bg-video">
+    <div class="crw-intro__bg-video" data-is-dark={$isDark}>
       <video autoplay muted loop>
         <source src={video} type="video/mp4" />
       </video>
@@ -118,7 +119,7 @@
       font-size: 10px;
       font-weight: 400;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--main-text-color);
       text-decoration: none;
 
       --scroll-down-icon-size: 32px;
@@ -151,6 +152,10 @@
 
     &__bg-video {
       z-index: -1;
+
+      &[data-is-dark='false'] {
+        filter: invert(1);
+      }
 
       &::before {
         background: linear-gradient(
