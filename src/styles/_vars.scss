@@ -34,7 +34,7 @@
   --space-6: calc(var(--space) * 6);
   --space-7: calc(var(--space) * 7);
   --space-8: calc(var(--space) * 8);
-  --font-size: 18px;
+  --main-font-size: 18px;
   --min-font-size: 14px;
   --max-font-size: 18px;
   --line-height: 1.5;
@@ -50,7 +50,7 @@
   }
 
   @include mixins.max(sm) {
-    --font-size: 14px;
+    --main-font-size: 14px;
     --space: 12px;
     --main-nav-width: 60px;
     --line-height: 1.3;
