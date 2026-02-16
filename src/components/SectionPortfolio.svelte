@@ -184,7 +184,8 @@
       height: 48px;
       border: none;
       border-radius: 50%;
-      background: var(--white);
+      background: var(--link-button-color);
+      color: var(--link-button-font-color);
       justify-content: center;
       align-items: center;
 

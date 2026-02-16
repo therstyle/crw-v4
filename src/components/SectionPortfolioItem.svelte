@@ -77,8 +77,8 @@
         display: inline-block;
         border-radius: 30px;
         padding: var(--space-half) var(--space-1);
-        background: var(--white);
-        color: var(--med-gray);
+        background: var(--link-button-color);
+        color: var(--link-button-font-color);
         font-weight: 600;
         font-size: 13px;
         text-decoration: none;

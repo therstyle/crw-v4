@@ -16,8 +16,8 @@
 
   --main-font-color: var(--white);
   --body-bg: var(--dark-gray);
-
-  // TODO: add role based colors
+  --link-button-color: var(--white);
+  --link-button-font-color: var(--black);
 
   // Fonts
   --main-font: 'Metropolis', sans-serif;
@@ -64,4 +64,6 @@ body[data-is-dark="false"] {
   --dark-gray-alpha: rgba(51, 51, 51, var(--transparency-opacity));
   --main-font-color: var(--black);
   --body-bg: var(--white);
+  --link-button-color: var(--black);
+  --link-button-font-color: var(--white);
 }
