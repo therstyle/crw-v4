@@ -8,8 +8,10 @@
   const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived($menuItems.length > 0)
 
+  let isLoaded = $state(false)
+
   function toggleIsDark() {
-    const newValue = !$isDark
+    const newValue = !$isDark.toString()
     isDark.set(newValue)
     localStorage.setItem('isDark', newValue)
   }
@@ -21,12 +23,17 @@
     }
   }
 
+  function toggleLoaded() {
+    isLoaded = true
+  }
+
   onMount(() => {
     loadLocalStorage()
+    toggleLoaded()
   })
 </script>
 
-<div class="crw-main-nav">
+<div class="crw-main-nav" data-is-loaded={isLoaded}>
   <div class="crw-main-nav__inner">
     {#if hasLogo}
       <div class="crw-main-nav__top">
@@ -88,6 +95,17 @@
     bottom: var(--space-1);
     position: fixed;
     width: var(--main-nav-width);
+
+    @include mixins.prefers-motion {
+      transition: 1s ease-in-out all;
+      opacity: 0;
+      transform: translateX(-100%);
+
+      &[data-is-loaded='true'] {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
 
     --main-nav-link-icon-size: 36px;
     --main-nav-link-opacity: 66%;
