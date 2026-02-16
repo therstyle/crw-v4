@@ -30,7 +30,7 @@
       left: 0;
       width: 1px;
       height: 100%;
-      background: var(--light-gray);
+      background: var(--border-color);
     }
 
     > :first-child {

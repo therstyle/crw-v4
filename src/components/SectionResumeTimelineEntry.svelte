@@ -50,7 +50,7 @@
     flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-3) 0 var(--space-3);
-    border-bottom: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--border-color);
     position: relative;
 
     @include mixins.max(xxs) {

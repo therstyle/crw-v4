@@ -2,13 +2,12 @@
 
 :root {
   // Colors
-  --transparency-opacity: 0.65;
   --black: #000;
   --med-gray: #414141;
-  --dark-gray: #333;
-  --med-gray-alpha: rgba(64, 64, 64, var(--transparency-opacity));
-  --dark-gray-alpha: rgba(51, 51, 51, var(--transparency-opacity));
-  --light-gray: rgba(255, 255, 255, 0.1);
+  --dark-gray: hsl(0, 0%, 20%);
+  --med-gray-alpha: rgba(64, 64, 64, 0.65);
+  --dark-gray-alpha: rgba(51, 51, 51, 0.65);
+  --light-gray: hsla(0, 0%, 100%, 10%);
   --red: #cc0000;
   --light-red: #ff6b6b;
   --dark-red: #990000;
@@ -18,6 +17,9 @@
   --body-bg: var(--dark-gray);
   --link-button-color: var(--white);
   --link-button-font-color: var(--black);
+  --transparent-button-color: var(--dark-gray-alpha);
+  --transparent-button-hover-color: hsl(0, 0%, 50%);
+  --border-color: var(--light-gray);
 
   // Fonts
   --main-font: 'Metropolis', sans-serif;
@@ -59,11 +61,13 @@
 }
 
 body[data-is-dark="false"] {
-  --transparency-opacity: 0.15;
-  --med-gray-alpha: rgba(64, 64, 64, var(--transparency-opacity));
-  --dark-gray-alpha: rgba(51, 51, 51, var(--transparency-opacity));
+  --med-gray-alpha: rgba(64, 64, 64, 0.15);
+  --dark-gray-alpha: rgba(51, 51, 51, 0.15);
   --main-font-color: var(--black);
   --body-bg: var(--white);
   --link-button-color: var(--black);
   --link-button-font-color: var(--white);
+  --transparent-button-color: var(--dark-gray-alpha);
+  --transparent-button-hover-color: hsl(0, 0%, 50%);
+  --border-color: hsla(0, 0%, 10%, 10%);
 }

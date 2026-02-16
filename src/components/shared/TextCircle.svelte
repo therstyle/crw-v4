@@ -54,8 +54,8 @@
     max-height: var(--text-circle-size);
     min-width: var(--text-circle-size);
     max-width: var(--text-circle-size);
-    background: var(--dark-gray-alpha);
-    color: var(--white);
+    background: var(--transparent-button-color);
+    color: var(--main-font-color);
     text-decoration: none;
     position: relative;
     padding: 1px;
@@ -113,7 +113,7 @@
   a.crw-text-circle {
     @include mixins.hocus {
       transform: scale(1.1);
-      background: var(--dark-gray);
+      background: var(--transparent-button-hover-color);
       box-shadow: 0 0 40px rgb(0 0 0 / 33%);
       text-decoration: underline;
     }
