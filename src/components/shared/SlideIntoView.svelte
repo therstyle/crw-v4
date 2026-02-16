@@ -1,18 +1,19 @@
 <script>
   import elementVisible from '../../utils/elementVisible.js'
 
-  let { settings = {} } = $props()
+  let { settings = {}, elementType = 'div' } = $props()
   let isVisible = $state(false)
 </script>
 
-<div
+<svelte:element
+  this={elementType}
   use:elementVisible={settings}
   oncrwElementVisible={() => (isVisible = true)}
   class="crw-slide-into-view"
   data-is-visible={isVisible}
 >
   <slot />
-</div>
+</svelte:element>
 
 <style lang="scss">
   @use '../../styles/vars';

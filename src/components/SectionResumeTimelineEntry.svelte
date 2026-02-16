@@ -18,11 +18,15 @@
     </header>
   </SlideIntoView>
 
-  <ul class="crw-timeline-entry__timeline-details">
+  <div class="crw-timeline-entry__timeline-details">
     {#each details as detail, detailIndex (detailIndex)}
-      <SlideIntoView><li>{detail}</li></SlideIntoView>
+      <SlideIntoView
+        ><div class="crw-timeline-entry__timeline-detail">
+          {detail}
+        </div></SlideIntoView
+      >
     {/each}
-  </ul>
+  </div>
 </article>
 
 <style lang="scss">
@@ -165,37 +169,37 @@
     &__timeline-details {
       padding-inline-start: 0;
       margin: 0;
+    }
 
-      li {
-        font-size: 16px;
-        line-height: 1.5;
-        list-style: none;
-        position: relative;
-        margin-inline-start: 30px;
-        margin-block-end: var(--space-2);
+    &__timeline-detail {
+      font-size: 16px;
+      line-height: 1.5;
+      list-style: none;
+      position: relative;
+      margin-inline-start: 30px;
+      margin-block-end: var(--space-2);
+
+      @include mixins.max(sm) {
+        font-size: 13px;
+        margin-inline-start: 20px;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: -30px;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        background: var(--red);
+        margin-right: 10px;
 
         @include mixins.max(sm) {
-          font-size: 13px;
-          margin-inline-start: 20px;
-        }
-
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 5px;
-          left: -30px;
-          width: 12px;
-          height: 12px;
-          border-radius: 100%;
-          background: var(--red);
-          margin-right: 10px;
-
-          @include mixins.max(sm) {
-            width: 8px;
-            height: 8px;
-            left: -20px;
-          }
+          width: 8px;
+          height: 8px;
+          left: -20px;
         }
       }
     }
