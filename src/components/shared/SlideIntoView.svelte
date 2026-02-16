@@ -1,5 +1,5 @@
 <script>
-  import elementVisible from '../utils/elementVisible'
+  import elementVisible from '../../utils/elementVisible.js'
 
   let { settings = {} } = $props()
   let isVisible = $state(false)
@@ -15,8 +15,8 @@
 </div>
 
 <style lang="scss">
-  @use '../styles/vars';
-  @use '../styles/mixins';
+  @use '../../styles/vars';
+  @use '../../styles/mixins';
 
   .crw-slide-into-view {
     @include mixins.slide-up-on-visible;

@@ -1,5 +1,5 @@
 <script>
-  import SlideIntoView from './SlideIntoView.svelte'
+  import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let { logo, company, year, location, jobTitle, details = [] } = $props()
 </script>

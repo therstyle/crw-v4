@@ -1,7 +1,7 @@
 <script>
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionPortfolioItem from './SectionPortfolioItem.svelte'
-  import SlideIntoView from './SlideIntoView.svelte'
+  import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let { id = null, title = null, items = [] } = $props()
 
