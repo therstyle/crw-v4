@@ -56,7 +56,6 @@
       width: 24px;
       height: 24px;
       border: 5px solid var(--red);
-      background: var(--body-bg);
 
       @include mixins.min(xl) {
         top: 90px;
@@ -122,7 +121,7 @@
       max-width: 42px;
       max-height: 42px;
       padding: 7px;
-      background: var(--white);
+      background: var(--main-font-color);
       border-radius: 50%;
 
       @include mixins.max(sm) {
@@ -156,7 +155,7 @@
     }
 
     &__location {
-      border-inline-start: 2px solid var(--white);
+      border-inline-start: 2px solid var(--main-font-color);
       padding-inline-start: 0.5ch;
 
       @include mixins.max(xxs) {
