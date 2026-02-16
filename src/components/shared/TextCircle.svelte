@@ -27,7 +27,15 @@
         {#if icon}
           <img src={icon} alt={title} loading="lazy" />
         {:else}
-          {@html svgIcon}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {@html svgIcon}
+          </svg>
         {/if}
       </span>
     {/if}
@@ -87,6 +95,12 @@
         width: 100%;
         height: 100%;
         min-width: var(--text-circle-icon-size);
+      }
+
+      svg {
+        path {
+          fill: currentColor;
+        }
       }
     }
 
