@@ -11,7 +11,7 @@
   let isLoaded = $state(false)
 
   function toggleIsDark() {
-    const newValue = !$isDark.toString()
+    const newValue = !$isDark
     isDark.set(newValue)
     localStorage.setItem('isDark', newValue)
   }
@@ -66,7 +66,12 @@
     {/if}
 
     <div class="crw-main-nav__bottom">
-      <input type="checkbox" checked={$isDark} onchange={toggleIsDark} />
+      <button
+        class="crw-main-nav__dark-toggle"
+        onclick={toggleIsDark}
+        data-is-dark={$isDark}
+        aria-label={`Enable ${$isDark ? 'light' : 'dark'} mode`}
+      ></button>
     </div>
   </div>
 </div>
@@ -242,6 +247,37 @@
       display: flex;
       justify-content: center;
       padding-inline: var(--main-nav-padding-inline);
+    }
+
+    &__dark-toggle {
+      background: none;
+      border: none;
+      color: var(--main-nav-link-color);
+      cursor: pointer;
+      padding: 0;
+      width: var(--main-nav-dark-toggle-icon-size);
+      height: var(--main-nav-dark-toggle-icon-size);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      --main-nav-dark-toggle-icon-size: 24px;
+      --main-nav-dark-toggle-icon: url('/images/icon-moon.svg');
+
+      &[data-is-dark='false'] {
+        --main-nav-dark-toggle-icon: url('/images/icon-sun.svg');
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: var(--main-nav-dark-toggle-icon-size);
+        height: var(--main-nav-dark-toggle-icon-size);
+        background: currentColor;
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        mask-image: var(--main-nav-dark-toggle-icon);
+      }
     }
   }
 </style>
