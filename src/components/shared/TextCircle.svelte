@@ -91,14 +91,14 @@
       max-height: var(--text-circle-icon-size);
 
       img,
-      svg {
+      svg :global {
         width: 100%;
         height: 100%;
         min-width: var(--text-circle-icon-size);
       }
 
-      svg {
-        path {
+      svg :global {
+        path :global {
           fill: currentColor;
         }
       }
