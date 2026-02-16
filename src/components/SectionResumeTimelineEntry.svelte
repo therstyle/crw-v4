@@ -1,4 +1,5 @@
 <script>
+  import { isDark } from '../stores/theme.js'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let { logo, company, year, location, jobTitle, details = [] } = $props()
@@ -7,7 +8,18 @@
 <article class="crw-timeline-entry" data-year={year}>
   <SlideIntoView>
     <header>
-      <img src={logo} alt={company ?? ''} loading="lazy" />
+      <div class="crw-timeline-entry__company-logo">
+        <img
+          src={logo.image}
+          alt={company ?? ''}
+          loading="lazy"
+          width="42"
+          height="42"
+          data-dark-logo={logo.dark}
+          data-is-dark={$isDark}
+        />
+      </div>
+
       <div class="crw-timeline-entry__company-info">
         <h3>
           <span class="crw-timeline-entry__company">{company}</span>
@@ -116,18 +128,36 @@
       }
     }
 
-    img {
-      min-width: 42px;
-      max-width: 42px;
-      max-height: 42px;
-      padding: 7px;
+    &__company-logo {
       background: var(--main-font-color);
       border-radius: 50%;
+      padding: var(--company-logo-padding);
+      overflow: hidden;
+      max-width: var(--company-logo-size);
+      max-height: var(--company-logo-size);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      --company-logo-size: 42px;
+      --company-logo-padding: 8px;
 
       @include mixins.max(sm) {
-        min-width: 28px;
-        max-width: 28px;
-        max-height: 28px;
+        --company-logo-size: 28px;
+      }
+
+      img {
+        min-width: calc(
+          var(--company-logo-size) - var(--company-logo-padding) * 2
+        );
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 50%;
+
+        &[data-is-dark='false'][data-dark-logo='true'] {
+          filter: grayscale(1) invert(1);
+        }
       }
     }
 
