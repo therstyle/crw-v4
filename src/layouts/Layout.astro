@@ -67,14 +67,16 @@ import { isDark } from '../stores/theme'
   }
 
   a:not([class]) {
-    color: var(--white);
+    color: inherit;
     background-image: linear-gradient(120deg, var(--red) 0%, var(--red) 100%);
     background-repeat: no-repeat;
-    background-size: 100% 3px;
+    background-size: 100% var(--link-underline-border-size);
     background-position: 0 100%;
-    padding-bottom: 3px;
+    padding-bottom: calc(var(--link-underline-border-size) * 2);
     transition: var(--global-transition);
     text-decoration: none;
+
+    --link-underline-border-size: 3px;
 
     &:hover {
       background-image: linear-gradient(
