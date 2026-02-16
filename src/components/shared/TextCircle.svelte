@@ -62,6 +62,7 @@
     transition: var(--global-transition);
 
     --text-circle-size: 122px;
+    --text-circle-icon-size: 40px;
 
     &::before {
       content: '';
@@ -88,12 +89,13 @@
 
     &__icon {
       display: block;
-      max-width: 40px;
-      max-height: 40px;
+      max-width: var(--text-circle-icon-size);
+      max-height: var(--text-circle-icon-size);
 
       img {
         width: 100%;
         height: 100%;
+        min-width: var(--text-circle-icon-size);
       }
     }
 
