@@ -226,4 +226,8 @@ export const contact = {
       url: 'https://www.linkedin.com/in/xchrisroberts/',
     },
   ],
+  image: {
+    src: '/images/zakim_2x.webp',
+    alt: 'Zakim bridge',
+  },
 }
