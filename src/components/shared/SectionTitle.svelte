@@ -85,8 +85,16 @@
         &::before {
           opacity: 1;
           translate: -20% 0;
-          border-radius: 0 0 var(--global-border-radius) 0;
+          border-radius: 0 0 var(--crw-title-background-border-radius) 0;
           width: 200%;
+
+          --crw-title-background-border-radius: var(--global-border-radius);
+
+          @include mixins.max(sm) {
+            --crw-title-background-border-radius: calc(
+              var(--global-border-radius) / 2
+            );
+          }
         }
       }
     }
