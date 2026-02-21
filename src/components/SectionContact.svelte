@@ -93,6 +93,7 @@
     &__image {
       grid-area: main;
       margin-block-end: var(--space-4);
+      box-shadow: 0 0 50px 0 hsla(0, 0%, 0%, 0.25);
 
       @include mixins.max(sm) {
         margin-block-end: calc(var(--space-2) * -1);
