@@ -31,6 +31,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    border-radius: 0 0 0 var(--global-border-radius);
+    overflow: hidden;
 
     &__image {
       display: block;

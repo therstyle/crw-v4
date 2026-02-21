@@ -69,6 +69,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 0 var(--global-border-radius);
 
       @include mixins.max(sm) {
         grid-area: links;

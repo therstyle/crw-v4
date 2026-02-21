@@ -145,7 +145,7 @@
 
     &__inner {
       background: var(--black);
-      border-radius: 50px;
+      border-radius: var(--global-border-radius);
       display: flex;
       flex-direction: column;
       gap: var(--space-1);
