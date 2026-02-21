@@ -40,6 +40,7 @@
 
 <style lang="scss">
   @use '../styles/vars.scss';
+  @use '../styles/mixins.scss';
 
   .crw-contact {
     min-height: 100%;
@@ -50,16 +51,29 @@
 
     &__content {
       display: grid;
-      grid-template-areas: 'main';
+      grid-template-areas:
+        'main'
+        'links';
     }
 
     &__links {
       grid-area: main;
-      justify-self: start;
+      justify-self: center;
       align-self: end;
       max-width: 50%;
       width: 100%;
       padding: var(--space-2);
+      background: hsla(0, 0%, 0%, 0.9);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include mixins.max(sm) {
+        grid-area: links;
+        max-width: 75%;
+        padding: var(--space-1);
+      }
 
       ul,
       li {
@@ -71,11 +85,18 @@
       ul {
         display: flex;
         gap: var(--space-1);
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
 
     &__image {
       grid-area: main;
+      margin-block-end: var(--space-4);
+
+      @include mixins.max(sm) {
+        margin-block-end: calc(var(--space-2) * -1);
+      }
 
       img {
         display: block;
