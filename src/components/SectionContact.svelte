@@ -30,7 +30,7 @@
 
         {#if hasImage}
           <div class="crw-contact__image">
-            <img src={image?.src} alt={image?.alt ?? ''} />
+            <img src={image?.src} alt={image?.alt ?? ''} loading="lazy" />
           </div>
         {/if}
       </div>
