@@ -85,7 +85,7 @@
         &::before {
           opacity: 1;
           translate: -20% 0;
-          border-radius: 50px;
+          border-radius: 0 0 var(--global-border-radius) 0;
           width: 200%;
         }
       }
