@@ -10,6 +10,7 @@
     vertCenter = false,
     innerFillHeight = false,
     titleMarginBottom = false,
+    paddingBottom = false,
   } = $props()
 
   let isVisible = $state(false)
@@ -72,6 +73,7 @@
   class:crw-section-container--vert-center={vertCenter}
   class:crw-section-container--inner-fill-height={innerFillHeight}
   class:crw-section-container--has-title={hasTitle}
+  class:crw-section-container--padding-bottom={paddingBottom}
   data-is-visible={isVisible}
 >
   {#if hasTitle}
@@ -129,7 +131,11 @@
     }
 
     &--has-title {
-      padding-top: var(--space-5);
+      padding-block-start: var(--space-5);
+    }
+
+    &--padding-bottom {
+      padding-block-end: var(--space-5);
     }
   }
 </style>
