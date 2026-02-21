@@ -8,11 +8,13 @@ module.exports = {
       },
     }),
     require('postcss-pxtorem'),
-    // require('cssnano')({
-    //   preset: ['default', {
-    //     discardComments: false,
-    //     normalizeWhitespace: false
-    //   }]
-    // }),
+    require('cssnano')({
+      preset: [
+        'default',
+        {
+          normalizeWhitespace: false,
+        },
+      ],
+    }),
   ],
 }
