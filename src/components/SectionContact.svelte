@@ -63,7 +63,8 @@
       max-width: 50%;
       width: 100%;
       padding: var(--space-2);
-      background: hsla(0, 0%, 0%, 0.9);
+      background: var(--high-alpha);
+      box-shadow: 0 0 20px 20px hsla(0, 0%, 0%, 0.1);
       z-index: 10;
       display: flex;
       justify-content: center;
@@ -92,11 +93,16 @@
 
     &__image {
       grid-area: main;
-      margin-block-end: var(--space-4);
-      box-shadow: 0 0 50px 0 hsla(0, 0%, 0%, 0.25);
+      margin-block-end: var(--crw-contact-image-margin-bottom);
+      box-shadow: 0 0 var(--crw-contact-image-shadow-size)
+        var(--crw-contact-image-shadow-size) hsla(0, 0%, 0%, 0.25);
+
+      --crw-contact-image-shadow-size: 50px;
+      --crw-contact-image-margin-bottom: var(--space-4);
 
       @include mixins.max(sm) {
-        margin-block-end: calc(var(--space-2) * -1);
+        --crw-contact-image-margin-bottom: calc(var(--space-2) * -1);
+        --crw-contact-image-shadow-size: 25px;
       }
 
       img {
