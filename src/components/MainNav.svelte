@@ -151,7 +151,7 @@
       gap: var(--space-1);
       height: 100%;
       padding-block: var(--space-4);
-      box-shadow: 0 15px 30px rgb(0 0 0 / 25%);
+      box-shadow: 0 0 30px hsla(0, 0%, 0%, 0.25);
     }
 
     &__links {
