@@ -13,8 +13,8 @@
   oncrwElementVisible={() => (isVisible = true)}
   data-is-visible={isVisible}
 >
-  <h2 data-is-visible={isVisible}>
-    <span>{title}</span>
+  <h2 class="crw-section-title__inner-wrapper" data-is-visible={isVisible}>
+    <span class="crw-section-title__inner">{title}</span>
   </h2>
 </header>
 
@@ -39,7 +39,7 @@
       --crw-section-title-padding-inline-start: var(--space-1);
     }
 
-    h2 {
+    &__inner-wrapper {
       font-size: 88px;
       font-weight: 800;
       line-height: 1;
@@ -89,10 +89,24 @@
           width: 200%;
         }
       }
+    }
 
-      > span {
-        grid-area: main;
-        z-index: 2;
+    &__inner {
+      grid-area: main;
+      z-index: 2;
+      opacity: 0;
+      translate: -100% 0;
+      transition: var(--global-transition);
+
+      @include mixins.prefers-motion {
+        transition-delay: 0.6s;
+      }
+    }
+
+    &[data-is-visible='true'] {
+      .crw-section-title__inner {
+        opacity: 1;
+        translate: 0 0;
       }
     }
   }
