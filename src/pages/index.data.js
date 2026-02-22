@@ -21,7 +21,7 @@ export const nav = {
 }
 
 export const video = {
-  video: '/video/intro-web.mp4',
+  src: '/video/intro-web.mp4',
 }
 
 export const intro = {

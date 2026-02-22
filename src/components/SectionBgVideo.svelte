@@ -1,14 +1,14 @@
 <script>
   import { isDark } from '../stores/theme.js'
-  let { video } = $props()
+  let { src } = $props()
 
-  const hasVideo = $derived(video !== null)
+  const hasVideo = $derived(src !== null)
 </script>
 
 {#if hasVideo}
   <div class="crw-bg-video" data-is-dark={$isDark}>
     <video autoplay muted loop>
-      <source src={video} type="video/mp4" />
+      <source {src} type="video/mp4" />
     </video>
   </div>
 {/if}
