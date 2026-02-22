@@ -92,9 +92,11 @@
       top: 6.1vw;
       left: calc(var(--space-3) - var(--space-6) - 24px);
       margin-left: calc(var(--space-3) + 12px);
-      width: 24px;
-      height: 24px;
+      width: var(--timeline-entry-dot-size);
+      height: var(--timeline-entry-dot-size);
       border: 5px solid var(--red);
+
+      --timeline-entry-dot-size: 24px;
 
       @include mixins.min(xl) {
         top: 90px;
@@ -103,9 +105,9 @@
       @include mixins.max(sm) {
         left: calc(-4.1vw - 14px);
         margin-left: calc(4.1vw + 7px);
-        width: 14px;
-        height: 14px;
         border-width: 3px;
+
+        --timeline-entry-dot-size: 14px;
       }
     }
 
