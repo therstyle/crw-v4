@@ -1,5 +1,4 @@
 <script>
-  import { isDark } from '../stores/theme.js'
   import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
@@ -7,13 +6,11 @@
     subTitle = null,
     title = null,
     description = null,
-    video = null,
   } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
   const hasDescription = $derived(description !== null)
-  const hasVideo = $derived(video !== null)
 </script>
 
 <SectionContainer {id} horzCenter={true} vertCenter={true}>
