@@ -244,17 +244,19 @@
         display: block;
         position: absolute;
         top: 5px;
-        left: -30px;
-        width: 12px;
-        height: 12px;
+        left: var(--timeline-detail-bullet-left);
+        width: var(--timeline-detail-bullet-size);
+        height: var(--timeline-detail-bullet-size);
         border-radius: 100%;
         background: var(--red);
         margin-right: 10px;
 
+        --timeline-detail-bullet-size: 12px;
+        --timeline-detail-bullet-left: -30px;
+
         @include mixins.max(sm) {
-          width: 8px;
-          height: 8px;
-          left: -20px;
+          --timeline-detail-bullet-size: 8px;
+          --timeline-detail-bullet-left: -20px;
         }
       }
     }
