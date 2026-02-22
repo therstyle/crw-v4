@@ -2,43 +2,70 @@
   import { isDark } from '../stores/theme.js'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
-  let { logo, company, year, location, jobTitle, details = [] } = $props()
+  let {
+    logo = null,
+    company = null,
+    year = null,
+    location = null,
+    jobTitle = null,
+    details = [],
+  } = $props()
+
+  const hasLogo = $derived(logo !== null)
+  const hasCompany = $derived(company !== null)
+  const hasLocation = $derived(location !== null)
+  const hasJobTitle = $derived(jobTitle !== null)
+  const hasCompanyInfo = $derived(hasCompany || hasLocation || hasJobTitle)
+  const hasDetails = $derived(details.length > 0)
 </script>
 
 <article class="crw-timeline-entry" data-year={year}>
   <SlideIntoView>
     <header>
-      <div class="crw-timeline-entry__company-logo">
-        <img
-          src={logo.image}
-          alt={company ?? ''}
-          loading="lazy"
-          width="42"
-          height="42"
-          data-dark-logo={logo.dark}
-          data-is-dark={$isDark}
-        />
-      </div>
+      {#if hasLogo}
+        <div class="crw-timeline-entry__company-logo">
+          <img
+            src={logo.image}
+            alt={company ?? ''}
+            loading="lazy"
+            width="42"
+            height="42"
+            data-dark-logo={logo.dark}
+            data-is-dark={$isDark}
+          />
+        </div>
+      {/if}
 
-      <div class="crw-timeline-entry__company-info">
-        <h3>
-          <span class="crw-timeline-entry__company">{company}</span>
-          <span class="crw-timeline-entry__location">{location}</span>
-        </h3>
-        <small>{jobTitle}</small>
-      </div>
+      {#if hasCompanyInfo}
+        <div class="crw-timeline-entry__company-info">
+          {#if hasLocation || hasCompany}
+            <h3>
+              {#if hasCompany}<span class="crw-timeline-entry__company"
+                  >{company}</span
+                >{/if}
+              {#if hasLocation}<span class="crw-timeline-entry__location"
+                  >{location}</span
+                >{/if}
+            </h3>
+          {/if}
+
+          {#if hasJobTitle}<small>{jobTitle}</small>{/if}
+        </div>
+      {/if}
     </header>
   </SlideIntoView>
 
-  <div class="crw-timeline-entry__timeline-details">
-    {#each details as detail, detailIndex (detailIndex)}
-      <SlideIntoView
-        ><div class="crw-timeline-entry__timeline-detail">
-          {detail}
-        </div></SlideIntoView
-      >
-    {/each}
-  </div>
+  {#if hasDetails}
+    <div class="crw-timeline-entry__timeline-details">
+      {#each details as detail, detailIndex (detailIndex)}
+        <SlideIntoView
+          ><div class="crw-timeline-entry__timeline-detail">
+            {detail}
+          </div></SlideIntoView
+        >
+      {/each}
+    </div>
+  {/if}
 </article>
 
 <style lang="scss">
