@@ -104,7 +104,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      font-family: var(--accent-font);
+      font-family: var(--accent-font), sans-serif;
       font-size: 10px;
       font-weight: 400;
       text-transform: uppercase;
