@@ -77,7 +77,7 @@
 
     &__sub-title {
       color: var(--red);
-      font-family: var(--accent-font);
+      font-family: var(--accent-font), sans-serif;
       font-size: 16px;
       text-transform: uppercase;
     }
