@@ -36,8 +36,10 @@
     flex-direction: column;
     gap: var(--space-2);
     width: 100%;
-    max-width: 260px;
+    max-width: calc(var(--text-circle-size) * 2 + var(--skills-gap-size));
     margin-inline: auto;
+
+    --skills-gap-size: var(--space-2);
 
     h3 {
       text-align: center;
