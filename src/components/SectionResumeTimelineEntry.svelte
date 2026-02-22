@@ -247,7 +247,7 @@
         left: var(--timeline-detail-bullet-left);
         width: var(--timeline-detail-bullet-size);
         height: var(--timeline-detail-bullet-size);
-        border-radius: 100%;
+        border-radius: 50%;
         background: var(--red);
         margin-right: 10px;
 
