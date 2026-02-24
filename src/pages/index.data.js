@@ -31,6 +31,10 @@ export const intro = {
   title: 'Chris Roberts',
   description:
     "I'm Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.",
+  scrollTo: {
+    url: '#resume',
+    text: 'Scroll',
+  },
 }
 
 export const resume = {

@@ -6,11 +6,13 @@
     subTitle = null,
     title = null,
     description = null,
+    scrollTo = null,
   } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
   const hasDescription = $derived(description !== null)
+  const hasScrollTo = $derived(scrollTo !== null)
 </script>
 
 <SectionContainer {id} horzCenter={true} vertCenter={true}>
@@ -33,7 +35,11 @@
           </div>
         {/if}
 
-        <a href="#resume" class="crw-intro__scroll-down"><span>Scroll</span></a>
+        {#if hasScrollTo}
+          <a href={scrollTo.url} class="crw-intro__scroll-down"
+            ><span>{scrollTo.text}</span></a
+          >
+        {/if}
       </div>
     </div>
   </div>
