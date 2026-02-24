@@ -12,7 +12,7 @@
 
 <article class="crw-portfolio-item" id={`portfolio-item-${id}`}>
   <a class="crw-portfolio-item__image" href={url} target="_blank">
-    <img src={image} alt={title} loading="lazy" {width} {height} />
+    <img src={image} alt={title ?? ''} loading="lazy" {width} {height} />
   </a>
 
   <div class="crw-portfolio-item__info">
