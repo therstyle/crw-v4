@@ -72,10 +72,8 @@
     border: 1px solid var(--border-color);
     text-decoration: none;
     position: relative;
-    padding: 1px;
     transition: var(--global-transition);
 
-    --text-circle-size: 122px;
     --text-circle-icon-size: 40px;
 
     &__inner {
@@ -119,7 +117,7 @@
     @include mixins.hocus {
       transform: scale(1.1);
       background: var(--transparent-button-hover-color);
-      box-shadow: 0 0 40px rgb(0 0 0 / 33%);
+      box-shadow: 0 0 40px hsla(0, 0%, 0%, 0.33);
       text-decoration: underline;
     }
   }
