@@ -30,7 +30,13 @@
 
         {#if hasImage}
           <div class="crw-contact__image">
-            <img src={image?.src} alt={image?.alt ?? ''} loading="lazy" />
+            <img
+              src={image?.src}
+              alt={image?.alt ?? ''}
+              width={image?.width}
+              height={image?.width}
+              loading="lazy"
+            />
           </div>
         {/if}
       </div>
@@ -108,6 +114,8 @@
 
       img {
         display: block;
+        max-width: 100%;
+        height: auto;
       }
     }
   }

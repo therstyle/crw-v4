@@ -245,5 +245,7 @@ export const contact = {
   image: {
     src: '/images/zakim_2x.webp',
     alt: 'Zakim bridge',
+    width: 1544,
+    height: 1006,
   },
 }
