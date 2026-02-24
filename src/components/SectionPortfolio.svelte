@@ -10,7 +10,7 @@
   let isMobile = $state(null)
 
   let scrollItems = $derived(isMobile ? 1 : 2)
-  const totalItems = $derived(items.length)
+  const totalItems = $derived(items?.length)
   const disablePrev = $derived(currentItem === 0 ? true : null)
   const disableNext = $derived(currentItem >= totalItems - scrollItems)
 
@@ -64,8 +64,8 @@
       <div class="crw-portfolio__container">
         <div class="crw-portfolio__container-prev">
           <button
-            href={`#portfolio-item-${currentItem}`}
-            aria-label="Prev"
+            data-target={`#portfolio-item-${currentItem}`}
+            aria-label="View previous item"
             class="crw-portfolio__button crw-portfolio--button-prev"
             aria-disabled={disablePrev}
             onclick={prev}
@@ -85,8 +85,8 @@
 
         <div class="crw-portfolio__container-next">
           <button
-            href={`#portfolio-item-${currentItem + scrollItems}`}
-            aria-label="Next"
+            data-target={`#portfolio-item-${currentItem + scrollItems}`}
+            aria-label="View next item"
             class="crw-portfolio__button crw-portfolio--button-next"
             aria-disabled={disableNext}
             onclick={next}
@@ -180,14 +180,16 @@
 
     &__button {
       display: flex;
-      width: 48px;
-      height: 48px;
+      width: var(--portfolio-button-size);
+      height: var(--portfolio-button-size);
       border: none;
       border-radius: 50%;
       background: var(--link-button-color);
       color: var(--link-button-font-color);
       justify-content: center;
       align-items: center;
+
+      --portfolio-button-size: 48px;
 
       &:hover {
         cursor: pointer;
@@ -196,13 +198,15 @@
       &::before {
         content: '';
         display: block;
-        width: 24px;
-        height: 24px;
+        width: var(--portfolio-button-icon-size);
+        height: var(--portfolio-button-icon-size);
         margin: auto;
         background: currentColor;
         mask-image: url('/images/icon-caret.svg');
         mask-repeat: no-repeat;
         mask-size: cover;
+
+        --portfolio-button-icon-size: 24px;
       }
 
       &[aria-disabled='true'] {

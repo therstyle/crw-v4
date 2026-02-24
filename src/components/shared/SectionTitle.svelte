@@ -105,9 +105,9 @@
       opacity: 0;
       translate: -100% 0;
       transition: var(--global-transition);
-      transition-duration: 0.6s;
 
       @include mixins.prefers-motion {
+        transition-duration: 0.6s;
         transition-delay: 0.6s;
       }
     }

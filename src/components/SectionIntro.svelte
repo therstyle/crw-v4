@@ -1,5 +1,4 @@
 <script>
-  import { isDark } from '../stores/theme.js'
   import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
@@ -7,13 +6,13 @@
     subTitle = null,
     title = null,
     description = null,
-    video = null,
+    scrollTo = null,
   } = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
   const hasDescription = $derived(description !== null)
-  const hasVideo = $derived(video !== null)
+  const hasScrollTo = $derived(scrollTo !== null)
 </script>
 
 <SectionContainer {id} horzCenter={true} vertCenter={true}>
@@ -36,7 +35,11 @@
           </div>
         {/if}
 
-        <a href="#resume" class="crw-intro__scroll-down"><span>Scroll</span></a>
+        {#if hasScrollTo}
+          <a href={scrollTo.url} class="crw-intro__scroll-down"
+            ><span>{scrollTo.text}</span></a
+          >
+        {/if}
       </div>
     </div>
   </div>
@@ -80,7 +83,7 @@
 
     &__sub-title {
       color: var(--red);
-      font-family: var(--accent-font);
+      font-family: var(--accent-font), sans-serif;
       font-size: 16px;
       text-transform: uppercase;
     }
@@ -107,7 +110,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      font-family: var(--accent-font);
+      font-family: var(--accent-font), sans-serif;
       font-size: 10px;
       font-weight: 400;
       text-transform: uppercase;

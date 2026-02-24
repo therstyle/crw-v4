@@ -22,6 +22,7 @@ export const nav = {
 
 export const video = {
   src: '/video/intro-web.mp4',
+  type: 'video/mp4',
 }
 
 export const intro = {
@@ -30,6 +31,10 @@ export const intro = {
   title: 'Chris Roberts',
   description:
     "I'm Chris Roberts, an experienced UI developer in the Greater Boston area. With 15+ years of industry experience I work with a wide variety of technologies such as HTML, CSS/SASS, JavaScript, Vue.js, React, PHP, and WordPress. I enjoy bridging the gap between design and code to create superior interactive experiences.",
+  scrollTo: {
+    url: '#resume',
+    text: 'Scroll',
+  },
 }
 
 export const resume = {
@@ -180,7 +185,11 @@ export const portfolio = {
       title: 'Tv Guide',
       description:
         'An interactive TV guide powered by Vue.js and rest API from <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>',
-      image: '/images/portfolio/tv-guide_2x.jpg',
+      image: {
+        src: '/images/portfolio/tv-guide_2x.jpg',
+        width: 560,
+        height: 365,
+      },
       url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
     {
@@ -188,7 +197,11 @@ export const portfolio = {
       title: 'Andrew Swaine Photography',
       description:
         'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
-      image: '/images/portfolio/swaine_2x.webp',
+      image: {
+        src: '/images/portfolio/swaine_2x.webp',
+        width: 560,
+        height: 365,
+      },
       url: 'https://andrewswaine.chrisrobertsweb.dev/',
     },
     {
@@ -196,7 +209,11 @@ export const portfolio = {
       title: 'Jeopardy!',
       description:
         'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
-      image: '/images/portfolio/jeopardy_2x.webp',
+      image: {
+        src: '/images/portfolio/jeopardy_2x.webp',
+        width: 560,
+        height: 365,
+      },
       url: 'https://jeopardy.chrisrobertsweb.dev/',
     },
     {
@@ -204,7 +221,11 @@ export const portfolio = {
       title: 'Latin Rogue Cleaning',
       description:
         'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
-      image: '/images/portfolio/lrc_2x.jpg',
+      image: {
+        src: '/images/portfolio/lrc_2x.jpg',
+        width: 560,
+        height: 365,
+      },
       url: 'http://lrc.chrisrobertsweb.dev/',
     },
   ],
@@ -232,5 +253,7 @@ export const contact = {
   image: {
     src: '/images/zakim_2x.webp',
     alt: 'Zakim bridge',
+    width: 1544,
+    height: 1006,
   },
 }

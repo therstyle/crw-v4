@@ -2,7 +2,6 @@
 //	# Mixins
 //	------------------------------------------------------------------------
 
-//@use 'vars';
 @use 'sass:string';
 @use 'sass:map';
 
@@ -40,7 +39,6 @@ $breakpoints: (
 }
 
 // Media Query Mixins
-// Usage: @include base.min($breakpoint) { ... }
 @mixin min($breakpoint) {
   @media (min-width: map.get($breakpoints, $breakpoint)) {
     @content;

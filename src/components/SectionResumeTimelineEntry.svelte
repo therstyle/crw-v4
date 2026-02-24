@@ -2,43 +2,70 @@
   import { isDark } from '../stores/theme.js'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
-  let { logo, company, year, location, jobTitle, details = [] } = $props()
+  let {
+    logo = null,
+    company = null,
+    year = null,
+    location = null,
+    jobTitle = null,
+    details = [],
+  } = $props()
+
+  const hasLogo = $derived(logo !== null)
+  const hasCompany = $derived(company !== null)
+  const hasLocation = $derived(location !== null)
+  const hasJobTitle = $derived(jobTitle !== null)
+  const hasCompanyInfo = $derived(hasCompany || hasLocation || hasJobTitle)
+  const hasDetails = $derived(details.length > 0)
 </script>
 
 <article class="crw-timeline-entry" data-year={year}>
   <SlideIntoView>
     <header>
-      <div class="crw-timeline-entry__company-logo">
-        <img
-          src={logo.image}
-          alt={company ?? ''}
-          loading="lazy"
-          width="42"
-          height="42"
-          data-dark-logo={logo.dark}
-          data-is-dark={$isDark}
-        />
-      </div>
+      {#if hasLogo}
+        <div class="crw-timeline-entry__company-logo">
+          <img
+            src={logo.image}
+            alt={company ?? ''}
+            loading="lazy"
+            width="42"
+            height="42"
+            data-dark-logo={logo.dark}
+            data-is-dark={$isDark}
+          />
+        </div>
+      {/if}
 
-      <div class="crw-timeline-entry__company-info">
-        <h3>
-          <span class="crw-timeline-entry__company">{company}</span>
-          <span class="crw-timeline-entry__location">{location}</span>
-        </h3>
-        <small>{jobTitle}</small>
-      </div>
+      {#if hasCompanyInfo}
+        <div class="crw-timeline-entry__company-info">
+          {#if hasLocation || hasCompany}
+            <h3>
+              {#if hasCompany}<span class="crw-timeline-entry__company"
+                  >{company}</span
+                >{/if}
+              {#if hasLocation}<span class="crw-timeline-entry__location"
+                  >{location}</span
+                >{/if}
+            </h3>
+          {/if}
+
+          {#if hasJobTitle}<small>{jobTitle}</small>{/if}
+        </div>
+      {/if}
     </header>
   </SlideIntoView>
 
-  <div class="crw-timeline-entry__timeline-details">
-    {#each details as detail, detailIndex (detailIndex)}
-      <SlideIntoView
-        ><div class="crw-timeline-entry__timeline-detail">
-          {detail}
-        </div></SlideIntoView
-      >
-    {/each}
-  </div>
+  {#if hasDetails}
+    <div class="crw-timeline-entry__timeline-details">
+      {#each details as detail, detailIndex (detailIndex)}
+        <SlideIntoView
+          ><div class="crw-timeline-entry__timeline-detail">
+            {detail}
+          </div></SlideIntoView
+        >
+      {/each}
+    </div>
+  {/if}
 </article>
 
 <style lang="scss">
@@ -65,9 +92,11 @@
       top: 6.1vw;
       left: calc(var(--space-3) - var(--space-6) - 24px);
       margin-left: calc(var(--space-3) + 12px);
-      width: 24px;
-      height: 24px;
+      width: var(--timeline-entry-dot-size);
+      height: var(--timeline-entry-dot-size);
       border: 5px solid var(--red);
+
+      --timeline-entry-dot-size: 24px;
 
       @include mixins.min(xl) {
         top: 90px;
@@ -76,9 +105,9 @@
       @include mixins.max(sm) {
         left: calc(-4.1vw - 14px);
         margin-left: calc(4.1vw + 7px);
-        width: 14px;
-        height: 14px;
         border-width: 3px;
+
+        --timeline-entry-dot-size: 14px;
       }
     }
 
@@ -217,17 +246,19 @@
         display: block;
         position: absolute;
         top: 5px;
-        left: -30px;
-        width: 12px;
-        height: 12px;
-        border-radius: 100%;
+        left: var(--timeline-detail-bullet-left);
+        width: var(--timeline-detail-bullet-size);
+        height: var(--timeline-detail-bullet-size);
+        border-radius: 50%;
         background: var(--red);
         margin-right: 10px;
 
+        --timeline-detail-bullet-size: 12px;
+        --timeline-detail-bullet-left: -30px;
+
         @include mixins.max(sm) {
-          width: 8px;
-          height: 8px;
-          left: -20px;
+          --timeline-detail-bullet-size: 8px;
+          --timeline-detail-bullet-left: -20px;
         }
       }
     }

@@ -1,18 +1,27 @@
 <script>
   let {
     id = 0,
-    type = null,
     title = null,
     description = null,
-    image = null,
+    image = { src: null, width: 560, height: 365 },
     url = null,
   } = $props()
+
+  const hasImage = $derived(image.src !== null)
 </script>
 
 <article class="crw-portfolio-item" id={`portfolio-item-${id}`}>
-  <a class="crw-portfolio-item__image" href={url} target="_blank">
-    <img src={image} alt={title} loading="lazy" />
-  </a>
+  {#if hasImage}
+    <a class="crw-portfolio-item__image" href={url} target="_blank">
+      <img
+        src={image.src}
+        alt={title ?? ''}
+        loading="lazy"
+        width={image.width}
+        height={image.height}
+      />
+    </a>
+  {/if}
 
   <div class="crw-portfolio-item__info">
     <h3>{title}</h3>
@@ -39,6 +48,7 @@
 
       img {
         width: 100%;
+        height: auto;
         display: block;
       }
     }
