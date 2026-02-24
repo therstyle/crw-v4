@@ -185,9 +185,11 @@ export const portfolio = {
       title: 'Tv Guide',
       description:
         'An interactive TV guide powered by Vue.js and rest API from <a href="https://www.tvmaze.com/" target="_blank">TVmaze</a>',
-      image: '/images/portfolio/tv-guide_2x.jpg',
-      width: 560,
-      height: 365,
+      image: {
+        src: '/images/portfolio/tv-guide_2x.jpg',
+        width: 560,
+        height: 365,
+      },
       url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
     {
@@ -195,9 +197,11 @@ export const portfolio = {
       title: 'Andrew Swaine Photography',
       description:
         'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
-      image: '/images/portfolio/swaine_2x.webp',
-      width: 560,
-      height: 365,
+      image: {
+        src: '/images/portfolio/swaine_2x.webp',
+        width: 560,
+        height: 365,
+      },
       url: 'https://andrewswaine.chrisrobertsweb.dev/',
     },
     {
@@ -205,9 +209,11 @@ export const portfolio = {
       title: 'Jeopardy!',
       description:
         'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
-      image: '/images/portfolio/jeopardy_2x.webp',
-      width: 560,
-      height: 365,
+      image: {
+        src: '/images/portfolio/jeopardy_2x.webp',
+        width: 560,
+        height: 365,
+      },
       url: 'https://jeopardy.chrisrobertsweb.dev/',
     },
     {
@@ -215,9 +221,11 @@ export const portfolio = {
       title: 'Latin Rogue Cleaning',
       description:
         'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
-      image: '/images/portfolio/lrc_2x.jpg',
-      width: 560,
-      height: 365,
+      image: {
+        src: '/images/portfolio/lrc_2x.jpg',
+        width: 560,
+        height: 365,
+      },
       url: 'http://lrc.chrisrobertsweb.dev/',
     },
   ],
