@@ -199,6 +199,7 @@
 
       h3 {
         display: inline-flex;
+        flex-wrap: wrap;
         gap: 0.5ch;
         line-height: 1;
 
@@ -212,13 +213,19 @@
       }
     }
 
-    &__location {
-      border-inline-start: 2px solid var(--main-font-color);
-      padding-inline-start: 0.5ch;
+    &__company {
+      white-space: nowrap;
+      border-inline-end: 2px solid var(--main-font-color);
+      padding-inline-end: 0.5ch;
 
       @include mixins.max(xxs) {
-        border-inline-start: none;
-        padding-inline-start: 0;
+        border-inline-end: none;
+        padding-inline-end: 0;
+      }
+    }
+
+    &__location {
+      @include mixins.max(xxs) {
         font-size: 13px;
       }
     }
