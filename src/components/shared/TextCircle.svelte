@@ -5,6 +5,7 @@
     url = null,
     target = '_blank',
     icon = null,
+    iconSize = 40,
     svgIcon = null,
   } = $props()
 
@@ -17,6 +18,7 @@
 
 <svelte:element
   this={elementType}
+  style:--text-circle-icon-size={iconSize + 'px'}
   class="crw-text-circle"
   href={isLink ? url : null}
   target={isLink ? target : null}
@@ -25,7 +27,13 @@
     {#if hasIcon}
       <span class="crw-text-circle__icon">
         {#if icon}
-          <img src={icon} alt={title} loading="lazy" />
+          <img
+            src={icon}
+            alt={title}
+            width={iconSize}
+            height={iconSize}
+            loading="lazy"
+          />
         {:else}
           <svg
             width="20"
@@ -73,8 +81,6 @@
     text-decoration: none;
     position: relative;
     transition: var(--global-transition);
-
-    --text-circle-icon-size: 40px;
 
     &__inner {
       display: flex;
