@@ -1,17 +1,18 @@
 <script>
   let {
     id = 0,
-    type = null,
     title = null,
     description = null,
     image = null,
+    width = 560,
+    height = 365,
     url = null,
   } = $props()
 </script>
 
 <article class="crw-portfolio-item" id={`portfolio-item-${id}`}>
   <a class="crw-portfolio-item__image" href={url} target="_blank">
-    <img src={image} alt={title} loading="lazy" />
+    <img src={image} alt={title} loading="lazy" {width} {height} />
   </a>
 
   <div class="crw-portfolio-item__info">
@@ -39,6 +40,7 @@
 
       img {
         width: 100%;
+        height: auto;
         display: block;
       }
     }
