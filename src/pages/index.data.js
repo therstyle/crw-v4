@@ -22,6 +22,7 @@ export const nav = {
 
 export const video = {
   src: '/video/intro-web.mp4',
+  type: 'video/mp4',
 }
 
 export const intro = {

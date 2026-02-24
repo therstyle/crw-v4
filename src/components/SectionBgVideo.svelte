@@ -1,6 +1,6 @@
 <script>
   import { isDark } from '../stores/theme.js'
-  let { src } = $props()
+  let { src, type } = $props()
 
   const hasVideo = $derived(src !== null)
 </script>
@@ -8,7 +8,7 @@
 {#if hasVideo}
   <div class="crw-bg-video" data-is-dark={$isDark}>
     <video autoplay muted loop>
-      <source {src} type="video/mp4" />
+      <source {src} {type} />
     </video>
   </div>
 {/if}
@@ -17,18 +17,19 @@
   .crw-bg-video,
   .crw-bg-video::after,
   .crw-bg-video::before {
-    content: '';
     position: fixed;
     width: 100%;
     min-height: 100vh;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
   }
 
   .crw-bg-video {
     z-index: -1;
+
+    &::after,
+    &::before {
+      content: '';
+    }
 
     &[data-is-dark='false'] {
       filter: invert(1);
