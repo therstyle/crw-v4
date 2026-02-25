@@ -3,9 +3,21 @@
   import SlideIntoView from './shared/SlideIntoView.svelte'
   import type { SectionResumeSkillProps } from './SectionResumeSkill.svelte'
 
-  let { title = null, items = [] } = $props()
+  interface SectionResumeSkillsProps {
+    title: string | null
+    items: SectionResumeSkillProps[]
+  }
 
-  const sortedItems = items.sort((a, b) => a.title.localeCompare(b.title))
+  let { title = null, items = [] }: SectionResumeSkillsProps = $props()
+
+  const sortedItems = $derived(
+    [...items].sort((a, b) => {
+      if (a.title !== null && b.title !== null) {
+        return a.title.localeCompare(b.title)
+      }
+      return 0
+    }),
+  )
   const hasTitle = $derived(title !== null)
   const hasSkills = $derived(sortedItems.length > 0)
 </script>
