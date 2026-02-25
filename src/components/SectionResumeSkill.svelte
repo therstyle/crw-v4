@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  export interface sectionResumeSkillProps {
+  export interface SectionResumeSkillProps {
     title: string | null
     year: number
     logo: string | null
@@ -13,7 +13,7 @@
     title = null,
     year = 0,
     logo = null,
-  }: sectionResumeSkillProps = $props()
+  }: SectionResumeSkillProps = $props()
 
   const currentYear = new Date().getFullYear()
   const totalYears = $derived(currentYear - year)

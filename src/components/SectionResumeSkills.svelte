@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
   import SectionResumeSkill from './SectionResumeSkill.svelte'
   import SlideIntoView from './shared/SlideIntoView.svelte'
+  import type { SectionResumeSkillProps } from './SectionResumeSkill.svelte'
 
   let { title = null, items = [] } = $props()
 

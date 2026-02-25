@@ -1,17 +1,17 @@
 <script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
 
-  interface scrollToLink {
+  interface ScrollToLink {
     url: string
     text: string
   }
 
-  interface sectionIntroProps {
+  interface SectionIntroProps {
     id: string | null
     subTitle: string | null
     title: string | null
     description: string | null
-    scrollTo: scrollToLink | null
+    scrollTo: ScrollToLink | null
   }
 
   let {
@@ -20,7 +20,7 @@
     title = null,
     description = null,
     scrollTo = null,
-  }: sectionIntroProps = $props()
+  }: SectionIntroProps = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
