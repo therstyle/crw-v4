@@ -1,9 +1,44 @@
-<script>
+<script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionResumeTimeline from './SectionResumeTimeline.svelte'
   import SectionResumeSkills from './SectionResumeSkills.svelte'
 
-  let { id = null, resume = null, skills = null } = $props()
+  interface resume {
+    title: string
+    items: resumeItems[]
+  }
+
+  interface resumeItems {
+    year: number
+    company: string
+    location: string
+    logo: {
+      image: string
+      dark?: boolean
+    }
+    jobTitle: string
+    details: string[]
+  }
+
+  interface skills {
+    title: string | null
+    items: skillsItems[]
+  }
+
+  interface skillsItems {
+    title: string
+    year: number
+    logo: string
+  }
+
+  interface sectionResumeProps {
+    id: string | null
+    title: string | null
+    resume: resume | null
+    skills: skills | null
+  }
+
+  let { id = null, resume = null, skills = null }: sectionResumeProps = $props()
 
   const hasResume = $derived(resume !== null)
   const hasSkills = $derived(skills !== null)
