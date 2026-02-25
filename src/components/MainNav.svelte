@@ -200,7 +200,7 @@
       position: relative;
       padding-inline: var(--main-nav-padding-inline);
 
-      &:hover {
+      @include mixins.hocus {
         --main-nav-link-color: var(--white);
         --main-nav-link-tltle-opacity: 1;
       }
@@ -231,7 +231,7 @@
         --main-nav-link-color: var(--red);
         --main-nav-link-tltle-opacity: 1;
 
-        &:hover {
+        @include mixins.hocus {
           --main-nav-link-color: var(--red);
         }
 
