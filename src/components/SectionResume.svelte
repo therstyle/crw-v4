@@ -2,6 +2,7 @@
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionResumeTimeline from './SectionResumeTimeline.svelte'
   import SectionResumeSkills from './SectionResumeSkills.svelte'
+  import type sectionResumeSkillProps from './SectionResumeSkill.svelte'
 
   interface resume {
     title: string
@@ -22,13 +23,7 @@
 
   interface skills {
     title: string | null
-    items: skillsItems[]
-  }
-
-  interface skillsItems {
-    title: string
-    year: number
-    logo: string
+    items: sectionResumeSkillProps[]
   }
 
   interface sectionResumeProps {
