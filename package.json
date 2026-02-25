@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/svelte": "^7.2.5",
     "astro": "^5.16.15",
     "nanostores": "^1.1.0",
