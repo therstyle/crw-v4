@@ -1,4 +1,4 @@
-function elementVisible(el, options = {}) {
+function elementVisible(el: HTMLElement, options = {}) {
   const defaults = { threshold: 1 }
   const settings = { ...defaults, ...options }
 
