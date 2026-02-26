@@ -1,8 +1,4 @@
-<script lang="ts">
-  import SectionContainer from './shared/SectionContainer.svelte'
-  import TextCircle from './shared/TextCircle.svelte'
-  import SlideIntoView from './shared/SlideIntoView.svelte'
-
+<script module lang="ts">
   interface ContactLinks {
     title: string | null
     url: string | null
@@ -16,12 +12,18 @@
     height: number
   }
 
-  interface SectionContactProps {
+  export interface SectionContactProps {
     id?: string | null
     title?: string | null
     items?: ContactLinks[]
     image?: ContactImage | null
   }
+</script>
+
+<script lang="ts">
+  import SectionContainer from './shared/SectionContainer.svelte'
+  import TextCircle from './shared/TextCircle.svelte'
+  import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let {
     id = null,
