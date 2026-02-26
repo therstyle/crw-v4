@@ -41,12 +41,12 @@
       {#if hasLogo}
         <div class="crw-timeline-entry__company-logo">
           <img
-            src={logo.image}
+            src={logo?.image}
             alt={company ?? ''}
             loading="lazy"
             width="42"
             height="42"
-            data-dark-logo={logo.dark}
+            data-dark-logo={logo?.dark}
             data-is-dark={$isDark}
           />
         </div>
