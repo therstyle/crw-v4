@@ -32,7 +32,7 @@
   function toggleIsDark() {
     const newValue = !$isDark
     isDark.set(newValue)
-    localStorage.setItem('isDark', newValue)
+    localStorage.setItem('isDark', JSON.stringify(newValue))
   }
 
   function setTheme() {
@@ -42,7 +42,7 @@
     ).matches
 
     if (themeFromStorage) {
-      isDark.set(themeFromStorage)
+      isDark.set(JSON.parse(themeFromStorage))
     } else if (userPrefersDark) {
       isDark.set(true)
     }
