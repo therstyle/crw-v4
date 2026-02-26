@@ -1,6 +1,7 @@
 <script lang="ts">
   import SectionTitle from './SectionTitle.svelte'
   import { menuItems } from '../../stores/menuItems'
+  import type { MainNavLink } from '../MainNav.svelte'
   import { onMount } from 'svelte'
 
   interface SectionContainerProps {
@@ -34,7 +35,7 @@
     const settings = { threshold: 0.1 }
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
-        const items = $menuItems.map((item) => ({
+        const items: MainNavLink[] = $menuItems.map((item) => ({
           ...item,
           active: false,
         }))
@@ -50,13 +51,15 @@
         )
 
         // Find the item with the highest intersection ratio
-        const mostIntersectingItem = intersectingItems.reduce(
-          (prev, curr) =>
-            prev?.entry?.intersectionRatio > curr?.entry?.intersectionRatio
-              ? prev
-              : curr,
-          null,
-        )
+        const mostIntersectingItem =
+          intersectingItems.reduce<MainNavLink | null>(
+            (prev, curr) =>
+              (prev?.entry?.intersectionRatio ?? 0) >
+              (curr?.entry?.intersectionRatio ?? 0)
+                ? prev
+                : curr,
+            null,
+          )
 
         if (mostIntersectingItem) {
           mostIntersectingItem.active = true

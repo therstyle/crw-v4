@@ -10,11 +10,11 @@
   }
 
   export interface MainNavLink {
-    title: string | null
-    url: string | null
-    image: string | null
+    title: string
+    url: string
+    image: string
     active?: boolean
-    entry?: object | undefined
+    entry?: IntersectionObserverEntry | undefined
   }
 
   export interface MainNavProps {
