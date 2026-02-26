@@ -1,14 +1,17 @@
-<script lang="ts">
-  import SectionContainer from './shared/SectionContainer.svelte'
-  import SectionPortfolioItem from './SectionPortfolioItem.svelte'
-  import SlideIntoView from './shared/SlideIntoView.svelte'
+<script lang="ts" module>
   import type { SectionPortfolioItemProps } from './SectionPortfolioItem.svelte'
 
-  interface SectionPortfolioProps {
+  export interface SectionPortfolioProps {
     id: string | null
     title: string | null
     items: SectionPortfolioItemProps[]
   }
+</script>
+
+<script lang="ts">
+  import SectionContainer from './shared/SectionContainer.svelte'
+  import SectionPortfolioItem from './SectionPortfolioItem.svelte'
+  import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let { id = null, title = null, items = [] }: SectionPortfolioProps = $props()
 
