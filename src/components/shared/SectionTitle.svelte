@@ -1,7 +1,12 @@
-<script>
-  import elementVisible from '../../utils/elementVisible'
+<script lang="ts">
+  import elementVisible from '../../utils/elementVisible.ts'
 
-  let { title = null, titleMarginBottom = false } = $props()
+  interface SectionTitleProps {
+    title?: string | null
+    titleMarginBottom?: boolean
+  }
+
+  let { title = null, titleMarginBottom = false }: SectionTitleProps = $props()
 
   let isVisible = $state(false)
 </script>
