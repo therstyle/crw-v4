@@ -4,6 +4,7 @@
   interface SectionTitleProps {
     title?: string | null
     titleMarginBottom?: boolean
+    isVisible?: boolean
   }
 
   let { title = null, titleMarginBottom = false }: SectionTitleProps = $props()
