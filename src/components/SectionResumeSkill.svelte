@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   export interface SectionResumeSkillProps {
     title: string | null
     year: number
