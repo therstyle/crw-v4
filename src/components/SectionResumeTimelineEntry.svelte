@@ -15,7 +15,7 @@
 </script>
 
 <script lang="ts">
-  import { isDark } from '../stores/theme.js'
+  import { isDark } from '../stores/theme'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let {

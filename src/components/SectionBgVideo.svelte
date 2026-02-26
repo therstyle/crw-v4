@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-  import { isDark } from '../stores/theme.js'
+  import { isDark } from '../stores/theme'
   let { src, type }: SectionBgVideoProps = $props()
 
   const hasVideo = $derived(src !== null)
