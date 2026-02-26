@@ -1,4 +1,6 @@
-export const nav = {
+import type { MainNavProps } from '../components/MainNav.svelte'
+
+export const nav: MainNavProps = {
   logo: {
     image: '/images/cr-logo-horo.svg',
     alt: 'CRW',

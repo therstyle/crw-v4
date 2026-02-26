@@ -1,7 +1,17 @@
-<script>
+<script lang="ts">
   import SectionTitle from './SectionTitle.svelte'
-  import { menuItems } from '../../stores/menuItems.js'
+  import { menuItems } from '../../stores/menuItems'
   import { onMount } from 'svelte'
+
+  interface SectionContainerProps {
+    id: string | null
+    title?: string | null
+    horzCenter?: boolean
+    vertCenter?: boolean
+    innerFillHeight?: boolean
+    titleMarginBottom?: boolean
+    paddingBottom?: boolean
+  }
 
   let {
     id = null,
@@ -11,10 +21,10 @@
     innerFillHeight = false,
     titleMarginBottom = false,
     paddingBottom = false,
-  } = $props()
+  }: SectionContainerProps = $props()
 
   let isVisible = $state(false)
-  let containerRef = $state(null)
+  let containerRef: null | HTMLElement = $state(null)
 
   const hasTitle = $derived(title !== null)
 

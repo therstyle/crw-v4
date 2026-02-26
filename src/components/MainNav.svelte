@@ -1,9 +1,28 @@
-<script>
-  import { isDark } from '../stores/theme.js'
+<script lang="ts">
+  import { isDark } from '../stores/theme'
   import { menuItems } from '../stores/menuItems'
   import { onMount } from 'svelte'
 
-  let { logo = null } = $props()
+  interface MainNavLogo {
+    image: string | null
+    alt: string | null
+    url: string | null
+  }
+
+  export interface MainNavLink {
+    title: string | null
+    url: string | null
+    image: string | null
+    active?: boolean
+    entry?: object | undefined
+  }
+
+  export interface MainNavProps {
+    logo: MainNavLogo | null
+    links: MainNavLink[] | null
+  }
+
+  let { logo = null }: MainNavProps = $props()
 
   const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived($menuItems.length > 0)
