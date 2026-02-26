@@ -1,4 +1,6 @@
 <script lang="ts" module>
+  type ProjectType = 'Vue' | 'Svelte' | 'React' | 'WordPress'
+
   interface PortfolioImage {
     src: string | null
     width: number
@@ -6,7 +8,8 @@
   }
 
   export interface SectionPortfolioItemProps {
-    id: number
+    id?: number
+    type?: ProjectType[] | null
     title: string | null
     description: string | null
     image?: PortfolioImage | null
