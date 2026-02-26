@@ -1,8 +1,5 @@
-<script lang="ts">
-  import SectionContainer from './shared/SectionContainer.svelte'
-  import SectionResumeTimeline from './SectionResumeTimeline.svelte'
-  import SectionResumeSkills from './SectionResumeSkills.svelte'
-  import type SectionResumeSkillProps from './SectionResumeSkill.svelte'
+<script lang="ts" module>
+  import type { SectionResumeSkillProps } from './SectionResumeSkill.svelte'
 
   interface Resume {
     title: string
@@ -26,20 +23,26 @@
     items: SectionResumeSkillProps[]
   }
 
-  interface SectionResumeProps {
+  export interface SectionResumeProps {
     id: string | null
-    title: string | null
+    title?: string | null
     resume: Resume | null
     skills: Skills | null
   }
+</script>
 
-  let { id = null, resume = null, skills = null }: SectionResumeProps = $props()
+<script lang="ts">
+  import SectionContainer from './shared/SectionContainer.svelte'
+  import SectionResumeTimeline from './SectionResumeTimeline.svelte'
+  import SectionResumeSkills from './SectionResumeSkills.svelte'
+
+  let { id, title = null, resume, skills }: SectionResumeProps = $props()
 
   const hasResume = $derived(resume !== null)
   const hasSkills = $derived(skills !== null)
 </script>
 
-<SectionContainer {id} title={resume?.title} titleMarginBottom={true}>
+<SectionContainer {id} title={title ?? resume?.title} titleMarginBottom={true}>
   <div class="crw-resume">
     <div class="crw-resume__content">
       {#if hasResume}
