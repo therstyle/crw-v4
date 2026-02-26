@@ -50,7 +50,7 @@
     const mediaQuery = window.matchMedia('(max-width: 768px)')
     isMobile = mediaQuery.matches
 
-    const handler = (e) => {
+    const handler = (e: MediaQueryListEvent) => {
       isMobile = e.matches
     }
 
