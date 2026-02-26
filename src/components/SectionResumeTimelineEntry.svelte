@@ -1,15 +1,31 @@
-<script>
+<script lang="ts" context="module">
+  interface CompanyLogo {
+    image: string
+    dark?: boolean
+  }
+
+  export interface SectionResumeTimelineEntryProps {
+    logo?: CompanyLogo | null
+    company: string | null
+    location?: string | null
+    jobTitle: string | null
+    year: number
+    details: string[]
+  }
+</script>
+
+<script lang="ts">
   import { isDark } from '../stores/theme.js'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let {
     logo = null,
     company = null,
-    year = null,
     location = null,
     jobTitle = null,
+    year = 0,
     details = [],
-  } = $props()
+  }: SectionResumeTimelineEntryProps = $props()
 
   const hasLogo = $derived(logo !== null)
   const hasCompany = $derived(company !== null)
