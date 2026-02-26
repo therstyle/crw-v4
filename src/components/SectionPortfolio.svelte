@@ -1,13 +1,20 @@
-<script>
+<script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionPortfolioItem from './SectionPortfolioItem.svelte'
   import SlideIntoView from './shared/SlideIntoView.svelte'
+  import type { SectionPortfolioItemProps } from './SectionPortfolioItem.svelte'
 
-  let { id = null, title = null, items = [] } = $props()
+  interface SectionPortfolioProps {
+    id: string | null
+    title: string | null
+    items: SectionPortfolioItemProps[]
+  }
+
+  let { id = null, title = null, items = [] }: SectionPortfolioProps = $props()
 
   let currentItem = $state(0)
-  let scrollItemRef = $state([])
-  let isMobile = $state(null)
+  let scrollItemRef: HTMLDivElement[] = $state([])
+  let isMobile: boolean | null = $state(null)
 
   let scrollItems = $derived(isMobile ? 1 : 2)
   const totalItems = $derived(items?.length)
