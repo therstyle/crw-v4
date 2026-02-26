@@ -1,24 +1,40 @@
-<script>
+<script lang="ts" module>
+  interface PortfolioImage {
+    src: string | null
+    width: number
+    height: number
+  }
+
+  export interface SectionPortfolioItemProps {
+    id: number
+    title: string | null
+    description: string | null
+    image?: PortfolioImage | null
+    url: string | null
+  }
+</script>
+
+<script lang="ts">
   let {
     id = 0,
     title = null,
     description = null,
     image = { src: null, width: 560, height: 365 },
     url = null,
-  } = $props()
+  }: SectionPortfolioItemProps = $props()
 
-  const hasImage = $derived(image.src !== null)
+  const hasImage = $derived(image?.src !== null)
 </script>
 
 <article class="crw-portfolio-item" id={`portfolio-item-${id}`}>
   {#if hasImage}
     <a class="crw-portfolio-item__image" href={url} target="_blank">
       <img
-        src={image.src}
+        src={image?.src}
         alt={title ?? ''}
         loading="lazy"
-        width={image.width}
-        height={image.height}
+        width={image?.width}
+        height={image?.height}
       />
     </a>
   {/if}
