@@ -19,7 +19,7 @@
 
   export interface MainNavProps {
     logo: MainNavLogo | null
-    links: MainNavLink[] | null
+    links?: MainNavLink[] | null
   }
 
   let { logo = null }: MainNavProps = $props()
