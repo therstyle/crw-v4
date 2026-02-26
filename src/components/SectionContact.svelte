@@ -1,9 +1,34 @@
-<script>
+<script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
   import TextCircle from './shared/TextCircle.svelte'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
-  let { id = null, title = null, items = [], image = null } = $props()
+  interface ContactLinks {
+    title: string | null
+    url: string | null
+    svgIcon?: string
+  }
+
+  interface ContactImage {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
+
+  interface SectionContactProps {
+    id?: string | null
+    title?: string | null
+    items?: ContactLinks[]
+    image?: ContactImage | null
+  }
+
+  let {
+    id = null,
+    title = null,
+    items = [],
+    image = null,
+  }: SectionContactProps = $props()
   const hasImage = $derived(image !== null)
   const hasLinks = $derived(items.length > 0)
 </script>
