@@ -1,7 +1,15 @@
-<script>
+<script lang="ts" module>
+  import type { SectionResumeTimelineEntryProps } from './SectionResumeTimelineEntry.svelte'
+
+  export interface SectionResumeTimelineProps {
+    items: SectionResumeTimelineEntryProps[]
+  }
+</script>
+
+<script lang="ts">
   import SectionResumeTimelineEntry from './SectionResumeTimelineEntry.svelte'
 
-  let { items = [] } = $props()
+  let { items = [] }: SectionResumeTimelineProps = $props()
 </script>
 
 <div class="crw-timeline">
