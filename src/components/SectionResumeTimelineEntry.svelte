@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   interface CompanyLogo {
     image: string
     dark?: boolean
