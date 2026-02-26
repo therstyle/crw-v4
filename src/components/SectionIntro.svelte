@@ -1,18 +1,20 @@
-<script lang="ts">
-  import SectionContainer from './shared/SectionContainer.svelte'
-
+<script lang="ts" module>
   interface ScrollToLink {
     url: string
     text: string
   }
 
-  interface SectionIntroProps {
+  export interface SectionIntroProps {
     id: string | null
     subTitle: string | null
     title: string | null
     description: string | null
     scrollTo: ScrollToLink | null
   }
+</script>
+
+<script lang="ts">
+  import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
     id = null,
