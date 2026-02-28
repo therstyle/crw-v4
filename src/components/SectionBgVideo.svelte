@@ -1,6 +1,13 @@
-<script>
-  import { isDark } from '../stores/theme.js'
-  let { src, type } = $props()
+<script module lang="ts">
+  export interface SectionBgVideoProps {
+    src: string | null
+    type: string
+  }
+</script>
+
+<script lang="ts">
+  import { isDark } from '../stores/theme'
+  let { src, type }: SectionBgVideoProps = $props()
 
   const hasVideo = $derived(src !== null)
 </script>

@@ -1,5 +1,5 @@
-<script>
-  import elementVisible from '../../utils/elementVisible.js'
+<script lang="ts">
+  import elementVisible from '../../utils/elementVisible.ts'
 
   let { settings = {}, elementType = 'div' } = $props()
   let isVisible = $state(false)

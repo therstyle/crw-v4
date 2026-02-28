@@ -1,4 +1,19 @@
-<script>
+<script lang="ts" module>
+  interface ScrollToLink {
+    url: string
+    text: string
+  }
+
+  export interface SectionIntroProps {
+    id: string | null
+    subTitle: string | null
+    title: string | null
+    description: string | null
+    scrollTo: ScrollToLink | null
+  }
+</script>
+
+<script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
 
   let {
@@ -7,7 +22,7 @@
     title = null,
     description = null,
     scrollTo = null,
-  } = $props()
+  }: SectionIntroProps = $props()
 
   const hasSubTitle = $derived(subTitle !== null)
   const hasTitle = $derived(title !== null)
@@ -36,8 +51,8 @@
         {/if}
 
         {#if hasScrollTo}
-          <a href={scrollTo.url} class="crw-intro__scroll-down"
-            ><span>{scrollTo.text}</span></a
+          <a href={scrollTo?.url} class="crw-intro__scroll-down"
+            ><span>{scrollTo?.text}</span></a
           >
         {/if}
       </div>

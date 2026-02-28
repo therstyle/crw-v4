@@ -1,4 +1,16 @@
-<script>
+<script lang="ts">
+  type LinkTarget = '_blank' | '_self'
+
+  interface TextCircleProps {
+    title: string | null
+    subTitle?: string | null
+    url?: string | null
+    target?: LinkTarget | null
+    icon?: string | null
+    iconSize?: number | null
+    svgIcon?: string | null
+  }
+
   let {
     title = null,
     subTitle = null,
@@ -7,7 +19,7 @@
     icon = null,
     iconSize = 40,
     svgIcon = null,
-  } = $props()
+  }: TextCircleProps = $props()
 
   const elementType = $derived(url ? 'a' : 'div')
   const isLink = $derived(elementType === 'a')

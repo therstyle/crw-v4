@@ -1,54 +1,106 @@
-<script>
+<script lang="ts" module>
+  import type { SectionPortfolioItemProps } from './SectionPortfolioItem.svelte'
+
+  export interface SectionPortfolioProps {
+    id: string | null
+    title: string | null
+    items: SectionPortfolioItemProps[]
+  }
+
+  interface WatchedItem {
+    detail: IntersectionObserverEntry
+    index: number
+  }
+</script>
+
+<script lang="ts">
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionPortfolioItem from './SectionPortfolioItem.svelte'
   import SlideIntoView from './shared/SlideIntoView.svelte'
+  import { onMount } from 'svelte'
 
-  let { id = null, title = null, items = [] } = $props()
+  let { id = null, title = null, items = [] }: SectionPortfolioProps = $props()
 
   let currentItem = $state(0)
-  let scrollItemRef = $state([])
-  let isMobile = $state(null)
+  let scrollItemRef: HTMLDivElement[] = $state([])
+  let isMobile: boolean | null = $state(null)
+  let interSectionObserver: IntersectionObserver | null = $state(null)
 
   let scrollItems = $derived(isMobile ? 1 : 2)
   const totalItems = $derived(items?.length)
-  const disablePrev = $derived(currentItem === 0 ? true : null)
-  const disableNext = $derived(currentItem >= totalItems - scrollItems)
+  const disablePrev = $derived(currentItem < scrollItems)
+  const disableNext = $derived(currentItem === totalItems - 1)
 
   function prev() {
-    if (currentItem <= scrollItems) {
-      currentItem = 0
-    } else {
-      currentItem = currentItem - scrollItems
-    }
-    scrollToCurrent()
+    scrollToCurrent(scrollItemRef[currentItem - scrollItems])
   }
 
   function next() {
-    if (currentItem > totalItems) {
-      currentItem = 0
-    } else {
-      currentItem = currentItem + scrollItems
-    }
-    scrollToCurrent()
+    scrollToCurrent(scrollItemRef[currentItem + scrollItems])
   }
 
-  function scrollToCurrent() {
-    scrollItemRef[currentItem].scrollIntoView({
+  function scrollToCurrent(element: HTMLDivElement) {
+    element.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
     })
+  }
+
+  function observePortfolioItems() {
+    if (scrollItemRef.length === 0) return
+
+    let watchedItems = new Set<WatchedItem>()
+    const options = { threshold: 0.5 }
+    interSectionObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        watchedItems.forEach((item) => {
+          if (entry.target === item?.detail.target) {
+            watchedItems.delete(item)
+          }
+        })
+
+        watchedItems.add({
+          detail: entry,
+          index: parseInt(
+            entry?.target?.getAttribute('data-item-index') ?? '0',
+          ),
+        })
+      }
+
+      const itemsVisible = Array.from(watchedItems).filter(
+        (item) => item.detail.isIntersecting,
+      )
+      const sortedItems = itemsVisible.sort((a, b) => a.index - b.index)
+      const lastItem = sortedItems[sortedItems.length - 1]
+
+      if (lastItem) {
+        currentItem = lastItem.index
+      }
+    }, options)
+
+    scrollItemRef.forEach((item) => {
+      interSectionObserver?.observe(item)
+    })
+
+    return () => {
+      interSectionObserver?.disconnect()
+    }
   }
 
   $effect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)')
     isMobile = mediaQuery.matches
 
-    const handler = (e) => {
+    const handler = (e: MediaQueryListEvent) => {
       isMobile = e.matches
     }
 
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
+  })
+
+  onMount(() => {
+    observePortfolioItems()
   })
 </script>
 
@@ -76,6 +128,7 @@
           {#each items as item, index (index)}
             <div
               bind:this={scrollItemRef[index]}
+              data-item-index={index}
               class="crw-portfolio__item-wrapper"
             >
               <SectionPortfolioItem {...item} />

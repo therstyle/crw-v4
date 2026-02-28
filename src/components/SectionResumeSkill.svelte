@@ -1,7 +1,19 @@
-<script>
+<script lang="ts" module>
+  export interface SectionResumeSkillProps {
+    title: string | null
+    year: number
+    logo: string | null
+  }
+</script>
+
+<script lang="ts">
   import TextCircle from './shared/TextCircle.svelte'
 
-  let { title = null, year = 0, logo = null } = $props()
+  let {
+    title = null,
+    year = 0,
+    logo = null,
+  }: SectionResumeSkillProps = $props()
 
   const currentYear = new Date().getFullYear()
   const totalYears = $derived(currentYear - year)

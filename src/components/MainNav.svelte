@@ -1,9 +1,28 @@
-<script>
-  import { isDark } from '../stores/theme.js'
+<script lang="ts">
+  import { isDark } from '../stores/theme'
   import { menuItems } from '../stores/menuItems'
   import { onMount } from 'svelte'
 
-  let { logo = null } = $props()
+  interface MainNavLogo {
+    image: string | null
+    alt: string | null
+    url: string | null
+  }
+
+  export interface MainNavLink {
+    title: string
+    url: string
+    image: string
+    active?: boolean
+    entry?: IntersectionObserverEntry | undefined
+  }
+
+  export interface MainNavProps {
+    logo: MainNavLogo | null
+    links?: MainNavLink[] | null
+  }
+
+  let { logo = null }: MainNavProps = $props()
 
   const hasLogo = $derived(logo !== null && logo?.image)
   const hasLinks = $derived($menuItems.length > 0)
@@ -13,7 +32,7 @@
   function toggleIsDark() {
     const newValue = !$isDark
     isDark.set(newValue)
-    localStorage.setItem('isDark', newValue)
+    localStorage.setItem('isDark', JSON.stringify(newValue))
   }
 
   function setTheme() {
@@ -23,7 +42,7 @@
     ).matches
 
     if (themeFromStorage) {
-      isDark.set(themeFromStorage)
+      isDark.set(JSON.parse(themeFromStorage))
     } else if (userPrefersDark) {
       isDark.set(true)
     }

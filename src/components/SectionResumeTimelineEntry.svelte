@@ -1,15 +1,31 @@
-<script>
-  import { isDark } from '../stores/theme.js'
+<script lang="ts" module>
+  interface CompanyLogo {
+    image: string
+    dark?: boolean
+  }
+
+  export interface SectionResumeTimelineEntryProps {
+    logo?: CompanyLogo | null
+    company: string | null
+    location?: string | null
+    jobTitle: string | null
+    year: number
+    details: string[]
+  }
+</script>
+
+<script lang="ts">
+  import { isDark } from '../stores/theme'
   import SlideIntoView from './shared/SlideIntoView.svelte'
 
   let {
     logo = null,
     company = null,
-    year = null,
     location = null,
     jobTitle = null,
+    year = 0,
     details = [],
-  } = $props()
+  }: SectionResumeTimelineEntryProps = $props()
 
   const hasLogo = $derived(logo !== null)
   const hasCompany = $derived(company !== null)
@@ -25,12 +41,12 @@
       {#if hasLogo}
         <div class="crw-timeline-entry__company-logo">
           <img
-            src={logo.image}
+            src={logo?.image}
             alt={company ?? ''}
             loading="lazy"
             width="42"
             height="42"
-            data-dark-logo={logo.dark}
+            data-dark-logo={logo?.dark}
             data-is-dark={$isDark}
           />
         </div>
