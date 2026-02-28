@@ -6,6 +6,11 @@
     title: string | null
     items: SectionPortfolioItemProps[]
   }
+
+  interface WatchedItem {
+    detail: IntersectionObserverEntry
+    index: number
+  }
 </script>
 
 <script lang="ts">
@@ -34,7 +39,7 @@
     scrollToCurrent(scrollItemRef[currentItem + scrollItems])
   }
 
-  function scrollToCurrent(element) {
+  function scrollToCurrent(element: HTMLDivElement) {
     element.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
@@ -44,7 +49,7 @@
   function observePortfolioItems() {
     if (scrollItemRef.length === 0) return
 
-    let watchedItems = new Set()
+    let watchedItems = new Set<WatchedItem>()
     const options = { threshold: 0.5 }
     interSectionObserver = new IntersectionObserver((entries) => {
       for (const entry of entries) {
@@ -53,32 +58,24 @@
             watchedItems.delete(item)
           }
         })
+
         watchedItems.add({
           detail: entry,
-          index: entry?.target?.getAttribute('data-item-index'),
+          index: parseInt(
+            entry?.target?.getAttribute('data-item-index') ?? '0',
+          ),
         })
       }
-
-      console.log('watchedItems', watchedItems)
 
       const itemsVisible = Array.from(watchedItems).filter(
         (item) => item.detail.isIntersecting,
       )
-      const sortedItems = itemsVisible.sort((a, b) =>
-        a?.index && b?.index ? a.index - b.index : 0,
-      )
+      const sortedItems = itemsVisible.sort((a, b) => a.index - b.index)
       const lastItem = sortedItems[sortedItems.length - 1]
 
       if (lastItem) {
-        currentItem = parseInt(
-          lastItem?.detail.target?.getAttribute('data-item-index'),
-        )
+        currentItem = lastItem.index
       }
-
-      console.log('itemsVisible', itemsVisible)
-      console.log('sortedItems', sortedItems)
-      console.log('lastItem', lastItem)
-      console.log('currentItem', currentItem)
     }, options)
 
     scrollItemRef.forEach((item) => {
