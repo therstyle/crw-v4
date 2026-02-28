@@ -12,41 +12,82 @@
   import SectionContainer from './shared/SectionContainer.svelte'
   import SectionPortfolioItem from './SectionPortfolioItem.svelte'
   import SlideIntoView from './shared/SlideIntoView.svelte'
+  import { onMount } from 'svelte'
 
   let { id = null, title = null, items = [] }: SectionPortfolioProps = $props()
 
   let currentItem = $state(0)
   let scrollItemRef: HTMLDivElement[] = $state([])
   let isMobile: boolean | null = $state(null)
+  let interSectionObserver: IntersectionObserver | null = $state(null)
 
   let scrollItems = $derived(isMobile ? 1 : 2)
   const totalItems = $derived(items?.length)
-  const disablePrev = $derived(currentItem === 0 ? true : null)
-  const disableNext = $derived(currentItem >= totalItems - scrollItems)
+  const disablePrev = $derived(currentItem < scrollItems)
+  const disableNext = $derived(currentItem === totalItems - 1)
 
   function prev() {
-    if (currentItem <= scrollItems) {
-      currentItem = 0
-    } else {
-      currentItem = currentItem - scrollItems
-    }
-    scrollToCurrent()
+    scrollToCurrent(scrollItemRef[currentItem - scrollItems])
   }
 
   function next() {
-    if (currentItem > totalItems) {
-      currentItem = 0
-    } else {
-      currentItem = currentItem + scrollItems
-    }
-    scrollToCurrent()
+    scrollToCurrent(scrollItemRef[currentItem + scrollItems])
   }
 
-  function scrollToCurrent() {
-    scrollItemRef[currentItem].scrollIntoView({
+  function scrollToCurrent(element) {
+    element.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
     })
+  }
+
+  function observePortfolioItems() {
+    if (scrollItemRef.length === 0) return
+
+    let watchedItems = new Set()
+    const options = { threshold: 0.5 }
+    interSectionObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        watchedItems.forEach((item) => {
+          if (entry.target === item?.detail.target) {
+            watchedItems.delete(item)
+          }
+        })
+        watchedItems.add({
+          detail: entry,
+          index: entry?.target?.getAttribute('data-item-index'),
+        })
+      }
+
+      console.log('watchedItems', watchedItems)
+
+      const itemsVisible = Array.from(watchedItems).filter(
+        (item) => item.detail.isIntersecting,
+      )
+      const sortedItems = itemsVisible.sort((a, b) =>
+        a?.index && b?.index ? a.index - b.index : 0,
+      )
+      const lastItem = sortedItems[sortedItems.length - 1]
+
+      if (lastItem) {
+        currentItem = parseInt(
+          lastItem?.detail.target?.getAttribute('data-item-index'),
+        )
+      }
+
+      console.log('itemsVisible', itemsVisible)
+      console.log('sortedItems', sortedItems)
+      console.log('lastItem', lastItem)
+      console.log('currentItem', currentItem)
+    }, options)
+
+    scrollItemRef.forEach((item) => {
+      interSectionObserver?.observe(item)
+    })
+
+    return () => {
+      interSectionObserver?.disconnect()
+    }
   }
 
   $effect(() => {
@@ -59,6 +100,10 @@
 
     mediaQuery.addEventListener('change', handler)
     return () => mediaQuery.removeEventListener('change', handler)
+  })
+
+  onMount(() => {
+    observePortfolioItems()
   })
 </script>
 
@@ -86,6 +131,7 @@
           {#each items as item, index (index)}
             <div
               bind:this={scrollItemRef[index]}
+              data-item-index={index}
               class="crw-portfolio__item-wrapper"
             >
               <SectionPortfolioItem {...item} />
