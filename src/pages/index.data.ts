@@ -8,7 +8,7 @@ import type { SectionContactProps } from '../components/SectionContact.svelte'
 export const nav: MainNavProps = {
   logo: {
     image: '/images/cr-logo-horo.svg',
-    alt: 'CRW',
+    alt: 'Back to intro',
     url: '#intro',
   },
   links: [
