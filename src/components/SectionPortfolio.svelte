@@ -28,6 +28,7 @@
 
   let scrollItems = $derived(isMobile ? 1 : 2)
   const totalItems = $derived(items?.length)
+  const hasScrollItems = $derived(totalItems > 1)
   const disablePrev = $derived(currentItem < scrollItems)
   const disableNext = $derived(currentItem === totalItems - 1)
 
@@ -114,15 +115,17 @@
   >
     <SlideIntoView settings={{ threshold: 0.2 }}>
       <div class="crw-portfolio__container">
-        <div class="crw-portfolio__container-prev">
-          <button
-            data-target={`#portfolio-item-${currentItem}`}
-            aria-label="View previous item"
-            class="crw-portfolio__button crw-portfolio--button-prev"
-            aria-disabled={disablePrev}
-            onclick={prev}
-          ></button>
-        </div>
+        {#if hasScrollItems}
+          <div class="crw-portfolio__container-prev">
+            <button
+              data-target={`#portfolio-item-${currentItem}`}
+              aria-label="View previous item"
+              class="crw-portfolio__button crw-portfolio--button-prev"
+              aria-disabled={disablePrev}
+              onclick={prev}
+            ></button>
+          </div>
+        {/if}
 
         <div class="crw-portfolio__container-main">
           {#each items as item, index (index)}
@@ -136,15 +139,17 @@
           {/each}
         </div>
 
-        <div class="crw-portfolio__container-next">
-          <button
-            data-target={`#portfolio-item-${currentItem + scrollItems}`}
-            aria-label="View next item"
-            class="crw-portfolio__button crw-portfolio--button-next"
-            aria-disabled={disableNext}
-            onclick={next}
-          ></button>
-        </div>
+        {#if hasScrollItems}
+          <div class="crw-portfolio__container-next">
+            <button
+              data-target={`#portfolio-item-${currentItem + scrollItems}`}
+              aria-label="View next item"
+              class="crw-portfolio__button crw-portfolio--button-next"
+              aria-disabled={disableNext}
+              onclick={next}
+            ></button>
+          </div>
+        {/if}
       </div>
     </SlideIntoView>
   </div>
