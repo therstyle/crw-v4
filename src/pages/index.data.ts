@@ -198,39 +198,6 @@ export const portfolio: SectionPortfolioProps = {
       },
       url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
-    {
-      title: 'Andrew Swaine Photography',
-      description:
-        'Custom WordPress photo gallery theme built with Vue.js and the WordPress Rest API',
-      image: {
-        src: '/images/portfolio/swaine_2x.webp',
-        width: 560,
-        height: 365,
-      },
-      url: 'https://andrewswaine.chrisrobertsweb.dev/',
-    },
-    {
-      title: 'Jeopardy!',
-      description:
-        'A Vue.js application (powered by WP Rest API) that allows you to be the host of local multiplayer matches of Jeopardy with friends',
-      image: {
-        src: '/images/portfolio/jeopardy_2x.webp',
-        width: 560,
-        height: 365,
-      },
-      url: 'https://jeopardy.chrisrobertsweb.dev/',
-    },
-    {
-      title: 'Latin Rogue Cleaning',
-      description:
-        'A single page, custom responsive WordPress theme, featured on <a href="http://onepagelove.com/">One Page Love</a>',
-      image: {
-        src: '/images/portfolio/lrc_2x.jpg',
-        width: 560,
-        height: 365,
-      },
-      url: 'http://lrc.chrisrobertsweb.dev/',
-    },
   ],
 }
 
