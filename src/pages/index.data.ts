@@ -198,6 +198,17 @@ export const portfolio: SectionPortfolioProps = {
       },
       url: 'https://tv-guide.chrisrobertsweb.dev/',
     },
+    {
+      title: 'Latin Rogue Cleaning',
+      description:
+        'A single page, custom responsive website built with Svelte and Astro, featured on <a href="http://onepagelove.com/">One Page Love</a>',
+      image: {
+        src: '/images/portfolio/lrc_2x.jpg',
+        width: 560,
+        height: 365,
+      },
+      url: 'http://lrc.chrisrobertsweb.dev/',
+    },
   ],
 }
 
